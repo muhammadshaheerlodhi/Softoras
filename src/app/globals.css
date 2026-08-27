@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f0f9ff;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --border: #bae6fd;
+  --accent: #38bdf8;
+  --accent-dark: #0284c7;
+  --accent-light: #e0f2fe;
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+  --color-sky-200: #bae6fd;
+  --color-sky-400: #38bdf8;
+  --color-sky-600: #0284c7;
+  --color-sky-700: #0369a1;
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-heading {
+  font-size: 2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.section-paragraph {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  background: #0284c7;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 10px 20px -12px rgb(2 132 199 / 0.55);
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.btn-primary:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  border: 1px solid #bae6fd;
+  background: #fff;
+  padding: 0.7rem 1.15rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0369a1;
+  transition: transform 200ms ease, background-color 200ms ease;
+}
+
+.btn-secondary:hover {
+  background: #f0f9ff;
+  transform: translateY(-1px);
+}
+
+.card {
+  border: 1px solid #e0f2fe;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px -18px rgb(2 132 199 / 0.45);
+}
+
+.reveal-up {
+  animation: revealUp 650ms ease-out both;
+}
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(48px);
+  opacity: 0.45;
+  pointer-events: none;
+  animation: orbDrift 10s ease-in-out infinite;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 20%, transparent 75%);
+  pointer-events: none;
+}
+
+.hero-stage {
+  position: relative;
+}
+
+.hero-screen {
+  border: 1px solid #e0f2fe;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 1.5rem;
+  box-shadow: 0 24px 50px -28px rgb(2 132 199 / 0.55);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.hero-metric {
+  border: 1px solid #e0f2fe;
+  background: #fff;
+  border-radius: 1rem;
+  padding: 0.85rem;
+  animation: metricIn 700ms ease both, floatY 4.8s ease-in-out infinite;
+}
+
+.hero-chip {
+  margin-bottom: 0.4rem;
+  border-radius: 0.55rem;
+  background: #fff;
+  padding: 0.4rem 0.5rem;
+  font-size: 10px;
+  font-weight: 600;
+  color: #0369a1;
+  box-shadow: 0 6px 14px -12px rgb(2 132 199 / 0.8);
+  animation: chipSlide 2.8s ease-in-out infinite;
+}
+
+.hero-chip.delayed {
+  animation-delay: 1.2s;
+}
+
+.hero-chip-1 { animation-duration: 2.4s; }
+.hero-chip-2 { animation-duration: 3s; }
+.hero-chip-3 { animation-duration: 2.6s; }
+.hero-chip-4 { animation-duration: 3.2s; }
+
+.hero-bar {
+  flex: 1;
+  border-radius: 999px 999px 4px 4px;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  transform-origin: bottom;
+  animation: barPulse 2.4s ease-in-out infinite;
+}
+
+.hero-float-card {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid #bae6fd;
+  background: #fff;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0369a1;
+  box-shadow: 0 12px 24px -16px rgb(2 132 199 / 0.7);
+  animation: floatY 5s ease-in-out infinite;
+}
+
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(18px, -14px); }
+}
+
+@keyframes metricIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes chipSlide {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-6px); opacity: 0.85; }
+}
+
+@keyframes barPulse {
+  0%, 100% { transform: scaleY(0.72); }
+  50% { transform: scaleY(1); }
+}
