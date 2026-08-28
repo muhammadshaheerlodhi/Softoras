@@ -16,7 +16,7 @@ export default function AboutPage() {
         <p className="kicker">About</p>
         <h1 className="h2 mt-4 max-w-3xl">A technology company that builds, ships, and runs real systems</h1>
         <p className="lede mt-5">
-          Softoras designs custom websites, SaaS products, AI agents, n8n automations, CRM, and cloud — then puts them
+          Softoras designs custom websites, SaaS products, AI agents, n8n automations, CRM, and cloud, then puts them
           live. {TAGLINE}
         </p>
       </div>
@@ -37,7 +37,7 @@ export default function AboutPage() {
         <div>
           <p className="kicker">CEO</p>
           <h2 className="h2 mt-3">Muhammad Shaheer Lodhi</h2>
-          <p className="mt-2 text-sm font-semibold text-[var(--accent)]">CEO &amp; Founder · Softoras</p>
+          <p className="mt-2 text-sm font-semibold text-[var(--accent)]">CEO and Founder · Softoras</p>
           <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
             Shaheer is a software engineer and AWS Certified Solutions Architect Associate. He builds and runs product
             work across software, web, backend, cloud, DevOps, CRM, GoHighLevel, AI automation, and SaaS.
@@ -63,7 +63,7 @@ export default function AboutPage() {
 
       <section className="wrap mt-16">
         <h2 className="h2">What we work with</h2>
-        <p className="lede mt-3">The tools we ship on — logos, not a résumé dump.</p>
+        <p className="lede mt-3">The tools we ship on. Logos, not a résumé dump.</p>
         <div className="mt-8">
           <TechGrid />
         </div>

@@ -23,7 +23,7 @@ export default function ProjectsPage() {
               <p className="text-sm font-semibold">{project.hook}</p>
               <p className="text-sm leading-7 text-[var(--muted)]">{project.summary}</p>
               <Link href={`/projects/${project.slug}`} className="inline-block text-sm font-semibold text-[var(--accent)]">
-                Read the case →
+                Read the case
               </Link>
             </article>
           ))}

@@ -3,19 +3,37 @@ import nodemailer from 'nodemailer'
 
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { name, email, message, company, projectType, budget, phone } = body
+  const kind = body.kind || 'contact'
+  const { name, email, message, company, projectType, budget, phone, videoUrl } = body
 
-  if (!name || !email || !message) {
+  if (!email) {
+    return NextResponse.json({ error: 'Email is required.' }, { status: 400 })
+  }
+  if (kind === 'contact' && (!name || !message)) {
+    return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
+  }
+  if (kind === 'testimonial' && (!name || !videoUrl)) {
     return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
   }
 
   const host = process.env.SMTP_HOST
   const user = process.env.SMTP_USER
   const pass = process.env.SMTP_PASS
-  const text = `Name: ${name}\nEmail: ${email}\nCompany: ${company || '-'}\nProject: ${projectType || '-'}\nBudget: ${budget || '-'}\nPhone: ${phone || '-'}\n\n${message}`
+  const text = [
+    `Kind: ${kind}`,
+    `Name: ${name || 'n/a'}`,
+    `Email: ${email}`,
+    `Company: ${company || 'n/a'}`,
+    `Project: ${projectType || 'n/a'}`,
+    `Budget: ${budget || 'n/a'}`,
+    `Phone: ${phone || 'n/a'}`,
+    `Video: ${videoUrl || 'n/a'}`,
+    '',
+    message || '',
+  ].join('\n')
 
   if (!host || !user || !pass) {
-    console.info('Contact form received (SMTP not configured):', { name, email, company, projectType, budget })
+    console.info('Form received (SMTP not configured):', { kind, name, email, videoUrl })
     return NextResponse.json({ ok: true, queued: true })
   }
 
@@ -30,7 +48,7 @@ export async function POST(req: NextRequest) {
     await transporter.sendMail({
       from: 'Softoras Contact <admin@softoras.com>',
       to: 'admin@softoras.com',
-      subject: `Contact form from ${name}`,
+      subject: `${kind} from ${name || email}`,
       text,
       html: `<pre style="font-family:Inter,sans-serif;white-space:pre-wrap">${text}</pre>`,
     })

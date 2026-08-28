@@ -27,7 +27,7 @@ export const tools = [
 
 export const stackGroups = [
   {
-    title: 'Product & frontend',
+    title: 'Product and frontend',
     items: ['React', 'Next.js', 'JavaScript', 'HTML', 'CSS', 'Tailwind CSS', 'Bootstrap', 'Vite'],
   },
   {
@@ -39,15 +39,15 @@ export const stackGroups = [
     items: ['MongoDB', 'Supabase', 'DynamoDB'],
   },
   {
-    title: 'Cloud & servers',
+    title: 'Cloud and servers',
     items: ['AWS', 'Vercel', 'GitHub', 'Cloudflare', 'Route 53', 'Lambda', 'S3', 'EC2', 'IAM', 'CloudWatch'],
   },
   {
-    title: 'CRM & automation',
+    title: 'CRM and automation',
     items: ['GoHighLevel', 'HubSpot', 'Make', 'Zapier', 'n8n', 'Twilio', 'Mailgun', 'Calendly'],
   },
   {
-    title: 'AI & commerce',
+    title: 'AI and commerce',
     items: ['OpenAI', 'Vapi', 'AI agents', 'AI bots', 'WordPress', 'Shopify'],
   },
 ]

@@ -17,9 +17,9 @@ export default function Footer() {
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Services</p>
           <ul className="mt-4 space-y-2 text-sm">
             <li><Link href="/services">Custom websites</Link></li>
-            <li><Link href="/services">AI agents &amp; n8n</Link></li>
-            <li><Link href="/services">CRM &amp; GoHighLevel</Link></li>
-            <li><Link href="/services">Servers &amp; cloud</Link></li>
+            <li><Link href="/services">AI agents and n8n</Link></li>
+            <li><Link href="/services">CRM and GoHighLevel</Link></li>
+            <li><Link href="/services">Servers and cloud</Link></li>
           </ul>
         </div>
         <div>

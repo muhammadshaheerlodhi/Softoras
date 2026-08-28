@@ -1,5 +1,8 @@
 import Link from 'next/link'
 import Hero from '@/components/home/hero'
+import HomeLeadForm from '@/components/home/home-lead-form'
+import TestimonialMarquee from '@/components/home/testimonial-marquee'
+import VideoTestimonials from '@/components/home/video-testimonials'
 import BrowserFrame from '@/components/ui/browser-frame'
 import TechGrid from '@/components/ui/tech-grid'
 import { industries, process, services, strengths, TAGLINE } from '@/content/site'
@@ -16,7 +19,7 @@ export default function Home() {
             <p className="kicker">About Softoras</p>
             <h2 className="h2 mt-4">We ship software companies can actually run</h2>
             <Link href="/about" className="mt-4 inline-block text-sm font-semibold text-[var(--accent)]">
-              Meet the CEO →
+              Meet the CEO
             </Link>
           </div>
           <p className="lede">
@@ -29,15 +32,15 @@ export default function Home() {
       <section className="band band-mist py-20">
         <div className="wrap">
           <p className="kicker">Services</p>
-          <h2 className="h2 mt-4 max-w-2xl">Websites, products, AI, CRM, and cloud — end to end</h2>
+          <h2 className="h2 mt-4 max-w-2xl">Websites, products, AI, CRM, and cloud. End to end.</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {services.map((item) => (
               <article key={item.slug} className="panel panel-hover p-6">
                 <h3 className="text-lg font-semibold">{item.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
-                <ul className="mt-4 space-y-1 text-sm text-[var(--muted)]">
+                <ul className="clean-list mt-4 space-y-1 text-sm text-[var(--muted)]">
                   {item.points.map((point) => (
-                    <li key={point}>— {point}</li>
+                    <li key={point}>{point}</li>
                   ))}
                 </ul>
               </article>
@@ -50,21 +53,21 @@ export default function Home() {
         <div className="wrap">
           <p className="kicker">Technology</p>
           <h2 className="h2 mt-4">Tools we actually ship with</h2>
-          <p className="lede mt-3">Logos for the stack — React, Next.js, n8n, OpenAI, AWS, Shopify, and the rest.</p>
+          <p className="lede mt-3">Logos for the stack: React, Next.js, n8n, OpenAI, AWS, Shopify, and the rest.</p>
           <div className="mt-8">
             <TechGrid />
           </div>
         </div>
       </section>
 
-      <section className="band band-paper py-20">
+      <section className="band band-mist py-20">
         <div className="wrap flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="kicker">Projects</p>
             <h2 className="h2 mt-4">Work you can open</h2>
           </div>
           <Link href="/projects" className="nav-link">
-            All projects →
+            All projects
           </Link>
         </div>
         <div className="wrap mt-10 grid gap-8 lg:grid-cols-2">
@@ -84,7 +87,7 @@ export default function Home() {
                   ))}
                 </div>
                 <Link href={`/projects/${project.slug}`} className="mt-3 inline-block text-sm font-semibold text-[var(--accent)]">
-                  Case study →
+                  Read the case
                 </Link>
               </div>
             </article>
@@ -92,7 +95,28 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="band band-paper py-20">
+        <div className="wrap">
+          <p className="kicker">Testimonials</p>
+          <h2 className="h2 mt-4">What partners say</h2>
+        </div>
+        <div className="mt-10">
+          <TestimonialMarquee />
+        </div>
+      </section>
+
       <section className="band band-mist py-20">
+        <div className="wrap">
+          <p className="kicker">Video testimonials</p>
+          <h2 className="h2 mt-4">Watch the work in their words</h2>
+          <p className="lede mt-4">Add a YouTube or Vimeo link. We review it, then it shows here.</p>
+          <div className="mt-10">
+            <VideoTestimonials />
+          </div>
+        </div>
+      </section>
+
+      <section className="band band-paper py-20">
         <div className="wrap">
           <p className="kicker">Solutions</p>
           <h2 className="h2 mt-4">Industries we can build for</h2>
@@ -108,7 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band band-paper py-20">
+      <section className="band band-mist py-20">
         <div className="wrap">
           <p className="kicker">Process</p>
           <h2 className="h2 mt-4">How a system gets to production</h2>
@@ -124,7 +148,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band band-mist py-20">
+      <section className="band band-paper py-20">
         <div className="wrap">
           <p className="kicker">Why Softoras</p>
           <h2 className="h2 mt-4">What we bring to a build</h2>
@@ -139,16 +163,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band band-paper py-20">
-        <div className="wrap panel p-8 md:p-12">
+      <section className="band band-mist py-20">
+        <div className="wrap">
           <p className="kicker">Contact</p>
           <h2 className="h2 mt-4">Have an idea? Let’s build it.</h2>
-          <p className="lede mt-4">
-            Websites, products, AI agents, CRM, and cloud — start with a clear conversation.
-          </p>
-          <Link href="/contact" className="btn btn-primary mt-6">
-            Start a Project
-          </Link>
+          <p className="lede mt-4">Send a project note, or subscribe for updates.</p>
+          <div className="mt-10">
+            <HomeLeadForm />
+          </div>
         </div>
       </section>
     </>

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { site } from '@/content/site'
 
 const projectTypes = ['Website', 'SaaS / product', 'CRM / automation', 'ERP', 'Ecommerce', 'Other']
-const budgets = ['To be scoped', 'Under $5k', '$5k–$15k', '$15k–$40k', '$40k+']
+const budgets = ['To be scoped', 'Under $5k', '$5k to $15k', '$15k to $40k', '$40k+']
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false)

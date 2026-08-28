@@ -18,7 +18,7 @@ export default function Hero() {
           <p className="kicker">{TAGLINE}</p>
           <h1 className="display">We Build Software That Moves Businesses Forward</h1>
           <p className="lede">
-            SaaS products, custom websites, AI agents, n8n automations, CRM, and cloud servers — built to go live, not
+            SaaS products, custom websites, AI agents, n8n automations, CRM, and cloud servers. Built to go live, not
             sit in a deck.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -50,7 +50,7 @@ export default function Hero() {
             ))}
           </div>
           <div className="space-y-2 bg-[var(--bg-alt)] px-5 pb-5">
-            {['Lead in → CRM stage', 'Webhook → n8n / Make', 'Release → cloud'].map((row) => (
+            {['Lead in to CRM stage', 'Webhook to n8n / Make', 'Release to cloud'].map((row) => (
               <div key={row} className="rounded-lg border border-[var(--line)] bg-[var(--panel)] px-3 py-2 font-mono text-xs text-[var(--accent)]">
                 {row}
               </div>

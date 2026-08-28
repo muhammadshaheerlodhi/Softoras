@@ -12,7 +12,7 @@
   --accent: #0ea5e9;
   --accent-2: #0284c7;
   --glow: rgba(14, 165, 233, 0.22);
-  --hero: linear-gradient(180deg, #f0f9ff 0%, #ffffff 62%);
+  --hero: #eef8ff;
 }
 
 html.dark {
@@ -119,6 +119,41 @@ body {
   line-height: 1.7;
   color: var(--muted);
   max-width: 42rem;
+}
+
+.clean-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clean-list li {
+  position: relative;
+  padding-left: 0.95rem;
+}
+
+.clean-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 99px;
+  background: var(--accent);
+}
+
+.quote-card {
+  width: min(22rem, 80vw);
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  background: var(--panel);
+  padding: 1.25rem 1.35rem;
+}
+
+.marquee:hover {
+  animation-play-state: paused;
 }
 
 .btn {

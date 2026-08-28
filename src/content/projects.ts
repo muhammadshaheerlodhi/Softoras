@@ -23,12 +23,12 @@ export const projects: Project[] = [
     url: 'https://softoras-erp.vercel.app',
     image: '/projects/erp.png',
     hook: 'One screen for the whole business.',
-    summary: 'Cloud ERP for CRM, sales, stock, HR, accounts, and day-to-day operations — built and run by Softoras.',
+    summary: 'Cloud ERP for CRM, sales, stock, HR, accounts, and day to day operations. Built and run by Softoras.',
     challenge: 'Most teams bounce between tools for sales, stock, people, and money. Nothing talks. Reports take too long.',
     solution:
-      'We built ERP as a live SaaS product: modules, roles, dashboards, and a trial path you can open today — not a slide deck.',
+      'We built ERP as a live SaaS product: modules, roles, dashboards, and a trial path you can open today. Not a slide deck.',
     work: ['SaaS product', 'CRM and sales', 'Inventory and purchasing', 'HR and payroll', 'Accounting', 'Cloud deploy'],
-    stack: ['Next.js', 'Supabase', 'TypeScript', 'AWS-ready cloud'],
+    stack: ['Next.js', 'Supabase', 'TypeScript', 'AWS ready cloud'],
     sections: [
       {
         heading: 'What is live',
@@ -36,7 +36,7 @@ export const projects: Project[] = [
       },
       {
         heading: 'Why it matters',
-        body: 'You can click through a real product. Modules, dashboards, and a 15-day trial are on the public site at softoras-erp.vercel.app.',
+        body: 'You can click through a real product. Modules, dashboards, and a 15 day trial are on the public site at softoras-erp.vercel.app.',
       },
     ],
   },
@@ -62,7 +62,7 @@ export const projects: Project[] = [
     sections: [
       {
         heading: 'What you can open',
-        body: 'utclisolutions.com is live: courses, corporate training, coaching, ebooks, login, and sign up. The public face matches a real learning shop, not a one-page brochure.',
+        body: 'utclisolutions.com is live: courses, corporate training, coaching, ebooks, login, and sign up. The public face matches a real learning shop, not a one page brochure.',
       },
       {
         heading: 'What we built behind it',
@@ -79,8 +79,8 @@ export const projects: Project[] = [
     secondaryLabel: 'Open CRM',
     image: '/projects/vivacity.png',
     hook: 'A company site that looks as sharp as the work behind it.',
-    summary: 'Public website for Vivacity Solutions — a US IT services brand, with a linked CRM product.',
-    challenge: 'The company needed a clear public home: services, story, and a path into the CRM offer — without looking generic.',
+    summary: 'Public website for Vivacity Solutions. A US IT services brand, with a linked CRM product.',
+    challenge: 'The company needed a clear public home: services, story, and a path into the CRM offer, without looking generic.',
     solution: 'Softoras built vivacity-solutions.com as the brand site, wired next to the CRM reselling product on its own URL.',
     work: ['Company website', 'Brand and layout', 'Responsive build', 'Link to CRM product'],
     stack: ['Web platform', 'GoHighLevel', 'CRM'],
@@ -102,11 +102,11 @@ export const projects: Project[] = [
     url: 'https://crm.vivacity-solutions.com',
     image: '/projects/vivacity-crm.png',
     hook: 'A CRM you can sell. Not a messy board you hide.',
-    summary: 'CRM reselling product — pipelines, automation, and a packed offer on its own live site.',
+    summary: 'CRM reselling product: pipelines, automation, and a packed offer on its own live site.',
     challenge: 'Reselling CRM only works if the product looks ready: clear offer, trial story, and a system that can actually run leads.',
     solution:
-      'Softoras built the CRM product site and the ops layer: pipelines, lead capture, follow-up, and automation you can package and sell.',
-    work: ['CRM reselling', 'Product website', 'Pipelines', 'Lead capture', 'Follow-up automation'],
+      'Softoras built the CRM product site and the ops layer: pipelines, lead capture, follow up, and automation you can package and sell.',
+    work: ['CRM reselling', 'Product website', 'Pipelines', 'Lead capture', 'Follow up automation'],
     stack: ['GoHighLevel', 'CRM product', 'Automations'],
     sections: [
       {
@@ -115,7 +115,7 @@ export const projects: Project[] = [
       },
       {
         heading: 'What it is for',
-        body: 'This is CRM reselling: a packaged system for capture, pipeline, and follow-up — not only an internal board for one team.',
+        body: 'This is CRM reselling: a packaged system for capture, pipeline, and follow up. Not only an internal board for one team.',
       },
     ],
   },
@@ -126,12 +126,12 @@ export const projects: Project[] = [
     url: 'https://cryosculptinglabboca.com',
     image: '/projects/cryo.png',
     hook: 'Ads, website, and booking on one path.',
-    summary: 'Website, Meta ads, CRM, booking, and follow-up for a Boca Raton wellness lab.',
+    summary: 'Website, Meta ads, CRM, booking, and follow up for a Boca Raton wellness lab.',
     challenge:
-      'Leads from ads were landing with no clean path. Follow-up depended on someone remembering to call. Bookings and no-shows were easy to lose.',
+      'Leads from ads were landing with no clean path. Follow up depended on someone remembering to call. Bookings and no shows were easy to lose.',
     solution:
-      'Softoras tied the site, Meta ads, a CRM pipeline, booking, and auto follow-up so a lead can go from ad to booked visit without guesswork.',
-    work: ['Website', 'Meta Ads', 'Lead gen', 'CRM pipeline', 'Booking', 'Follow-up automation'],
+      'Softoras tied the site, Meta ads, a CRM pipeline, booking, and auto follow up so a lead can go from ad to booked visit without guesswork.',
+    work: ['Website', 'Meta Ads', 'Lead gen', 'CRM pipeline', 'Booking', 'Follow up automation'],
     stack: ['GoHighLevel', 'Meta Ads', 'SMS / email', 'Booking'],
     sections: [
       {
@@ -140,11 +140,11 @@ export const projects: Project[] = [
       },
       {
         heading: 'The pipeline',
-        body: 'Stages stay simple: New Lead → Contacted → Qualified → Consultation Booked → Consultation Completed → Client Won. Quiet leads sit in Nurture. Lost is a tag, not a messy extra column.',
+        body: 'Stages stay simple: New Lead to Contacted to Qualified to Consultation Booked to Consultation Completed to Client Won. Quiet leads sit in Nurture. Lost is a tag, not a messy extra column.',
       },
       {
         heading: 'The automations',
-        body: 'Fast reply on form submit, missed-call text-back, nurture, booking confirm, reminders, no-show recovery, after-visit follow-up, and Meta event sync so ads and ops stay in the same loop.',
+        body: 'Fast reply on form submit, missed call text back, nurture, booking confirm, reminders, no show recovery, after visit follow up, and Meta event sync so ads and ops stay in the same loop.',
       },
     ],
   },
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     url: 'https://awaiscreations.com',
     image: '/projects/awais.png',
     hook: 'A personal brand that looks like the work.',
-    summary: 'WordPress site for Raja Awais Ayub — clean structure, strong first screen, easy to keep up.',
+    summary: 'WordPress site for Raja Awais Ayub. Clean structure, strong first screen, easy to keep up.',
     challenge: 'A creator needed a site that feels premium, shows the work, and stays easy to edit in WordPress.',
     solution: 'Softoras built awaiscreations.com as a WordPress brand site: layout, portfolio path, and a responsive build.',
     work: ['WordPress', 'Personal brand site', 'Portfolio layout', 'Responsive design'],
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     kind: 'Business platform',
     url: 'https://va.backofficesolutions.net',
     image: '/projects/bos.png',
-    hook: 'Not a brochure. A full back-office platform.',
+    hook: 'Not a brochure. A full back office platform.',
     summary: 'Website, admin, database, Supabase, and the workflows staff use every day.',
     challenge: 'A VA business needed more than a marketing page. Staff needed admin, data, and real workflows.',
     solution:
@@ -191,7 +191,7 @@ export const projects: Project[] = [
       },
       {
         heading: 'What sits behind the homepage',
-        body: 'Admin, database, Supabase, and the flows the team uses to run real-estate VA work — listings, CRM support, follow-ups, and day-to-day ops.',
+        body: 'Admin, database, Supabase, and the flows the team uses to run real estate VA work: listings, CRM support, follow ups, and day to day ops.',
       },
     ],
   },
@@ -202,7 +202,7 @@ export const projects: Project[] = [
     url: 'https://www.teknotizemerchandise.com',
     image: '/projects/teknotize.png',
     hook: 'Athlete merch that looks ready to sell.',
-    summary: 'Shopify store for athlete apparel and branded merch — catalog, storefront, and a clean buy path.',
+    summary: 'Shopify store for athlete apparel and branded merch: catalog, storefront, and a clean buy path.',
     challenge: 'The store needed a sharp storefront, collections, and a path for athletes and NIL partners to sign up.',
     solution: 'Softoras built the Shopify storefront and ecommerce structure. We do not publish order or revenue numbers we cannot prove.',
     work: ['Shopify', 'Storefront UX', 'Product catalog', 'Responsive shop'],

@@ -25,7 +25,7 @@ export default async function ProjectPage({ params }: PageProps) {
     <div className="band band-paper pb-24 pt-16">
       <article className="wrap max-w-5xl">
         <Link href="/projects" className="text-sm font-semibold text-[var(--accent)]">
-          ← Projects
+          Back to projects
         </Link>
         <p className="kicker mt-8">{project.kind}</p>
         <h1 className="display mt-3">{project.hook}</h1>

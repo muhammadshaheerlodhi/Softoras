@@ -12,7 +12,7 @@ export default function SolutionsPage() {
         <p className="kicker">Solutions</p>
         <h1 className="h2 mt-4">Where Softoras can apply the same engineering</h1>
         <p className="lede mt-4">
-          These are domains we can build for — websites, CRM, automation, and custom software. They are capabilities, not
+          These are domains we can build for: websites, CRM, automation, and custom software. They are capabilities, not
           a claim that we have named logos in every vertical.
         </p>
         <div className="mt-12 grid gap-5 md:grid-cols-2">

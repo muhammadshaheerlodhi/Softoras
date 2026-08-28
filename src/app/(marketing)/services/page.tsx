@@ -19,11 +19,11 @@ export default function ServicesPage() {
             <article key={item.slug} className="panel panel-hover p-7">
               <h2 className="text-xl font-semibold">{item.title}</h2>
               <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
-              <ul className="mt-5 space-y-2 text-sm text-[var(--muted)]">
-                {item.points.map((point) => (
-                  <li key={point}>— {point}</li>
-                ))}
-              </ul>
+                <ul className="clean-list mt-5 space-y-2 text-sm text-[var(--muted)]">
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
             </article>
           ))}
         </div>
