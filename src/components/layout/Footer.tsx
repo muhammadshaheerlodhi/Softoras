@@ -1,57 +1,75 @@
 import Link from 'next/link'
 import Logo from '@/components/layout/logo'
-import { site, TAGLINE } from '@/content/site'
+import { ERP_URL, services, site, TAGLINE } from '@/content/site'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--line)] bg-[var(--bg-alt)]">
-      <div className="wrap grid gap-8 py-10 md:grid-cols-2 lg:grid-cols-6">
-        <div className="lg:col-span-2">
+    <footer className="site-footer">
+      <div className="wrap site-footer-grid">
+        <div className="site-footer-brand">
           <Logo compact />
-          <p className="mt-3 max-w-sm text-sm leading-6 text-[var(--muted)]">
-            {TAGLINE} Software, SaaS, AI automation, CRM systems, and cloud infrastructure for companies that need
-            production systems.
+          <p className="site-footer-tagline">{TAGLINE}</p>
+          <p className="site-footer-desc">
+            Software, SaaS, AI automation, CRM systems, and cloud infrastructure for companies that need production
+            systems.
           </p>
         </div>
+
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Services</p>
-          <ul className="mt-3 space-y-1.5 text-sm">
-            <li><Link href="/services">Custom websites</Link></li>
-            <li><Link href="/services">AI agents and n8n</Link></li>
-            <li><Link href="/services">CRM and GoHighLevel</Link></li>
-            <li><Link href="/services">Servers and cloud</Link></li>
+          <p className="footer-heading">Services</p>
+          <ul className="footer-links">
+            {services.slice(0, 4).map((item) => (
+              <li key={item.slug}>
+                <Link href={`/services/${item.slug}`}>{item.title}</Link>
+              </li>
+            ))}
           </ul>
         </div>
+
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Products</p>
-          <ul className="mt-3 space-y-1.5 text-sm">
-            <li><Link href="/products/erp">ERP</Link></li>
+          <p className="footer-heading">Products</p>
+          <ul className="footer-links">
+            <li>
+              <a href={ERP_URL} target="_blank" rel="noreferrer">
+                ERP
+              </a>
+            </li>
           </ul>
-          <p className="mt-5 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Projects</p>
-          <ul className="mt-3 space-y-1.5 text-sm">
-            <li><Link href="/projects">Selected work</Link></li>
+          <p className="footer-heading mt-5">Explore</p>
+          <ul className="footer-links">
             <li><Link href="/solutions">Solutions</Link></li>
+            <li><Link href="/projects">Projects</Link></li>
+            <li><Link href="/about">About</Link></li>
           </ul>
         </div>
+
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Company</p>
-          <ul className="mt-3 space-y-1.5 text-sm">
+          <p className="footer-heading">Company</p>
+          <ul className="footer-links">
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/services">All services</Link></li>
           </ul>
         </div>
+
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Contact</p>
-          <ul className="mt-3 space-y-1.5 text-sm">
+          <p className="footer-heading">Contact</p>
+          <ul className="footer-links">
             <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
             <li><a href={site.phones.pakistan.href}>{site.phones.pakistan.label}</a></li>
             <li><a href={site.phones.uae.href}>{site.phones.uae.label}</a></li>
             <li><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
           </ul>
+          <p className="mt-4 text-xs leading-5 text-[var(--muted)]">{site.offices.pakistan}</p>
+          <p className="text-xs leading-5 text-[var(--muted)]">{site.offices.uae}</p>
         </div>
       </div>
-      <div className="wrap border-t border-[var(--line)] py-4 text-xs text-[var(--muted)]">
-        © {new Date().getFullYear()} Softoras. All rights reserved.
+
+      <div className="wrap site-footer-bar">
+        <p>© {new Date().getFullYear()} Softoras. All rights reserved.</p>
+        <Link href="/contact" className="text-sm font-semibold text-[var(--accent)]">
+          Start a Project →
+        </Link>
       </div>
     </footer>
   )

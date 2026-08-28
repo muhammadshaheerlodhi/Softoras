@@ -223,3 +223,6 @@ export const projects: Project[] = [
 export function getProject(slug: string) {
   return projects.find((item) => item.slug === slug)
 }
+
+/** Client/portfolio projects — excludes Softoras ERP (flagship product). */
+export const clientProjects = projects.filter((item) => item.slug !== 'erp')

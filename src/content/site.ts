@@ -18,6 +18,7 @@ export const site = {
 export type Service = {
   slug: string
   title: string
+  icon: string
   description: string
   points: string[]
   detail: string
@@ -28,17 +29,19 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: 'custom-websites',
-    title: 'Custom Websites',
-    description: 'Fast, clean sites built around your brand. Next.js, WordPress, or Shopify. Not a template dump.',
-    points: ['Business websites', 'Landing pages', 'WordPress', 'Shopify stores'],
+    title: 'UI/UX & Product Development',
+    icon: '08',
+    description: 'Product design, UX flows, and interfaces that feel premium — from wireframe to polished UI in code.',
+    points: ['UX flows', 'UI design in code', 'Design systems', 'Product screens'],
     detail:
-      'We build marketing sites and landing pages that load fast, look sharp on mobile, and connect to your CRM and analytics. Whether you need a Next.js site, WordPress for content teams, or Shopify for commerce, the build is tailored to your brand — not a generic theme with your logo pasted on.',
-    deliverables: ['Responsive UI across devices', 'SEO-ready structure', 'Contact and lead capture', 'CMS or admin where needed', 'Deploy on Vercel or your host'],
-    tools: ['Next.js', 'WordPress', 'Shopify', 'Tailwind CSS', 'Vercel'],
+      'Product thinking applied to every screen: user flows, wireframes, design systems, and interfaces built directly in React and Next.js. We align UX, visual design, and engineering so the product feels cohesive from landing page to admin panel.',
+    deliverables: ['UX flows and wireframes', 'UI design implemented in code', 'Component libraries', 'Responsive product screens', 'Handoff-ready design system'],
+    tools: ['Figma', 'React', 'Next.js', 'Tailwind CSS', 'Framer Motion'],
   },
   {
     slug: 'software-products',
-    title: 'Software and Products',
+    title: 'Custom Software & SaaS',
+    icon: '01',
     description: 'Custom apps and SaaS products, from first screen to a live product people can log into.',
     points: ['SaaS products', 'Web apps', 'Admin panels', 'APIs'],
     detail:
@@ -48,7 +51,8 @@ export const services: Service[] = [
   },
   {
     slug: 'ai-agents-bots',
-    title: 'AI Agents and Bots',
+    title: 'AI Agents & Voice AI',
+    icon: '02',
     description: 'Voice and chat agents that answer, book, and follow up. OpenAI, Vapi, and real workflows.',
     points: ['AI agents', 'AI bots', 'Voice agents', 'Chat flows'],
     detail:
@@ -58,7 +62,8 @@ export const services: Service[] = [
   },
   {
     slug: 'ai-automation',
-    title: 'AI and n8n Automation',
+    title: 'Automation & Integrations',
+    icon: '04',
     description: 'n8n, Make, Zapier, and AI in the middle, so leads, emails, and ops move without extra staff.',
     points: ['n8n workflows', 'Make and Zapier', 'OpenAI in pipelines', 'Webhooks'],
     detail:
@@ -68,7 +73,8 @@ export const services: Service[] = [
   },
   {
     slug: 'crm-gohighlevel',
-    title: 'CRM and GoHighLevel',
+    title: 'CRM & GoHighLevel',
+    icon: '03',
     description: 'Pipelines, booking, SMS, and follow up built for teams that live in GHL and HubSpot.',
     points: ['Pipeline design', 'Lead routing', 'SMS and email', 'Booking'],
     detail:
@@ -78,7 +84,8 @@ export const services: Service[] = [
   },
   {
     slug: 'cloud-servers',
-    title: 'Servers and Cloud',
+    title: 'Cloud & DevOps',
+    icon: '06',
     description: 'AWS, Vercel, Cloudflare, DNS, and server setup so the product stays online and can ship safely.',
     points: ['AWS architecture', 'Server management', 'Vercel and Cloudflare', 'DNS and deploys'],
     detail:
@@ -88,7 +95,8 @@ export const services: Service[] = [
   },
   {
     slug: 'web-development',
-    title: 'Web Development',
+    title: 'Web & Mobile Development',
+    icon: '05',
     description: 'Frontend and backend in one team: React, Next.js, Node, PHP, Python. Shipped responsive.',
     points: ['React and Next.js', 'Node, PHP, Python', 'Responsive UI', 'Performance'],
     detail:
@@ -99,6 +107,7 @@ export const services: Service[] = [
   {
     slug: 'business-systems',
     title: 'Business Systems',
+    icon: '07',
     description: 'Admin, databases, and the software staff use every day. Not only the public homepage.',
     points: ['Supabase and MongoDB', 'Custom admin', 'Roles and access', 'Ops workflows'],
     detail:
@@ -128,21 +137,22 @@ export const industries = [
 ]
 
 export const process = [
-  { title: 'Discover', text: 'Map the operation and the system that actually needs to exist.' },
-  { title: 'Design', text: 'Flows and a plan before the first production commit.' },
-  { title: 'Build', text: 'Ship in slices the team can use, not a six month black box.' },
-  { title: 'Integrate', text: 'Connect CRM, ads, payments, email, and tools through APIs.' },
-  { title: 'Deploy', text: 'Cloud, servers, DNS, and a release path that stays calm.' },
-  { title: 'Optimize', text: 'Tighten automations, speed, and the workflows used every week.' },
+  { title: 'Discover', text: 'Map the operation, users, and the system that actually needs to exist.' },
+  { title: 'Plan', text: 'Scope modules, integrations, timeline, and the path to a shippable first release.' },
+  { title: 'Design', text: 'Flows, architecture, and UI direction before the first production commit.' },
+  { title: 'Build', text: 'Ship in slices the team can use — not a six-month black box.' },
+  { title: 'Integrate', text: 'Connect CRM, ads, payments, email, and third-party tools through APIs.' },
+  { title: 'Launch', text: 'Cloud, servers, DNS, and a calm release path to production.' },
+  { title: 'Improve', text: 'Tighten automations, speed, analytics, and the workflows used every week.' },
 ]
 
 export const strengths = [
-  { title: 'Engineering first', text: 'Code and architecture come before decoration.' },
-  { title: 'Custom systems', text: 'Built for the operation, not a generic plugin stack.' },
-  { title: 'Modern stack', text: 'React, Next.js, Node, Python, AWS, n8n, and AI where it helps.' },
-  { title: 'Automation depth', text: 'GoHighLevel, Make, Zapier, n8n, Twilio, and AI agents in real pipelines.' },
-  { title: 'CRM operations', text: 'Pipelines and follow up designed for how sales actually works.' },
-  { title: 'Cloud and servers', text: 'AWS Solutions Architecture, Vercel, Cloudflare, and live deploys.' },
-  { title: 'Full stack delivery', text: 'Frontend, backend, database, admin. One path to live.' },
-  { title: 'SaaS experience', text: 'Including ERP, a cloud product we design, build, and run.' },
+  { title: 'Engineering-first thinking', text: 'Architecture and code quality come before decoration.' },
+  { title: 'Product mindset', text: 'We build systems people log into — not one-off pages.' },
+  { title: 'AI & automation expertise', text: 'OpenAI, Vapi, n8n, Make, and real pipelines in production.' },
+  { title: 'Broad technology ecosystem', text: 'CRM, cloud, dev, commerce, and ops tools in one team.' },
+  { title: 'End-to-end implementation', text: 'Discovery through deploy — one path to live.' },
+  { title: 'Scalable architecture', text: 'Systems designed to grow with traffic, users, and modules.' },
+  { title: 'Cloud expertise', text: 'AWS Solutions Architecture, Vercel, Cloudflare, and live deploys.' },
+  { title: 'Flagship SaaS experience', text: 'Including Softoras ERP — a product we design, build, and run.' },
 ]

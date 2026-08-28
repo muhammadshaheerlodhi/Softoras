@@ -5,6 +5,8 @@ import { FormLabel, FormStatus } from '@/components/ui/form-shell'
 
 type Tab = 'contact' | 'subscribe'
 
+const budgets = ['To be scoped', 'Under $5k', '$5k – $15k', '$15k – $40k', '$40k+']
+
 export default function HomeLeadForm() {
   const [tab, setTab] = useState<Tab>('contact')
   const [loading, setLoading] = useState(false)
@@ -24,7 +26,7 @@ export default function HomeLeadForm() {
       if (!res.ok) throw new Error('fail')
       setSuccess(true)
     } catch {
-      setError('Could not send. Email us directly and we will reply.')
+      setError('Could not send. Email admin@softoras.com directly.')
     }
     setLoading(false)
   }
@@ -38,6 +40,8 @@ export default function HomeLeadForm() {
       name: String(data.get('name') || ''),
       email: String(data.get('email') || ''),
       company: String(data.get('company') || ''),
+      projectType: String(data.get('projectType') || ''),
+      budget: String(data.get('budget') || ''),
       message: String(data.get('message') || ''),
     })
     form.reset()
@@ -57,20 +61,21 @@ export default function HomeLeadForm() {
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
-      <div className="space-y-4">
-        <p className="text-sm leading-6 text-[var(--muted)]">
-          Tell us what you want to build — SaaS, CRM, automation, or a full website. We reply with next steps.
+    <div className="contact-layout">
+      <div className="contact-aside">
+        <p className="section-desc">
+          SaaS products, CRM setups, automation stacks, AI agents, or full platforms — tell us what you need and we
+          will map the build.
         </p>
-        <ul className="clean-list space-y-1.5 text-sm text-[var(--muted)]">
-          <li>Custom websites and SaaS products</li>
-          <li>GoHighLevel, HubSpot, and Follow Up Boss CRM</li>
-          <li>n8n, Make, Zapier, and AI agent workflows</li>
+        <ul className="about-points mt-4">
+          <li>Reply within one business day</li>
+          <li>No generic pitch decks</li>
+          <li>Engineering-led scoping call</li>
         </ul>
-        <p className="text-sm font-semibold text-[var(--accent)]">admin@softoras.com</p>
+        <p className="mt-4 text-sm font-semibold text-[var(--accent)]">admin@softoras.com</p>
       </div>
 
-      <div className="contact-shell w-full">
+      <div className="contact-shell">
         <div className="contact-tabs" role="tablist">
           <button
             type="button"
@@ -93,30 +98,42 @@ export default function HomeLeadForm() {
         </div>
 
         {tab === 'contact' ? (
-          <form onSubmit={onContact} className="form-body">
+          <form onSubmit={onContact} className="form-body" noValidate>
             <div className="form-row form-row-2">
               <div className="form-field">
                 <FormLabel htmlFor="home-name">Name</FormLabel>
                 <input id="home-name" name="name" required placeholder="Your name" className="field" />
               </div>
               <div className="form-field">
-                <FormLabel htmlFor="home-email">Email</FormLabel>
+                <FormLabel htmlFor="home-email">Work email</FormLabel>
                 <input id="home-email" name="email" type="email" required placeholder="you@company.com" className="field" />
               </div>
             </div>
             <div className="form-field">
               <FormLabel htmlFor="home-company">Company</FormLabel>
-              <input id="home-company" name="company" placeholder="Optional" className="field" />
+              <input id="home-company" name="company" placeholder="Company name" className="field" />
+            </div>
+            <div className="form-field">
+              <FormLabel htmlFor="home-project">What are you looking to build?</FormLabel>
+              <input id="home-project" name="projectType" required placeholder="SaaS product, CRM, automation…" className="field" />
+            </div>
+            <div className="form-field">
+              <FormLabel htmlFor="home-budget">Budget / project scope</FormLabel>
+              <select id="home-budget" name="budget" className="field" defaultValue="To be scoped">
+                {budgets.map((item) => (
+                  <option key={item}>{item}</option>
+                ))}
+              </select>
             </div>
             <div className="form-field">
               <FormLabel htmlFor="home-message">Message</FormLabel>
-              <textarea id="home-message" name="message" required rows={3} placeholder="What do you want to build?" className="field" />
+              <textarea id="home-message" name="message" rows={3} placeholder="Tell us more about the project…" className="field" />
             </div>
             <div className="form-actions">
               <button type="submit" className="btn btn-primary btn-compact" disabled={loading}>
-                {loading ? 'Sending…' : 'Send message'}
+                {loading ? 'Sending…' : 'Start a Conversation'}
               </button>
-              {success ? <FormStatus type="success">Received. Thank you.</FormStatus> : null}
+              {success ? <FormStatus type="success">Received. Thank you — we will be in touch.</FormStatus> : null}
               {error ? <FormStatus type="error">{error}</FormStatus> : null}
             </div>
           </form>
