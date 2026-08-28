@@ -67,14 +67,18 @@ export const services = [
 ]
 
 export const industries = [
-  { title: 'Real Estate', text: 'Lead capture, CRM pipelines, and listing site workflows for agents and brokerages.' },
-  { title: 'Healthcare', text: 'Booking, follow up, and sites that keep intake organized.' },
-  { title: 'Education', text: 'Course catalogs, student queries, and digital products.' },
-  { title: 'Ecommerce', text: 'Shopify and custom shops with a clean catalog and checkout.' },
-  { title: 'Professional Services', text: 'Intake, CRM, and delivery systems for specialist firms.' },
-  { title: 'Agencies', text: 'Client CRM, automation, and reporting that keep accounts moving.' },
-  { title: 'Local Businesses', text: 'Websites, ads to CRM, booking, and follow up.' },
-  { title: 'SaaS companies', text: 'Product UI, cloud deploy, and systems software teams can ship.' },
+  { title: 'Real Estate', text: 'Lead capture, CRM pipelines, listing sites, and follow up for agents and brokerages.', tags: ['CRM', 'Listings', 'GHL'] },
+  { title: 'Healthcare', text: 'Booking, intake, patient follow up, and sites that keep operations organized.', tags: ['Booking', 'SMS', 'Forms'] },
+  { title: 'Education', text: 'Course catalogs, student queries, enrollment flows, and digital products.', tags: ['LMS', 'Portals', 'Content'] },
+  { title: 'Ecommerce', text: 'Shopify and custom shops with clean catalogs, checkout, and ops automation.', tags: ['Shopify', 'Stripe', 'Inventory'] },
+  { title: 'Professional Services', text: 'Intake, CRM, proposals, and delivery systems for specialist firms.', tags: ['CRM', 'Docs', 'Pipeline'] },
+  { title: 'Agencies', text: 'Client CRM, reporting, automation, and white-label systems that scale accounts.', tags: ['Reporting', 'Automation', 'CRM'] },
+  { title: 'Local Businesses', text: 'Websites, ads to CRM, booking, reviews, and follow up that runs daily.', tags: ['Local SEO', 'Booking', 'SMS'] },
+  { title: 'SaaS companies', text: 'Product UI, auth, billing, cloud deploy, and systems teams can ship on.', tags: ['SaaS', 'AWS', 'APIs'] },
+  { title: 'Legal & Finance', text: 'Secure intake, document workflows, client portals, and compliance-friendly ops.', tags: ['DocuSign', 'Portals', 'CRM'] },
+  { title: 'Hospitality', text: 'Reservations, guest comms, review follow up, and property marketing sites.', tags: ['Booking', 'Email', 'Reviews'] },
+  { title: 'Fitness & Wellness', text: 'Membership sites, class booking, lead nurture, and mobile-friendly brands.', tags: ['Booking', 'Mobile', 'CRM'] },
+  { title: 'Automotive', text: 'Inventory sites, lead routing, service booking, and dealership CRM flows.', tags: ['Inventory', 'CRM', 'Ads'] },
 ]
 
 export const process = [

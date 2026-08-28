@@ -4,29 +4,35 @@ export default function BrowserFrame({
   src,
   alt,
   href,
+  compact = false,
 }: {
   src: string
   alt: string
   href?: string
+  compact?: boolean
 }) {
   const frame = (
-    <div className="browser">
+    <div className={`browser ${compact ? 'project-card' : ''}`}>
       <div className="browser-bar">
         <span className="dot" />
         <span className="dot" />
         <span className="dot" />
-        {href ? <span className="ml-2 truncate text-[11px] text-[var(--muted)]">{href.replace(/^https?:\/\//, '')}</span> : null}
+        {href ? (
+          <span className="ml-2 truncate text-[11px] text-[var(--muted)]">{href.replace(/^https?:\/\//, '')}</span>
+        ) : null}
       </div>
-      <Image
-        src={src}
-        alt={alt}
-        width={1440}
-        height={700}
-        className="shot"
-        quality={100}
-        unoptimized
-        sizes="(min-width: 1180px) 1180px, 100vw"
-      />
+      <div className={compact ? 'shot-wrap' : undefined}>
+        <Image
+          src={src}
+          alt={alt}
+          width={1440}
+          height={700}
+          className="shot"
+          quality={100}
+          unoptimized
+          sizes="(min-width: 1180px) 1180px, 100vw"
+        />
+      </div>
     </div>
   )
 
