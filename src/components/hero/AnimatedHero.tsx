@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { ERP_URL } from '@/content/site'
+import FloatingBricks from '@/components/visual/FloatingBricks'
 
 const metrics = [
   { label: 'Lead response', value: '38s', note: 'avg first reply' },
@@ -16,11 +17,14 @@ export default function AnimatedHero() {
     <section className="relative overflow-hidden px-6 pb-20 pt-32 lg:px-8">
       <div className="hero-orb left-[-90px] top-10 h-72 w-72 bg-sky-200" />
       <div className="hero-orb right-[-80px] top-40 h-80 w-80 bg-cyan-100" />
+      <div className="hero-orb left-[30%] bottom-[-40px] h-64 w-64 bg-sky-100" style={{ animationDelay: '3s' }} />
       <div className="hero-grid" />
+      <div className="hero-bricks" />
+      <FloatingBricks />
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
         <div className="reveal-up space-y-7">
-          <p className="inline-flex rounded-full border border-sky-200 bg-white/80 px-4 py-1 text-sm font-semibold text-sky-700 shadow-sm">
+          <p className="inline-flex rounded-full border border-sky-200 bg-white/80 px-4 py-1 text-sm font-semibold text-sky-700 shadow-sm backdrop-blur">
             SaaS · CRM · AI · Cloud ERP
           </p>
           <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
@@ -90,6 +94,9 @@ export default function AnimatedHero() {
             Softoras ERP live
           </a>
           <div className="hero-float-card right-[-8px] bottom-16 hidden sm:block">Automation running</div>
+          <div className="hero-float-card left-[20%] bottom-[-8px] hidden md:block" style={{ animationDelay: '2s' }}>
+            CRM synced
+          </div>
         </div>
       </div>
     </section>
