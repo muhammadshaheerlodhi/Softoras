@@ -167,7 +167,70 @@ body {
 .section-link:hover { opacity: 0.8; }
 
 .card-grid-2 { display: grid; gap: 1.25rem; }
-.card-grid-3 { display: grid; gap: 1rem; }
+.mission-line {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--accent-2);
+  max-width: 42rem;
+}
+
+.trust-panel {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 8%, var(--panel)), var(--panel));
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-all-strip {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  padding: 1rem 1.15rem;
+}
+
+.tech-all-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.tech-all-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.tech-all-logo:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.tech-all-logo img {
+  width: 1.25rem;
+  height: 1.25rem;
+  object-fit: contain;
+}
+
+.card-grid-3 {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
 .card-grid-4 { display: grid; gap: 1rem; }
 
 @media (min-width: 640px) {

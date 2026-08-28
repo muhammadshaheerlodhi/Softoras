@@ -10,15 +10,14 @@ export default function Footer() {
           <Logo compact />
           <p className="site-footer-tagline">{TAGLINE}</p>
           <p className="site-footer-desc">
-            Software, SaaS, AI automation, CRM systems, and cloud infrastructure for companies that need production
-            systems.
+            Software, SaaS, AI automation, CRM systems, and cloud infrastructure — systems your business can run.
           </p>
         </div>
 
         <div>
           <p className="footer-heading">Services</p>
           <ul className="footer-links">
-            {services.slice(0, 4).map((item) => (
+            {services.map((item) => (
               <li key={item.slug}>
                 <Link href={`/services/${item.slug}`}>{item.title}</Link>
               </li>
@@ -35,11 +34,13 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-          <p className="footer-heading mt-5">Explore</p>
+          <p className="footer-heading mt-5">Solutions</p>
           <ul className="footer-links">
-            <li><Link href="/solutions">Solutions</Link></li>
-            <li><Link href="/projects">Projects</Link></li>
-            <li><Link href="/about">About</Link></li>
+            <li><Link href="/solutions">All solutions</Link></li>
+          </ul>
+          <p className="footer-heading mt-5">Projects</p>
+          <ul className="footer-links">
+            <li><Link href="/projects">Systems we&apos;ve built</Link></li>
           </ul>
         </div>
 
@@ -48,7 +49,7 @@ export default function Footer() {
           <ul className="footer-links">
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/services">All services</Link></li>
+            <li><Link href="/services">Services</Link></li>
           </ul>
         </div>
 
@@ -60,14 +61,14 @@ export default function Footer() {
             <li><a href={site.phones.uae.href}>{site.phones.uae.label}</a></li>
             <li><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
           </ul>
-          <p className="mt-4 text-xs leading-5 text-[var(--muted)]">{site.offices.pakistan}</p>
-          <p className="text-xs leading-5 text-[var(--muted)]">{site.offices.uae}</p>
+          <p className="mt-4 text-xs leading-5 text-slate-400">{site.offices.pakistan}</p>
+          <p className="text-xs leading-5 text-slate-400">{site.offices.uae}</p>
         </div>
       </div>
 
       <div className="wrap site-footer-bar">
         <p>© {new Date().getFullYear()} Softoras. All rights reserved.</p>
-        <Link href="/contact" className="text-sm font-semibold text-[var(--accent)]">
+        <Link href="/contact" className="text-sm font-semibold text-sky-300 hover:text-white">
           Start a Project →
         </Link>
       </div>

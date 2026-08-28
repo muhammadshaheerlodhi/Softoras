@@ -1,27 +1,28 @@
 import Link from 'next/link'
 import { services } from '@/content/site'
+import SectionHeader from '@/components/ui/section-header'
 
 export const metadata = {
   title: 'Services',
-  description: 'Custom websites, software products, AI agents, n8n automation, CRM, cloud, and business systems from Softoras.',
+  description: 'Custom software, AI agents, CRM, automation, cloud, and product development from Softoras.',
 }
 
 export default function ServicesPage() {
   return (
-    <div className="band band-paper pb-16 pt-14">
+    <div className="band band-paper section-y">
       <div className="wrap">
-        <p className="kicker">Services</p>
-        <h1 className="h2 mt-3">What Softoras can build and run</h1>
-        <p className="lede mt-4">
-          Custom websites, products, AI agents and bots, n8n automations, CRM, servers, and the admin behind it. Click
-          any service for the full breakdown.
-        </p>
-        <div className="mt-10 grid gap-5 md:grid-cols-2">
+        <SectionHeader
+          kicker="What We Build"
+          title="We build the systems behind modern businesses"
+          description="Softoras combines engineering, automation and product thinking to create digital systems that solve real business problems."
+        />
+        <div className="card-grid-3 mt-10">
           {services.map((item) => (
-            <Link key={item.slug} href={`/services/${item.slug}`} className="service-card premium-card panel-hover card-accent p-7">
+            <Link key={item.slug} href={`/services/${item.slug}`} className="card-service">
+              <span className="card-service-icon">{item.icon}</span>
               <h2 className="text-xl font-semibold">{item.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
-              <ul className="clean-list mt-5 space-y-2 text-sm text-[var(--muted)]">
+              <p className="mt-3 flex-1 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
+              <ul className="clean-list mt-4 space-y-1 text-sm text-[var(--muted)]">
                 {item.points.map((point) => (
                   <li key={point}>{point}</li>
                 ))}

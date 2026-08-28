@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { getToolBySlug, stackGroups } from '@/content/stack'
+import { getToolBySlug, stackGroups, tools } from '@/content/stack'
 
 export default function TechGrid() {
   const [active, setActive] = useState(0)
@@ -37,6 +37,20 @@ export default function TechGrid() {
               </article>
             ) : null,
           )}
+        </div>
+      </div>
+
+      <div className="tech-all-strip mt-6">
+        <p className="mb-3 text-center text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)]">
+          Full ecosystem
+        </p>
+        <div className="tech-all-logos">
+          {tools.map((tool) => (
+            <div key={tool.slug} className="tech-all-logo" title={tool.name}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={tool.logo} alt={tool.name} />
+            </div>
+          ))}
         </div>
       </div>
     </div>

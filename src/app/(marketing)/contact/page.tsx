@@ -41,10 +41,10 @@ export default function ContactPage() {
         <div className="space-y-5">
           <div>
             <p className="kicker">Contact</p>
-            <h1 className="h2 mt-3">Have an idea? Let&apos;s build it.</h1>
+            <h1 className="h2 mt-3">Have a system in mind?</h1>
             <p className="section-desc mt-3">
-              SaaS platforms, AI automation, CRM systems, and custom business software — scoped and built by one
-              engineering team.
+              Tell us what you&apos;re building, what&apos;s slowing your business down, or what you want to automate.
+              We&apos;ll help turn the idea into a practical digital solution.
             </p>
           </div>
 

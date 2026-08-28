@@ -4,7 +4,7 @@ import ProjectCard from '@/components/ui/project-card'
 
 export const metadata = {
   title: 'Projects',
-  description: 'Selected Softoras systems and sites with live URLs.',
+  description: 'Systems built by Softoras — digital products, platforms and business systems for real-world use.',
 }
 
 export default function ProjectsPage() {
@@ -13,8 +13,8 @@ export default function ProjectsPage() {
       <div className="wrap">
         <SectionHeader
           kicker="Projects"
-          title="Work you can open"
-          description="Live sites and client systems. Click a preview to open the real URL."
+          title="Systems we've built"
+          description="A selection of digital products, platforms and business systems built for real-world use. Client work — separate from Softoras-owned products like ERP."
         />
         <div className="card-grid-2 mt-10">
           {clientProjects.map((project) => (
@@ -24,7 +24,7 @@ export default function ProjectsPage() {
         <p className="mt-10 text-sm text-[var(--muted)]">
           Looking for Softoras ERP?{' '}
           <a href="https://softoras-erp.vercel.app" target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">
-            Open the flagship product →
+            Explore Softoras ERP →
           </a>
         </p>
       </div>

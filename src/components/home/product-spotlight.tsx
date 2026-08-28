@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ERP_URL } from '@/content/site'
+import { ERP_URL, erpModules } from '@/content/site'
 
 export default function ProductSpotlight() {
   return (
@@ -8,14 +8,18 @@ export default function ProductSpotlight() {
       <div className="wrap">
         <div className="product-spotlight">
           <div className="product-spotlight-copy">
-            <p className="kicker">Flagship Product</p>
-            <h2 className="h2 mt-3">Softoras ERP</h2>
-            <p className="section-desc mt-3">
-              Cloud ERP for CRM, sales, inventory, HR, accounting and operations — designed, built and operated by
-              Softoras. A live product, not a portfolio mockup.
+            <p className="kicker">Softoras Product</p>
+            <h2 className="h2 mt-3">Meet Softoras ERP</h2>
+            <p className="text-base font-medium text-[var(--accent)] mt-2">
+              One intelligent system for your entire business.
+            </p>
+            <p className="section-desc mt-4">
+              Softoras ERP is a Softoras-built business management product designed to bring operations into one
+              connected system. CRM, sales, inventory, purchasing, HR, payroll, accounting, and projects — with
+              role-based access and a live product you can open today.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
-              {['CRM', 'Sales', 'Inventory', 'HR', 'Accounting', 'Cloud SaaS'].map((tag) => (
+              {erpModules.map((tag) => (
                 <span key={tag} className="tag">
                   {tag}
                 </span>
@@ -23,7 +27,7 @@ export default function ProductSpotlight() {
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
               <a href={ERP_URL} target="_blank" rel="noreferrer" className="btn btn-primary">
-                Open ERP
+                Explore Softoras ERP →
               </a>
               <Link href="/contact" className="btn btn-secondary">
                 Talk to us

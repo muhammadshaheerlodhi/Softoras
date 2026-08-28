@@ -11,8 +11,11 @@ export default function Hero() {
           <p className="eyebrow">Software · AI · Automation · Cloud</p>
           <h1 className="display mt-4">{TAGLINE}</h1>
           <p className="lede mt-4">
-            Softoras builds software, SaaS products, AI systems, CRM ecosystems, automation workflows and cloud
-            infrastructure — engineered to ship and run in production.
+            We build software, SaaS products, AI systems and business automation that move companies forward.
+          </p>
+          <p className="section-desc mt-3">
+            From CRM ecosystems and AI agents to custom software, ERP platforms and cloud infrastructure, Softoras
+            turns complex business ideas into reliable digital systems.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link href="/contact" className="btn btn-primary">

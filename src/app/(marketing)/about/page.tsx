@@ -1,85 +1,122 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { site, TAGLINE } from '@/content/site'
-import { stackGroups } from '@/content/stack'
+import { aboutBlocks, site, stats, strengths, TAGLINE } from '@/content/site'
 import TechGrid from '@/components/ui/tech-grid'
+import ProcessTimeline from '@/components/home/process-timeline'
+import SectionHeader from '@/components/ui/section-header'
 
 export const metadata = {
   title: 'About',
-  description: 'Softoras is led by Muhammad Shaheer Lodhi, CEO. Think SaaS. Think Softoras.',
+  description: 'Softoras is an engineering-led technology company. Think SaaS. Think Softoras.',
 }
 
 export default function AboutPage() {
   return (
-    <div className="band band-paper pb-24 pt-16">
-      <div className="wrap">
-        <p className="kicker">About</p>
-        <h1 className="h2 mt-4 max-w-3xl">A technology company that builds, ships, and runs real systems</h1>
-        <p className="lede mt-5">
-          Softoras designs custom websites, SaaS products, AI agents, n8n automations, CRM, and cloud, then puts them
-          live. {TAGLINE}
-        </p>
-      </div>
-
-      <section className="wrap mt-14 grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="ceo-frame mx-auto w-full max-w-sm">
-          <Image
-            src="/about/shaheer-lodhi.png"
-            alt="Muhammad Shaheer Lodhi, CEO of Softoras"
-            width={640}
-            height={640}
-            className="h-auto w-full object-contain"
-            quality={100}
-            unoptimized
-            priority
-          />
+    <>
+      <div className="band band-paper section-y">
+        <div className="wrap">
+          <p className="kicker">About Softoras</p>
+          <h1 className="h2 mt-3 max-w-3xl">We turn complex ideas into working systems</h1>
+          <p className="section-desc mt-4 max-w-3xl">{aboutBlocks.intro}</p>
+          <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{TAGLINE}</p>
         </div>
-        <div>
-          <p className="kicker">CEO</p>
+
+        <div className="wrap mt-12 grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <div className="ceo-frame mx-auto w-full max-w-xs">
+            <Image
+              src="/about/shaheer-lodhi.png"
+              alt="Muhammad Shaheer Lodhi, CEO of Softoras"
+              width={640}
+              height={640}
+              className="h-auto w-full object-contain"
+              unoptimized
+              priority
+            />
+          </div>
+          <div className="space-y-6">
+            <article className="card-feature">
+              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">What We Believe</h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.whatWeBelieve}</p>
+            </article>
+            <article className="card-feature">
+              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">How We Work</h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.howWeWork}</p>
+            </article>
+            <article className="card-feature">
+              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">What Makes Us Different</h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.whatMakesUsDifferent}</p>
+            </article>
+            <article className="card-feature">
+              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">Built With Purpose</h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.builtWithPurpose}</p>
+            </article>
+          </div>
+        </div>
+
+        <div className="wrap mt-12">
+          <p className="kicker">Leadership</p>
           <h2 className="h2 mt-3">Muhammad Shaheer Lodhi</h2>
           <p className="mt-2 text-sm font-semibold text-[var(--accent)]">CEO and Founder · Softoras</p>
-          <p className="mt-5 text-sm leading-7 text-[var(--muted)]">
+          <p className="section-desc mt-4 max-w-3xl">
             Shaheer is a software engineer and AWS Certified Solutions Architect Associate. He builds and runs product
-            work across software, web, backend, cloud, DevOps, CRM, GoHighLevel, AI automation, and SaaS.
+            work across software, web, backend, cloud, DevOps, CRM, GoHighLevel, AI automation, and SaaS — including
+            Softoras ERP.
           </p>
-          <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-            Public work includes CRM operations for Vivacity Solutions North America, earlier GoHighLevel work at
-            Nexus95, and frontend engineering at Teknotize. Softoras is the company that turns that same stack into
-            products and client systems.
-          </p>
-          <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-            Offices in Rawalpindi, Pakistan and Khor Fakkan, Sharjah, UAE.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a href={site.linkedin} className="btn btn-primary" target="_blank" rel="noreferrer">
+          <div className="mt-5 flex flex-wrap gap-3">
+            <a href={site.linkedin} className="btn btn-primary btn-compact" target="_blank" rel="noreferrer">
               LinkedIn
             </a>
-            <Link href="/contact" className="btn btn-ghost">
+            <Link href="/contact" className="btn btn-secondary btn-compact">
               Start a Project
             </Link>
           </div>
         </div>
-      </section>
 
-      <section className="wrap mt-16">
-        <h2 className="h2">What we work with</h2>
-        <p className="lede mt-3">The tools we ship on. Logos, not a résumé dump.</p>
-        <div className="mt-8">
-          <TechGrid />
-        </div>
-      </section>
-
-      <section className="wrap mt-16">
-        <h2 className="h2">Capability map</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {stackGroups.map((group) => (
-            <article key={group.title} className="panel panel-hover p-5">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">{group.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{group.items.join(' · ')}</p>
-            </article>
+        <div className="wrap mt-10 grid grid-cols-3 gap-3 sm:max-w-lg">
+          {stats.map((item) => (
+            <div key={item.label} className="stat-pill">
+              <strong>{item.value}</strong>
+              <span className="text-xs text-[var(--muted)]">{item.label}</span>
+            </div>
           ))}
         </div>
+      </div>
+
+      <section className="band band-mist section-y">
+        <div className="wrap">
+          <SectionHeader kicker="How We Work" title="From idea to production" align="center" />
+          <div className="mt-10">
+            <ProcessTimeline />
+          </div>
+        </div>
       </section>
-    </div>
+
+      <section className="band band-paper section-y">
+        <div className="wrap">
+          <SectionHeader kicker="Why Softoras" title="Why businesses choose Softoras" align="center" />
+          <div className="card-grid-4 mt-10">
+            {strengths.map((item) => (
+              <article key={item.title} className="card-feature">
+                <h3 className="font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="band band-mist section-y">
+        <div className="wrap">
+          <SectionHeader
+            kicker="Technology Ecosystem"
+            title="One team. A complete technology ecosystem."
+            align="center"
+          />
+          <div className="mt-10">
+            <TechGrid />
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
