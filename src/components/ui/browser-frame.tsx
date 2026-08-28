@@ -17,9 +17,16 @@ export default function BrowserFrame({
         <span className="dot" />
         {href ? <span className="ml-2 truncate text-[11px] text-[var(--muted)]">{href.replace(/^https?:\/\//, '')}</span> : null}
       </div>
-      <div className="relative aspect-[16/10] bg-[var(--bg-alt)]">
-        <Image src={src} alt={alt} fill className="object-cover object-top" sizes="(min-width: 1024px) 50vw, 100vw" />
-      </div>
+      <Image
+        src={src}
+        alt={alt}
+        width={1440}
+        height={700}
+        className="shot"
+        quality={100}
+        unoptimized
+        sizes="(min-width: 1180px) 1180px, 100vw"
+      />
     </div>
   )
 

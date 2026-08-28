@@ -17,76 +17,82 @@ export const site = {
 
 export const services = [
   {
-    slug: 'software-development',
-    title: 'Software Development',
-    description:
-      'Custom applications designed around how the business actually operates — from internal tools to customer-facing platforms.',
-    points: ['Web applications', 'API-first backends', 'Maintainable architecture', 'Iterative delivery'],
+    slug: 'custom-websites',
+    title: 'Custom Websites',
+    description: 'Fast, clean sites built around your brand — Next.js, WordPress, or Shopify. Not a template dump.',
+    points: ['Business websites', 'Landing pages', 'WordPress', 'Shopify stores'],
+  },
+  {
+    slug: 'software-products',
+    title: 'Software & Products',
+    description: 'Custom apps and SaaS products — from first screen to a live product people can log into.',
+    points: ['SaaS products', 'Web apps', 'Admin panels', 'APIs'],
+  },
+  {
+    slug: 'ai-agents-bots',
+    title: 'AI Agents & Bots',
+    description: 'Voice and chat agents that answer, book, and follow up — OpenAI, Vapi, and real workflows.',
+    points: ['AI agents', 'AI bots', 'Voice agents', 'Chat flows'],
   },
   {
     slug: 'ai-automation',
-    title: 'AI & Automation',
-    description:
-      'Workflows, agents, and integrations that remove repetitive work from sales, operations, and support.',
-    points: ['OpenAI-powered flows', 'Vapi voice agents', 'Make / Zapier / n8n', 'Webhooks and APIs'],
+    title: 'AI & n8n Automation',
+    description: 'n8n, Make, Zapier, and AI in the middle — so leads, emails, and ops move without extra staff.',
+    points: ['n8n workflows', 'Make / Zapier', 'OpenAI in pipelines', 'Webhooks'],
   },
   {
     slug: 'crm-gohighlevel',
     title: 'CRM & GoHighLevel',
-    description:
-      'Pipelines, automations, and CRM operations built for teams that live in GoHighLevel, HubSpot, and connected tools.',
-    points: ['Pipeline design', 'Lead routing', 'SMS / email sequences', 'Calendar and booking'],
+    description: 'Pipelines, booking, SMS, and follow-up built for teams that live in GHL and HubSpot.',
+    points: ['Pipeline design', 'Lead routing', 'SMS / email', 'Booking'],
+  },
+  {
+    slug: 'cloud-servers',
+    title: 'Servers & Cloud',
+    description: 'AWS, Vercel, Cloudflare, DNS, and server setup so the product stays online and can ship safely.',
+    points: ['AWS architecture', 'Server management', 'Vercel / Cloudflare', 'DNS and deploys'],
   },
   {
     slug: 'web-development',
     title: 'Web Development',
-    description:
-      'High-performance websites and storefronts — Next.js, WordPress, or Shopify — with clean IA and conversion-minded UX.',
-    points: ['Next.js / React', 'WordPress', 'Shopify', 'Responsive delivery'],
-  },
-  {
-    slug: 'cloud-devops',
-    title: 'Cloud & DevOps',
-    description:
-      'AWS-centered infrastructure, DNS, deployment, and monitoring so products stay online and can be shipped safely.',
-    points: ['AWS architecture', 'Vercel / Cloudflare', 'CI-friendly deploys', 'IAM, S3, EC2, Lambda'],
+    description: 'Frontend and backend in one team: React, Next.js, Node, PHP, Python — shipped responsive.',
+    points: ['React / Next.js', 'Node / PHP / Python', 'Responsive UI', 'Performance'],
   },
   {
     slug: 'business-systems',
     title: 'Business Systems',
-    description:
-      'Admin panels, databases, and operational software that connect the website to the way the company works day to day.',
-    points: ['Supabase / MongoDB', 'Custom admin', 'Role-based access', 'Operational workflows'],
+    description: 'Admin, databases, and the software staff use every day — not only the public homepage.',
+    points: ['Supabase / MongoDB', 'Custom admin', 'Roles and access', 'Ops workflows'],
   },
 ]
 
 export const industries = [
   { title: 'Real Estate', text: 'Lead capture, CRM pipelines, and listing-site workflows for agents and brokerages.' },
-  { title: 'Healthcare', text: 'Booking, follow-up, and operational sites that keep patient intake organized.' },
-  { title: 'Education', text: 'Course catalogs, student queries, digital products, and learning-business operations.' },
-  { title: 'Ecommerce', text: 'Shopify and custom storefronts with catalog, checkout, and fulfillment-ready structure.' },
-  { title: 'Professional Services', text: 'Intake, CRM, and delivery systems for consultancies and specialist firms.' },
-  { title: 'Agencies', text: 'Client CRM, automation, and reporting stacks that keep accounts moving.' },
-  { title: 'Local Businesses', text: 'Websites, ads-to-CRM flows, booking, and follow-up for service businesses.' },
-  { title: 'SaaS companies', text: 'Product UI, billing-ready architecture, and cloud deployment for software teams.' },
+  { title: 'Healthcare', text: 'Booking, follow-up, and sites that keep intake organized.' },
+  { title: 'Education', text: 'Course catalogs, student queries, and digital products.' },
+  { title: 'Ecommerce', text: 'Shopify and custom shops with a clean catalog and checkout.' },
+  { title: 'Professional Services', text: 'Intake, CRM, and delivery systems for specialist firms.' },
+  { title: 'Agencies', text: 'Client CRM, automation, and reporting that keep accounts moving.' },
+  { title: 'Local Businesses', text: 'Websites, ads-to-CRM, booking, and follow-up.' },
+  { title: 'SaaS companies', text: 'Product UI, cloud deploy, and systems software teams can ship.' },
 ]
 
 export const process = [
-  { title: 'Discover', text: 'Map the operation, constraints, and the system that actually needs to exist.' },
-  { title: 'Design', text: 'Information architecture, flows, and a delivery plan before the first production commit.' },
+  { title: 'Discover', text: 'Map the operation and the system that actually needs to exist.' },
+  { title: 'Design', text: 'Flows and a plan before the first production commit.' },
   { title: 'Build', text: 'Ship in slices the team can use — not a six-month black box.' },
-  { title: 'Integrate', text: 'Connect CRM, ads, payments, email, and internal tools through APIs and webhooks.' },
-  { title: 'Deploy', text: 'Cloud, DNS, and environments that can be released without drama.' },
-  { title: 'Optimize', text: 'Tighten automations, performance, and the workflows the team uses every week.' },
+  { title: 'Integrate', text: 'Connect CRM, ads, payments, email, and tools through APIs.' },
+  { title: 'Deploy', text: 'Cloud, servers, DNS, and a release path that stays calm.' },
+  { title: 'Optimize', text: 'Tighten automations, speed, and the workflows used every week.' },
 ]
 
 export const strengths = [
-  { title: 'Engineering-first', text: 'Architecture and code quality come before decoration.' },
-  { title: 'Custom systems', text: 'Built for the operation, not a generic template with extra plugins.' },
-  { title: 'Modern stack', text: 'React, Next.js, Node, Python, AWS, and the automation layer the work requires.' },
+  { title: 'Engineering-first', text: 'Code and architecture come before decoration.' },
+  { title: 'Custom systems', text: 'Built for the operation, not a generic plugin stack.' },
+  { title: 'Modern stack', text: 'React, Next.js, Node, Python, AWS, n8n, and AI where it helps.' },
   { title: 'Automation depth', text: 'GoHighLevel, Make, Zapier, n8n, Twilio, and AI agents in real pipelines.' },
-  { title: 'CRM operations', text: 'Pipelines, routing, and follow-up designed for how sales actually works.' },
-  { title: 'Cloud capability', text: 'AWS Solutions Architecture, Vercel, Cloudflare, DNS, and production deploys.' },
-  { title: 'Full-stack delivery', text: 'Frontend, backend, database, and admin — one team owning the path to live.' },
-  { title: 'SaaS experience', text: 'Including ERP, a multi-module cloud product we design, build, and operate.' },
+  { title: 'CRM operations', text: 'Pipelines and follow-up designed for how sales actually works.' },
+  { title: 'Cloud & servers', text: 'AWS Solutions Architecture, Vercel, Cloudflare, and live deploys.' },
+  { title: 'Full-stack delivery', text: 'Frontend, backend, database, admin — one path to live.' },
+  { title: 'SaaS experience', text: 'Including ERP, a cloud product we design, build, and run.' },
 ]

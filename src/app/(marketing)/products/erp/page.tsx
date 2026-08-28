@@ -17,8 +17,7 @@ export default function ErpPage() {
           <p className="kicker">Products</p>
           <h1 className="h2 mt-4">ERP</h1>
           <p className="lede mt-4">
-            Softoras’s cloud ERP for companies that need CRM, operations, finance, and people systems in one product —
-            without a six-month implementation circus.
+            Cloud ERP for CRM, ops, money, and people in one product. Open it. Try it. No six-month circus.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={ERP_URL} className="btn btn-primary">

@@ -3,29 +3,29 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #f3f5f7;
-  --bg-alt: #e7eef4;
-  --ink: #081018;
+  --bg: #ffffff;
+  --bg-alt: #f0f9ff;
+  --ink: #0f172a;
   --panel: #ffffff;
-  --muted: #5c6b7a;
-  --line: rgba(8, 16, 24, 0.1);
-  --accent: #0284c7;
-  --accent-2: #0369a1;
-  --glow: rgba(14, 165, 233, 0.18);
-  --invert: 0;
+  --muted: #475569;
+  --line: rgba(14, 165, 233, 0.18);
+  --accent: #0ea5e9;
+  --accent-2: #0284c7;
+  --glow: rgba(14, 165, 233, 0.22);
+  --hero: linear-gradient(180deg, #f0f9ff 0%, #ffffff 62%);
 }
 
 html.dark {
-  --bg: #05070a;
-  --bg-alt: #000000;
-  --ink: #f4f7fa;
-  --panel: #0c1218;
-  --muted: #93a4b3;
-  --line: rgba(255, 255, 255, 0.08);
+  --bg: #000000;
+  --bg-alt: #041018;
+  --ink: #f8fafc;
+  --panel: #071018;
+  --muted: #94a3b8;
+  --line: rgba(56, 189, 248, 0.22);
   --accent: #38bdf8;
   --accent-2: #7dd3fc;
-  --glow: rgba(56, 189, 248, 0.16);
-  --invert: 1;
+  --glow: rgba(56, 189, 248, 0.2);
+  --hero: radial-gradient(900px 420px at 12% -10%, rgba(56, 189, 248, 0.16), transparent 55%), #000000;
 }
 
 @theme inline {
@@ -66,21 +66,9 @@ body {
 .band-paper { background: var(--bg); }
 .band-mist { background: var(--bg-alt); }
 .band-panel { background: var(--panel); }
-.band-ink {
-  background:
-    radial-gradient(900px 420px at 10% -10%, var(--glow), transparent 55%),
-    radial-gradient(700px 380px at 90% 110%, rgba(2, 132, 199, 0.16), transparent 50%),
-    #061018;
-  color: #f4f7fa;
-}
-.band-ink .muted,
-.band-ink p,
-.band-ink .lede { color: #b7c4d0; }
-
-html.dark .band-ink {
-  background:
-    radial-gradient(900px 420px at 10% -10%, var(--glow), transparent 55%),
-    #000000;
+.band-hero {
+  background: var(--hero);
+  color: var(--ink);
 }
 
 .grid-bg {
@@ -88,10 +76,10 @@ html.dark .band-ink {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(14, 165, 233, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.07) 1px, transparent 1px);
+    linear-gradient(rgba(14, 165, 233, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.12) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 78%);
+  mask-image: radial-gradient(ellipse at center, black 18%, transparent 78%);
 }
 
 .kicker {
@@ -163,6 +151,7 @@ html.dark .band-ink {
 
 .btn-ghost:hover {
   border-color: color-mix(in srgb, var(--accent) 50%, var(--line));
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .panel {
@@ -172,13 +161,42 @@ html.dark .band-ink {
 }
 
 .panel-hover {
-  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+  transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease, background 280ms ease;
 }
 
 .panel-hover:hover {
-  transform: translateY(-4px);
-  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
-  box-shadow: 0 22px 50px -32px var(--glow);
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
+  box-shadow: 0 28px 60px -30px var(--glow);
+}
+
+.tech-tile {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.4rem;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--panel);
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.tech-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+  box-shadow: 0 16px 36px -24px var(--glow);
+}
+
+.ceo-frame {
+  border: 1px solid var(--line);
+  border-radius: 1.4rem;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 80% at 50% 20%, color-mix(in srgb, var(--accent) 18%, transparent), var(--bg-alt));
+  box-shadow: 0 30px 70px -40px var(--glow);
 }
 
 .field {
@@ -203,7 +221,7 @@ html.dark .band-ink {
   top: 0;
   z-index: 50;
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(16px);
 }
 
@@ -221,6 +239,22 @@ html.dark .band-ink {
   border-radius: 1rem;
   overflow: hidden;
   background: var(--panel);
+  box-shadow: 0 18px 40px -28px var(--glow);
+  transition: transform 280ms ease, box-shadow 280ms ease, border-color 280ms ease;
+}
+
+.browser:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 28px 55px -28px var(--glow);
+}
+
+footer a {
+  transition: color 180ms ease;
+}
+
+footer a:hover {
+  color: var(--accent);
 }
 
 .browser-bar {
@@ -229,7 +263,7 @@ html.dark .band-ink {
   gap: 0.35rem;
   padding: 0.55rem 0.75rem;
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg-alt) 80%, var(--panel));
+  background: var(--bg-alt);
 }
 
 .dot { width: 0.45rem; height: 0.45rem; border-radius: 99px; background: #94a3b8; }
@@ -237,18 +271,25 @@ html.dark .band-ink {
 .dot:nth-child(2) { background: #fbbf24; }
 .dot:nth-child(3) { background: #34d399; }
 
+.shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--bg-alt);
+}
+
 .logo-img {
-  height: 3.35rem;
+  height: 5rem;
   width: auto;
   object-fit: contain;
 }
 
 @media (min-width: 768px) {
-  .logo-img { height: 3.9rem; }
+  .logo-img { height: 6.25rem; }
 }
 
 html.dark .logo-img {
-  filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.2));
+  filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.28));
 }
 
 @keyframes rise {
@@ -274,5 +315,5 @@ html.dark .logo-img {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.45;
 }

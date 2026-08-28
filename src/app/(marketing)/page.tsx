@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Hero from '@/components/home/hero'
 import BrowserFrame from '@/components/ui/browser-frame'
+import TechGrid from '@/components/ui/tech-grid'
 import { industries, process, services, strengths, TAGLINE } from '@/content/site'
 import { projects } from '@/content/projects'
-import { stackGroups } from '@/content/stack'
 
 export default function Home() {
   return (
@@ -14,11 +14,14 @@ export default function Home() {
         <div className="wrap grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="kicker">About Softoras</p>
-            <h2 className="h2 mt-4">An engineering company that ships production systems</h2>
+            <h2 className="h2 mt-4">We ship software companies can actually run</h2>
+            <Link href="/about" className="mt-4 inline-block text-sm font-semibold text-[var(--accent)]">
+              Meet the CEO →
+            </Link>
           </div>
           <p className="lede">
-            Softoras builds software for companies that need more than a brochure site: SaaS products, CRM and
-            GoHighLevel operations, AI automation, custom applications, and cloud infrastructure. {TAGLINE}
+            Custom websites, SaaS products, AI agents, n8n automations, CRM, and servers. Led by Muhammad Shaheer Lodhi.{' '}
+            {TAGLINE}
           </p>
         </div>
       </section>
@@ -26,7 +29,7 @@ export default function Home() {
       <section className="band band-mist py-20">
         <div className="wrap">
           <p className="kicker">Services</p>
-          <h2 className="h2 mt-4 max-w-2xl">Capability, not a catalog of buzzwords</h2>
+          <h2 className="h2 mt-4 max-w-2xl">Websites, products, AI, CRM, and cloud — end to end</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {services.map((item) => (
               <article key={item.slug} className="panel panel-hover p-6">
@@ -43,27 +46,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band band-ink py-16">
+      <section className="band band-paper py-16">
         <div className="wrap">
-          <p className="kicker text-sky-300">Technology ecosystem</p>
-          <h2 className="h2 mt-4 text-white">The stack we actually deliver on</h2>
-        </div>
-        <div className="mt-10 overflow-hidden">
-          <div className="marquee px-4">
-            {[...stackGroups.flatMap((g) => g.items), ...stackGroups.flatMap((g) => g.items)].map((item, i) => (
-              <span key={`${item}-${i}`} className="rounded-full border border-white/15 px-4 py-2 text-sm text-sky-100">
-                {item}
-              </span>
-            ))}
+          <p className="kicker">Technology</p>
+          <h2 className="h2 mt-4">Tools we actually ship with</h2>
+          <p className="lede mt-3">Logos for the stack — React, Next.js, n8n, OpenAI, AWS, Shopify, and the rest.</p>
+          <div className="mt-8">
+            <TechGrid />
           </div>
-        </div>
-        <div className="wrap mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {stackGroups.map((group) => (
-            <article key={group.title} className="rounded-2xl border border-white/10 p-5">
-              <h3 className="text-sm font-semibold uppercase tracking-[0.14em] text-sky-300">{group.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{group.items.join(' · ')}</p>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -79,11 +69,12 @@ export default function Home() {
         </div>
         <div className="wrap mt-10 grid gap-8 lg:grid-cols-2">
           {projects.slice(0, 4).map((project) => (
-            <article key={project.slug} className="space-y-4">
+            <article key={project.slug} className="panel panel-hover space-y-4 p-4">
               <BrowserFrame src={project.image} alt={project.name} href={project.url} />
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--accent)]">{project.kind}</p>
                 <h3 className="mt-2 text-xl font-semibold">{project.name}</h3>
+                <p className="mt-2 text-sm font-semibold">{project.hook}</p>
                 <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{project.summary}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {project.stack.map((tag) => (
@@ -108,7 +99,7 @@ export default function Home() {
           <p className="lede mt-4">Capabilities, not unearned case volume. Softoras can deliver systems in these domains.</p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {industries.map((item) => (
-              <article key={item.title} className="panel p-5">
+              <article key={item.title} className="panel panel-hover p-5">
                 <h3 className="font-semibold">{item.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
               </article>
@@ -123,7 +114,7 @@ export default function Home() {
           <h2 className="h2 mt-4">How a system gets to production</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {process.map((step, index) => (
-              <article key={step.title} className="panel p-6">
+              <article key={step.title} className="panel panel-hover p-6">
                 <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent)]">0{index + 1}</p>
                 <h3 className="mt-3 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{step.text}</p>
@@ -133,15 +124,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="band band-ink py-20">
+      <section className="band band-mist py-20">
         <div className="wrap">
-          <p className="kicker text-sky-300">Why Softoras</p>
-          <h2 className="h2 mt-4 text-white">What we actually bring to a build</h2>
+          <p className="kicker">Why Softoras</p>
+          <h2 className="h2 mt-4">What we bring to a build</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {strengths.map((item) => (
-              <article key={item.title} className="rounded-2xl border border-white/10 p-5">
-                <h3 className="font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-300">{item.text}</p>
+              <article key={item.title} className="panel panel-hover p-5">
+                <h3 className="font-semibold">{item.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
               </article>
             ))}
           </div>
@@ -153,8 +144,7 @@ export default function Home() {
           <p className="kicker">Contact</p>
           <h2 className="h2 mt-4">Have an idea? Let’s build it.</h2>
           <p className="lede mt-4">
-            Websites, SaaS platforms, AI automation, CRM systems, and custom business software — start with a scoped
-            conversation.
+            Websites, products, AI agents, CRM, and cloud — start with a clear conversation.
           </p>
           <Link href="/contact" className="btn btn-primary mt-6">
             Start a Project

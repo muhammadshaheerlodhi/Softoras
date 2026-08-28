@@ -17,7 +17,7 @@ export default function SolutionsPage() {
         </p>
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {industries.map((item) => (
-            <article key={item.title} className="panel p-7">
+            <article key={item.title} className="panel panel-hover p-7">
               <h2 className="text-xl font-semibold">{item.title}</h2>
               <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.text}</p>
             </article>
