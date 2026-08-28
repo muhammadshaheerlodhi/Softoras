@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { FormLabel, FormShell, FormStatus } from '@/components/ui/form-shell'
 import { videoTestimonials } from '@/content/testimonials'
 
 function embedSrc(url: string) {
+  if (!url) return ''
   const youTube = url.match(/(?:youtu\.be\/|v=|embed\/)([A-Za-z0-9_-]{11})/)
   if (youTube) return `https://www.youtube.com/embed/${youTube[1]}`
   const vimeo = url.match(/vimeo\.com\/(?:video\/)?(\d+)/)
@@ -44,62 +46,66 @@ export default function VideoTestimonials() {
   }
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-      <div>
-        {videoTestimonials.length ? (
-          <div className="grid gap-5 sm:grid-cols-2">
-            {videoTestimonials.map((item) => (
-              <article key={item.url} className="panel overflow-hidden">
-                <div className="aspect-video bg-[var(--bg-alt)]">
-                  <iframe
-                    src={embedSrc(item.url)}
-                    title={`${item.name} testimonial`}
-                    className="h-full w-full"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="p-4">
-                  <p className="font-semibold">{item.name}</p>
-                  <p className="mt-1 text-sm text-[var(--muted)]">{item.role}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        ) : (
-          <div className="panel flex min-h-56 items-center p-8">
-            <p className="lede">
-              Video stories will show here. Send a YouTube or Vimeo link with the form and we will add it.
-            </p>
-          </div>
-        )}
+    <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+      <div className="grid gap-4 sm:grid-cols-2">
+        {videoTestimonials.map((item) => (
+          <article key={item.name} className="premium-card card-accent overflow-hidden">
+            {item.url ? (
+              <div className="aspect-video bg-[var(--bg-alt)]">
+                <iframe
+                  src={embedSrc(item.url)}
+                  title={`${item.name} testimonial`}
+                  className="h-full w-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <div className="video-slot flex aspect-video flex-col items-center justify-center gap-2 p-4 text-center">
+                <span className="rounded-full border border-[var(--line)] bg-[var(--panel)] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-[var(--accent)]">
+                  Coming soon
+                </span>
+                <p className="text-sm font-semibold">{item.name}</p>
+                <p className="text-xs text-[var(--muted)]">{item.role}</p>
+              </div>
+            )}
+            <div className="p-3.5">
+              <p className="text-sm font-semibold">{item.name}</p>
+              <p className="mt-0.5 text-xs text-[var(--muted)]">{item.role}</p>
+            </div>
+          </article>
+        ))}
       </div>
 
-      <form onSubmit={onSubmit} className="panel grid gap-4 p-6 md:p-8">
-        <p className="text-lg font-semibold">Add a video testimonial</p>
-        <p className="text-sm leading-6 text-[var(--muted)]">Paste a YouTube or Vimeo link. We review it, then it goes live.</p>
-        <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-          Name
-          <input name="name" required placeholder="Your name" className="field mt-2" />
-        </label>
-        <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-          Email
-          <input name="email" type="email" required placeholder="you@company.com" className="field mt-2" />
-        </label>
-        <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-          Video link
-          <input name="videoUrl" type="url" required placeholder="https://www.youtube.com/watch?v=" className="field mt-2" />
-        </label>
-        <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-          Note
-          <textarea name="message" rows={3} placeholder="Optional note" className="field mt-2 min-h-24" />
-        </label>
-        <button type="submit" className="btn btn-primary" disabled={loading}>
-          {loading ? 'Sending' : 'Submit video'}
-        </button>
-        {success ? <p className="text-sm font-semibold text-emerald-600">Received. We will review and add it.</p> : null}
-        {error ? <p className="text-sm font-semibold text-red-500">{error}</p> : null}
-      </form>
+      <FormShell title="Submit a video" subtitle="YouTube or Vimeo link — we review, then publish.">
+        <form onSubmit={onSubmit} className="form-body">
+          <div className="form-row form-row-2">
+            <div className="form-field">
+              <FormLabel htmlFor="video-name">Name</FormLabel>
+              <input id="video-name" name="name" required placeholder="Your name" className="field" />
+            </div>
+            <div className="form-field">
+              <FormLabel htmlFor="video-email">Email</FormLabel>
+              <input id="video-email" name="email" type="email" required placeholder="you@company.com" className="field" />
+            </div>
+          </div>
+          <div className="form-field">
+            <FormLabel htmlFor="video-url">Video link</FormLabel>
+            <input id="video-url" name="videoUrl" type="url" required placeholder="https://youtube.com/watch?v=" className="field" />
+          </div>
+          <div className="form-field">
+            <FormLabel htmlFor="video-note">Note</FormLabel>
+            <textarea id="video-note" name="message" rows={2} placeholder="Optional" className="field" />
+          </div>
+          <div className="form-actions">
+            <button type="submit" className="btn btn-primary btn-compact" disabled={loading}>
+              {loading ? 'Sending…' : 'Submit video'}
+            </button>
+            {success ? <FormStatus type="success">Received. We will review and add it.</FormStatus> : null}
+            {error ? <FormStatus type="error">{error}</FormStatus> : null}
+          </div>
+        </form>
+      </FormShell>
     </div>
   )
 }

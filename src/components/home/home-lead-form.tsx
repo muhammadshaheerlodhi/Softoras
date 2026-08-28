@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { FormLabel, FormStatus } from '@/components/ui/form-shell'
 
 type Tab = 'contact' | 'subscribe'
 
@@ -56,22 +57,20 @@ export default function HomeLeadForm() {
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-      <div className="space-y-5">
-        <p className="text-sm leading-7 text-[var(--muted)]">
-          Tell us what you want to build — a SaaS product, CRM setup, automation stack, or full website. We reply with
-          next steps, not a generic pitch deck.
+    <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-start">
+      <div className="space-y-4">
+        <p className="text-sm leading-6 text-[var(--muted)]">
+          Tell us what you want to build — SaaS, CRM, automation, or a full website. We reply with next steps.
         </p>
-        <ul className="clean-list space-y-2 text-sm text-[var(--muted)]">
+        <ul className="clean-list space-y-1.5 text-sm text-[var(--muted)]">
           <li>Custom websites and SaaS products</li>
           <li>GoHighLevel, HubSpot, and Follow Up Boss CRM</li>
           <li>n8n, Make, Zapier, and AI agent workflows</li>
-          <li>AWS, Vercel, and production deploys</li>
         </ul>
         <p className="text-sm font-semibold text-[var(--accent)]">admin@softoras.com</p>
       </div>
 
-      <div className="contact-shell">
+      <div className="contact-shell w-full">
         <div className="contact-tabs" role="tablist">
           <button
             type="button"
@@ -94,48 +93,53 @@ export default function HomeLeadForm() {
         </div>
 
         {tab === 'contact' ? (
-          <form onSubmit={onContact} className="grid gap-4 p-6 md:p-7">
-            <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Name
-              <input name="name" required placeholder="Your name" className="field mt-2" />
-            </label>
-            <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Email
-              <input name="email" type="email" required placeholder="you@company.com" className="field mt-2" />
-            </label>
-            <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Company
-              <input name="company" placeholder="Company name" className="field mt-2" />
-            </label>
-            <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Message
-              <textarea name="message" required rows={4} placeholder="What do you want to build?" className="field mt-2 min-h-28" />
-            </label>
-            <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={loading}>
-              {loading ? 'Sending' : 'Send message'}
-            </button>
+          <form onSubmit={onContact} className="form-body">
+            <div className="form-row form-row-2">
+              <div className="form-field">
+                <FormLabel htmlFor="home-name">Name</FormLabel>
+                <input id="home-name" name="name" required placeholder="Your name" className="field" />
+              </div>
+              <div className="form-field">
+                <FormLabel htmlFor="home-email">Email</FormLabel>
+                <input id="home-email" name="email" type="email" required placeholder="you@company.com" className="field" />
+              </div>
+            </div>
+            <div className="form-field">
+              <FormLabel htmlFor="home-company">Company</FormLabel>
+              <input id="home-company" name="company" placeholder="Optional" className="field" />
+            </div>
+            <div className="form-field">
+              <FormLabel htmlFor="home-message">Message</FormLabel>
+              <textarea id="home-message" name="message" required rows={3} placeholder="What do you want to build?" className="field" />
+            </div>
+            <div className="form-actions">
+              <button type="submit" className="btn btn-primary btn-compact" disabled={loading}>
+                {loading ? 'Sending…' : 'Send message'}
+              </button>
+              {success ? <FormStatus type="success">Received. Thank you.</FormStatus> : null}
+              {error ? <FormStatus type="error">{error}</FormStatus> : null}
+            </div>
           </form>
         ) : (
-          <form onSubmit={onSubscribe} className="grid gap-4 p-6 md:p-7">
-            <p className="text-sm leading-7 text-[var(--muted)]">
-              Product notes, build updates, and new work. No noise.
-            </p>
-            <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Name
-              <input name="subName" placeholder="Your name" className="field mt-2" />
-            </label>
-            <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Email
-              <input name="subEmail" type="email" required placeholder="you@company.com" className="field mt-2" />
-            </label>
-            <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={loading}>
-              {loading ? 'Sending' : 'Subscribe'}
-            </button>
+          <form onSubmit={onSubscribe} className="form-body">
+            <p className="text-xs leading-5 text-[var(--muted)]">Product notes and build updates. No noise.</p>
+            <div className="form-field">
+              <FormLabel htmlFor="sub-name">Name</FormLabel>
+              <input id="sub-name" name="subName" placeholder="Your name" className="field" />
+            </div>
+            <div className="form-field">
+              <FormLabel htmlFor="sub-email">Email</FormLabel>
+              <input id="sub-email" name="subEmail" type="email" required placeholder="you@company.com" className="field" />
+            </div>
+            <div className="form-actions">
+              <button type="submit" className="btn btn-primary btn-compact" disabled={loading}>
+                {loading ? 'Sending…' : 'Subscribe'}
+              </button>
+              {success ? <FormStatus type="success">Subscribed. Thank you.</FormStatus> : null}
+              {error ? <FormStatus type="error">{error}</FormStatus> : null}
+            </div>
           </form>
         )}
-
-        {success ? <p className="px-6 pb-6 text-sm font-semibold text-emerald-600">Received. Thank you.</p> : null}
-        {error ? <p className="px-6 pb-6 text-sm font-semibold text-red-500">{error}</p> : null}
       </div>
     </div>
   )

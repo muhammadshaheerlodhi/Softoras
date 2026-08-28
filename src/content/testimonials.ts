@@ -28,4 +28,6 @@ export type VideoTestimonial = {
 }
 
 export const videoTestimonials: VideoTestimonial[] = [
+  { name: 'David Karniak', role: 'Client', url: '' },
+  { name: 'Imran Afzal', role: 'Client', url: '' },
 ]
