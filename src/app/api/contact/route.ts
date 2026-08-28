@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
 export async function POST(req: NextRequest) {
-  const { name, email, phone, message } = await req.json()
+  const body = await req.json()
+  const { name, email, message, company, projectType, budget, phone } = body
 
   if (!name || !email || !message) {
     return NextResponse.json({ error: 'Missing required fields.' }, { status: 400 })
@@ -11,9 +12,10 @@ export async function POST(req: NextRequest) {
   const host = process.env.SMTP_HOST
   const user = process.env.SMTP_USER
   const pass = process.env.SMTP_PASS
+  const text = `Name: ${name}\nEmail: ${email}\nCompany: ${company || '-'}\nProject: ${projectType || '-'}\nBudget: ${budget || '-'}\nPhone: ${phone || '-'}\n\n${message}`
 
   if (!host || !user || !pass) {
-    console.info('Contact form received (SMTP not configured):', { name, email, phone, message })
+    console.info('Contact form received (SMTP not configured):', { name, email, company, projectType, budget })
     return NextResponse.json({ ok: true, queued: true })
   }
 
@@ -29,8 +31,8 @@ export async function POST(req: NextRequest) {
       from: 'Softoras Contact <admin@softoras.com>',
       to: 'admin@softoras.com',
       subject: `Contact form from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || '-'}\n\n${message}`,
-      html: `<h2>Contact form</h2><p><b>Name:</b> ${name}</p><p><b>Email:</b> ${email}</p><p><b>Phone:</b> ${phone || '-'}</p><p>${message}</p>`,
+      text,
+      html: `<pre style="font-family:Inter,sans-serif;white-space:pre-wrap">${text}</pre>`,
     })
     return NextResponse.json({ ok: true })
   } catch (error) {

@@ -4,18 +4,23 @@ import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+const themeScript = `(function(){try{if(localStorage.getItem('softoras-theme')==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}}catch(e){}})();`
+
 export const metadata: Metadata = {
   title: {
-    default: 'Softoras | SaaS, CRM, AI & Softoras ERP',
+    default: 'Softoras | Think SaaS. Think Softoras.',
     template: '%s | Softoras',
   },
   description:
-    'Softoras builds SaaS platforms, CRM systems, AI automations, and Softoras ERP — a cloud ERP powered by Softoras.',
+    'Softoras builds SaaS products, AI automation, CRM systems, websites, and cloud infrastructure. Think SaaS. Think Softoras.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )

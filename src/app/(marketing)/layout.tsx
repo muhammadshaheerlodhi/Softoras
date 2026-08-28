@@ -1,12 +1,13 @@
 import Footer from '@/components/layout/Footer'
-import Navbar from '@/components/layout/Navbar'
+import Header from '@/components/layout/header'
+import { ThemeProvider } from '@/components/theme/theme-provider'
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
-    <>
-      <Navbar />
-      <main className="min-h-screen">{children}</main>
+    <ThemeProvider>
+      <Header />
+      <main>{children}</main>
       <Footer />
-    </>
+    </ThemeProvider>
   )
 }
