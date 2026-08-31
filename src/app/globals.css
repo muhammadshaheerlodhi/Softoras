@@ -2528,36 +2528,6 @@ html:not(.dark) .band-mist {
   min-height: calc(100vh - var(--header-h, 64px));
 }
 
-.erp-page-bar {
-  padding-top: 1rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.erp-breadcrumb {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.8125rem;
-  color: var(--muted);
-}
-
-.erp-breadcrumb a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.erp-breadcrumb a:hover {
-  text-decoration: underline;
-}
-
-.erp-breadcrumb-current {
-  color: var(--ink);
-  font-weight: 600;
-}
-
 .erp-embed-shell {
   position: relative;
   flex: 1;
@@ -2568,7 +2538,7 @@ html:not(.dark) .band-mist {
 .erp-embed-frame {
   display: block;
   width: 100%;
-  height: calc(100vh - var(--header-h, 64px) - 3.5rem);
+  height: calc(100vh - var(--header-h, 64px));
   min-height: 640px;
   border: 0;
   background: var(--bg);
