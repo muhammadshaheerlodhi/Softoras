@@ -1,0 +1,223 @@
+/* ERP product landing + auth (native pages on Softoras site) */
+
+@keyframes erp-float {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+@keyframes erp-pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes erp-fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes erp-dashboard-orbit-ccw {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(var(--orbit-radius, 200px)) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg) translateX(var(--orbit-radius, 200px)) rotate(360deg);
+  }
+}
+
+.erp-landing .landing-pulse-slow { animation: erp-pulse-slow 3s ease-in-out infinite; }
+.erp-landing .landing-hero-text { animation: erp-fade-in-up 0.8s ease-out both; }
+
+.erp-landing [data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.erp-landing [data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.erp-landing .landing-btn-primary {
+  border-radius: 0.75rem;
+  background: #0284c7;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 4px 14px color-mix(in srgb, #0284c7 35%, transparent);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.erp-landing .landing-btn-primary:hover {
+  transform: scale(1.03);
+  background: #0369a1;
+}
+
+.erp-landing .landing-btn-outline {
+  border-radius: 0.75rem;
+  border: 2px solid #0284c7;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  color: #0284c7;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.erp-landing .landing-btn-outline:hover {
+  transform: scale(1.03);
+  background: #0284c7;
+  color: #fff;
+}
+
+.erp-landing .landing-card {
+  border-radius: 1rem;
+  background: #fff;
+  box-shadow: 0 4px 20px color-mix(in srgb, #0284c7 10%, transparent);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.erp-landing .landing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px color-mix(in srgb, #0284c7 18%, transparent);
+}
+
+.erp-landing .dashboard-orbit-stage {
+  --orbit-duration: 28s;
+  min-height: 340px;
+  padding: 2.5rem 0;
+}
+
+.erp-landing .dashboard-orbit-track {
+  width: 0;
+  height: 0;
+}
+
+.erp-landing .dashboard-orbit-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: erp-dashboard-orbit-ccw var(--orbit-duration, 28s) linear infinite;
+}
+
+@media (min-width: 640px) {
+  .erp-landing .dashboard-orbit-stage {
+    --orbit-radius: 220px;
+    min-height: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .erp-landing .dashboard-orbit-stage {
+    --orbit-radius: 250px;
+    min-height: 420px;
+  }
+}
+
+.erp-landing .feature-flip-card {
+  perspective: 1000px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.erp-landing .feature-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.erp-landing .feature-flip-card.is-flipped .feature-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.erp-landing .feature-flip-front,
+.erp-landing .feature-flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.erp-landing .feature-flip-back {
+  transform: rotateY(180deg);
+}
+
+html.dark .erp-landing .landing-card,
+html.dark .erp-landing .feature-flip-front,
+html.dark .erp-landing .feature-flip-back {
+  background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+html.dark .erp-landing .text-slate-900,
+html.dark .erp-landing .text-slate-700,
+html.dark .erp-landing .text-slate-600 {
+  color: var(--ink);
+}
+
+html.dark .erp-landing .border-sky-100,
+html.dark .erp-landing .border-slate-200 {
+  border-color: var(--line);
+}
+
+.erp-auth-shell {
+  display: flex;
+  justify-content: center;
+}
+
+.erp-auth-panel {
+  width: 100%;
+  max-width: 32rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: var(--panel);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.erp-auth-alert {
+  border: 1px solid color-mix(in srgb, #ef4444 35%, transparent);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, #ef4444 8%, var(--panel));
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--ink);
+}
+
+.erp-auth .field-error {
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #ef4444;
+}
+
+.erp-landing {
+  --color-primary: #0284c7;
+  --color-primary-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-secondary: #f1f5f9;
+  --color-secondary-foreground: #0f172a;
+  --color-accent: #e0f2fe;
+  --color-accent-foreground: #0284c7;
+  --color-ring: #38bdf8;
+  --color-input: #e2e8f0;
+  --color-muted-foreground: #64748b;
+  --color-foreground: #0f172a;
+  --color-background: #ffffff;
+}
+
+html.dark .erp-landing {
+  --color-primary: var(--accent);
+  --color-primary-foreground: #000;
+  --color-secondary: color-mix(in srgb, var(--accent) 8%, var(--bg));
+  --color-secondary-foreground: var(--ink);
+  --color-accent: color-mix(in srgb, var(--accent) 12%, var(--bg));
+  --color-accent-foreground: var(--accent);
+  --color-input: var(--line);
+  --color-muted-foreground: var(--muted);
+  --color-foreground: var(--ink);
+  --color-background: var(--bg);
+}
