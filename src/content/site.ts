@@ -70,7 +70,7 @@ export const services: Service[] = [
       'Documentation and handoff so internal teams can maintain the system',
     ],
     deliverables: ['Product UI and UX flows', 'Auth and user roles', 'Admin panels', 'REST or webhook APIs', 'Staging and production deploys'],
-    tools: ['React', 'Next.js', 'Supabase', 'Node.js', 'AWS'],
+    tools: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Supabase', 'PostgreSQL', 'AWS', 'Stripe', 'Tailwind CSS'],
   },
   {
     slug: 'ai-agents-bots',
@@ -96,7 +96,7 @@ export const services: Service[] = [
       'Measurable impact on response time, booking rate, or lead quality',
     ],
     deliverables: ['Voice or chat agent setup', 'Prompt and flow design', 'CRM and calendar integration', 'Call logging and monitoring', 'Fallback to human handoff'],
-    tools: ['OpenAI', 'Vapi', 'GoHighLevel', 'Twilio', 'n8n'],
+    tools: ['OpenAI', 'Vapi', 'Twilio', 'GoHighLevel', 'n8n', 'Make', 'Python', 'JavaScript', 'HubSpot'],
   },
   {
     slug: 'crm-gohighlevel',
@@ -122,7 +122,7 @@ export const services: Service[] = [
       'Documented workflows the sales and ops team can run independently',
     ],
     deliverables: ['Pipeline and stage design', 'GHL or HubSpot setup', 'SMS and email sequences', 'Booking and calendar flows', 'Reporting dashboards'],
-    tools: ['GoHighLevel', 'HubSpot', 'Follow Up Boss', 'Calendly', 'Twilio'],
+    tools: ['GoHighLevel', 'HubSpot', 'Follow Up Boss', 'Calendly', 'Twilio', 'Stripe', 'Zapier', 'Make'],
   },
   {
     slug: 'ai-automation',
@@ -148,7 +148,7 @@ export const services: Service[] = [
       'Monitoring so failures surface before customers notice',
     ],
     deliverables: ['Workflow mapping and design', 'n8n / Make / Zapier builds', 'Webhook and API connections', 'AI steps in pipelines', 'Monitoring and alerts'],
-    tools: ['n8n', 'Make', 'Zapier', 'OpenAI', 'HubSpot'],
+    tools: ['n8n', 'Make', 'Zapier', 'OpenAI', 'HubSpot', 'GoHighLevel', 'Twilio', 'Webhooks', 'Python'],
   },
   {
     slug: 'web-development',
@@ -174,7 +174,7 @@ export const services: Service[] = [
       'Maintainable codebase with components your team can extend',
     ],
     deliverables: ['Frontend and backend code', 'Responsive layouts', 'API integration', 'Performance optimization', 'Cross-browser testing'],
-    tools: ['React', 'Next.js', 'Node.js', 'PHP', 'Python'],
+    tools: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PHP', 'Laravel', 'Python', 'Tailwind CSS', 'WordPress'],
   },
   {
     slug: 'cloud-servers',
@@ -200,7 +200,7 @@ export const services: Service[] = [
       'Security basics covered: access, SSL, secrets, and backups',
     ],
     deliverables: ['Cloud architecture plan', 'AWS / Vercel setup', 'DNS and SSL', 'Deploy pipelines', 'Monitoring and uptime checks'],
-    tools: ['AWS', 'Vercel', 'Cloudflare', 'Docker', 'GitHub'],
+    tools: ['AWS', 'Vercel', 'Cloudflare', 'Docker', 'GitHub', 'TypeScript', 'Node.js', 'PostgreSQL'],
   },
   {
     slug: 'business-systems',
@@ -226,7 +226,7 @@ export const services: Service[] = [
       'Systems designed to grow with new modules and user groups',
     ],
     deliverables: ['Custom admin panels', 'Database design', 'Role-based access', 'Reporting and exports', 'Ops workflow automation'],
-    tools: ['Supabase', 'MongoDB', 'PostgreSQL', 'React', 'AWS'],
+    tools: ['Supabase', 'MongoDB', 'PostgreSQL', 'React', 'TypeScript', 'AWS', 'Node.js', 'Airtable'],
   },
   {
     slug: 'custom-websites',
@@ -252,7 +252,7 @@ export const services: Service[] = [
       'Faster iteration because design and engineering share the same codebase',
     ],
     deliverables: ['UX flows and wireframes', 'UI design implemented in code', 'Component libraries', 'Responsive product screens', 'Handoff-ready design system'],
-    tools: ['React', 'Next.js', 'Tailwind CSS', 'Figma', 'Framer Motion'],
+    tools: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Figma', 'Framer Motion', 'JavaScript', 'Node.js'],
   },
 ]
 

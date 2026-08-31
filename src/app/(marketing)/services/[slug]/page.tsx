@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import FaqSection from '@/components/ui/faq-section'
+import ServiceToolsStrip from '@/components/ui/service-tools-strip'
 import { getServiceFaqs } from '@/content/faqs'
 import { getService, services } from '@/content/site'
 
@@ -84,16 +85,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </ul>
           </article>
 
-          <article className="card-feature">
-            <h2 className="card-heading-sm">Tools we use</h2>
-            <div className="mt-4 flex flex-wrap justify-center gap-2">
-              {service.tools.map((tool) => (
-                <span key={tool} className="service-tool-tag">
-                  {tool}
-                </span>
-              ))}
-            </div>
-          </article>
+          <ServiceToolsStrip tools={service.tools} />
 
           <div className="service-detail-cta card-feature">
             <h2 className="card-heading-sm">Ready to start?</h2>
