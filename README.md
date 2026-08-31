@@ -1,6 +1,6 @@
 # Softoras Website
 
-Public marketing site for Softoras — SaaS, CRM, AI, and Softoras ERP.
+Public marketing site for Softoras: SaaS, CRM, AI, and Softoras ERP.
 
 - Theme: white + sky blue
 - Case studies: `/case-studies` cards with visuals → `/case-studies/[slug]`

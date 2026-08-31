@@ -31,7 +31,7 @@ export default function AnimatedHero() {
             Systems that sell, operate, and scale.
           </h1>
           <p className="max-w-xl text-lg leading-8 text-slate-600">
-            Softoras designs revenue-ready platforms, automations, and cloud software for growing companies — including
+            Softoras designs revenue-ready platforms, automations, and cloud software for growing companies, including
             Softoras ERP.
           </p>
           <div className="flex flex-wrap gap-4">

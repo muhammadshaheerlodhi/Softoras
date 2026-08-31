@@ -1,3 +1,4 @@
+import FaqSection from '@/components/ui/faq-section'
 import Hero from '@/components/home/hero'
 import HomeLeadForm from '@/components/home/home-lead-form'
 import TestimonialCarousel from '@/components/home/testimonial-carousel'
@@ -11,6 +12,7 @@ import SectionHeader from '@/components/ui/section-header'
 import TechGrid from '@/components/ui/tech-grid'
 import ProjectCard from '@/components/ui/project-card'
 import { MISSION, services, solutionAreas, strengths } from '@/content/site'
+import { homeFaqs } from '@/content/faqs'
 import { clientProjects } from '@/content/projects'
 
 export default function Home() {
@@ -37,7 +39,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Flagship product — separate from client projects */}
+      {/* Flagship product, separate from client projects */}
       <ProductSpotlight />
 
       {/* Solutions */}
@@ -76,7 +78,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Client projects — ERP excluded */}
+      {/* Client projects, ERP excluded */}
       <section className="band band-paper section-y">
         <div className="wrap">
           <SectionHeader
@@ -132,6 +134,17 @@ export default function Home() {
 
       {/* Trust + partner feedback */}
       <TrustSection />
+
+      <section className="band band-mist section-y">
+        <div className="wrap">
+          <FaqSection
+            items={homeFaqs}
+            kicker="FAQ"
+            title="Top questions about Softoras"
+            description="What we do, how ERP fits in, how systems connect, and how we work with teams in production."
+          />
+        </div>
+      </section>
 
       <section className="band band-paper section-y-sm">
         <div className="wrap">

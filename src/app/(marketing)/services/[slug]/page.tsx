@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import FaqSection from '@/components/ui/faq-section'
+import { getServiceFaqs } from '@/content/faqs'
 import { getService, services } from '@/content/site'
 
 export function generateStaticParams() {
@@ -24,6 +26,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const index = services.findIndex((item) => item.slug === slug)
   const prev = services[index - 1]
   const next = services[index + 1]
+  const faqs = getServiceFaqs(slug)
 
   return (
     <div className="band band-paper pb-16 pt-14">
@@ -101,6 +104,16 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
               Contact Softoras
             </Link>
           </div>
+        </div>
+
+        <div className="service-detail-faq">
+          <FaqSection
+            items={faqs}
+            kicker="Service FAQ"
+            title={`${service.title} questions`}
+            description="Common questions about this service, how we deliver it, and what you can expect."
+            align="left"
+          />
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--line)] pt-8">

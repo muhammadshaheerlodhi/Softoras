@@ -20,7 +20,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Lead pipeline that books consultations on its own',
     client: 'The Cryo Sculpting Lab',
     industry: 'Wellness & Aesthetics',
-    oneLiner: 'Meta Ads to landing page to GoHighLevel — with automations that follow up, book, and recover no-shows.',
+    oneLiner: 'Meta Ads to landing page to GoHighLevel, with automations that follow up, book, and recover no-shows.',
     summary:
       'We designed a single-meaning lead pipeline and a full automation layer so every ad lead is answered instantly, nurtured automatically, and synced back to Meta for smarter spend.',
     challenge:
@@ -29,7 +29,7 @@ export const caseStudies: CaseStudy[] = [
       'Softoras built a GoHighLevel CRM pipeline with seven clear stages and eleven automations covering speed-to-lead, missed-call text-back, nurture drips, booking, reminders, no-show recovery, onboarding, reviews, and Meta CAPI sync.',
     results: [
       'Every form submit gets SMS + email within 60 seconds',
-      'Pipeline stages have one meaning each — no messy boards',
+      'Pipeline stages have one meaning each, with no messy boards',
       'No-shows move into an automatic rebooking sequence',
       'Lead, Booked, and Purchase events sync back to Meta',
     ],
@@ -132,7 +132,7 @@ export const caseStudies: CaseStudy[] = [
     industry: 'Operations',
     oneLiner: 'Cloud-based applications and workflows built for real production use.',
     summary:
-      'Softoras worked with UTCLI LLC on production systems — CRM infrastructure, automation, and cloud applications designed to last.',
+      'Softoras worked with UTCLI LLC on production systems: CRM infrastructure, automation, and cloud applications designed to last.',
     challenge:
       'The business needed reliable production systems, not a prototype that would break as volume grew.',
     solution:

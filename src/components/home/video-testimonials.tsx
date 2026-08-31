@@ -77,7 +77,7 @@ export default function VideoTestimonials() {
         ))}
       </div>
 
-      <FormShell title="Submit a video" subtitle="YouTube or Vimeo link — we review, then publish.">
+      <FormShell title="Submit a video" subtitle="YouTube or Vimeo link. We review, then publish.">
         <form onSubmit={onSubmit} className="form-body">
           <div className="form-row form-row-2">
             <div className="form-field">

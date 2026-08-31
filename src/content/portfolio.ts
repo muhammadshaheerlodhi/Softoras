@@ -23,7 +23,7 @@ export const techStack = [
 export const featuredProjects = [
   {
     title: 'Softoras ERP',
-    description: 'Full cloud ERP — CRM, Sales, HR, Accounting, Inventory, Projects.',
+    description: 'Full cloud ERP: CRM, Sales, HR, Accounting, Inventory, Projects.',
     url: 'https://softoras-erp.vercel.app',
     tag: 'SaaS Product',
     image: '/case-studies/saas.png',
@@ -58,7 +58,7 @@ export const founder = {
   linkedin: 'https://www.linkedin.com/in/muhammad-shaheer-lodhi-655aa8227',
   highlights: [
     'CRM & GoHighLevel expert with production systems across US & UAE',
-    'Built Softoras ERP — a full cloud ERP used by growing businesses',
+    'Built Softoras ERP, a full cloud ERP used by growing businesses',
     'Delivered automation systems for Vivacity NA, UTCLI LLC, and Nexus95',
     'Specializes in SaaS, AI workflows, and AWS cloud architecture',
   ],
