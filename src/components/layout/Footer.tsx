@@ -61,14 +61,14 @@ export default function Footer() {
             <li><a href={site.phones.uae.href}>{site.phones.uae.label}</a></li>
             <li><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
           </ul>
-          <p className="mt-4 text-xs leading-5 text-slate-400">{site.offices.pakistan}</p>
-          <p className="text-xs leading-5 text-slate-400">{site.offices.uae}</p>
+          <p className="footer-meta mt-4">{site.offices.pakistan}</p>
+          <p className="footer-meta">{site.offices.uae}</p>
         </div>
       </div>
 
       <div className="wrap site-footer-bar">
         <p>© {new Date().getFullYear()} Softoras. All rights reserved.</p>
-        <Link href="/contact" className="text-sm font-semibold text-sky-300 hover:text-white">
+        <Link href="/contact" className="footer-cta-link">
           Start a Project →
         </Link>
       </div>

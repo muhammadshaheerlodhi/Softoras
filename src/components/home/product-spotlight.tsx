@@ -4,7 +4,7 @@ import { ERP_URL, erpModules } from '@/content/site'
 
 export default function ProductSpotlight() {
   return (
-    <section className="band band-slate section-y">
+    <section className="band band-mist section-y">
       <div className="wrap">
         <div className="product-spotlight">
           <div className="product-spotlight-copy">

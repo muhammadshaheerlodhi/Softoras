@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import ServiceCardLink from '@/components/ui/service-card-link'
 import { services } from '@/content/site'
 import SectionHeader from '@/components/ui/section-header'
 
@@ -18,17 +18,7 @@ export default function ServicesPage() {
         />
         <div className="card-grid-3 mt-10">
           {services.map((item) => (
-            <Link key={item.slug} href={`/services/${item.slug}`} className="card-service">
-              <span className="card-service-icon">{item.icon}</span>
-              <h2 className="text-xl font-semibold">{item.title}</h2>
-              <p className="mt-3 flex-1 text-sm leading-7 text-[var(--muted)]">{item.description}</p>
-              <ul className="clean-list mt-4 space-y-1 text-sm text-[var(--muted)]">
-                {item.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-              <span className="service-card-link">View service details →</span>
-            </Link>
+            <ServiceCardLink key={item.slug} item={item} variant="page" />
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import Hero from '@/components/home/hero'
 import HomeLeadForm from '@/components/home/home-lead-form'
-import TestimonialMarquee from '@/components/home/testimonial-marquee'
+import TestimonialCarousel from '@/components/home/testimonial-carousel'
+import ServiceCardLink from '@/components/ui/service-card-link'
 import FinalCta from '@/components/home/final-cta'
 import ProductSpotlight from '@/components/home/product-spotlight'
 import ProcessTimeline from '@/components/home/process-timeline'
@@ -31,12 +31,7 @@ export default function Home() {
           <p className="mission-line mt-4">{MISSION}</p>
           <div className="card-grid-3 mt-10">
             {services.map((item) => (
-              <Link key={item.slug} href={`/services/${item.slug}`} className="card-service">
-                <span className="card-service-icon">{item.icon}</span>
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-[var(--muted)]">{item.description}</p>
-                <span className="card-service-link">Learn more →</span>
-              </Link>
+              <ServiceCardLink key={item.slug} item={item} />
             ))}
           </div>
         </div>
@@ -146,8 +141,8 @@ export default function Home() {
             description="Feedback from people who have worked with Softoras on live systems."
             align="center"
           />
-          <div className="mt-8">
-            <TestimonialMarquee />
+          <div className="mt-10">
+            <TestimonialCarousel />
           </div>
         </div>
       </section>

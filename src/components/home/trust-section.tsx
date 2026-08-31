@@ -2,7 +2,7 @@ import { MISSION, stats, TAGLINE } from '@/content/site'
 
 export default function TrustSection() {
   return (
-    <section className="band band-slate section-y-sm">
+    <section className="band band-mist section-y-sm">
       <div className="wrap">
         <div className="trust-panel">
           <p className="kicker">Experience</p>
