@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '@/components/layout/logo'
 import ThemeToggle from '@/components/theme/theme-toggle'
-import { ERP_URL } from '@/content/site'
+import { ERP_PATH } from '@/content/site'
 
 const links = [
   { name: 'Home', href: '/' },
@@ -21,6 +21,8 @@ export default function Header() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
   const active = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href))
+
+  const erpActive = pathname.startsWith('/products/erp')
 
   return (
     <header className="site-header">
@@ -37,7 +39,7 @@ export default function Header() {
           <div className="group relative">
             <button
               type="button"
-              className="nav-link inline-flex items-center gap-1"
+              className={`nav-link inline-flex items-center gap-1 ${erpActive ? 'is-active' : ''}`}
               aria-haspopup="true"
             >
               Products
@@ -45,15 +47,13 @@ export default function Header() {
             </button>
             <div className="invisible absolute left-0 top-full z-50 min-w-48 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
               <div className="nav-dropdown">
-                <a
-                  href={ERP_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="nav-dropdown-item"
+                <Link
+                  href={ERP_PATH}
+                  className={`nav-dropdown-item ${erpActive ? 'is-active' : ''}`}
                 >
                   <span className="font-semibold">ERP</span>
                   <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">Flagship cloud product</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -95,9 +95,9 @@ export default function Header() {
               </Link>
             ))}
             <p className="px-3 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Products</p>
-            <a href={ERP_URL} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} className="nav-mobile-link">
+            <Link href={ERP_PATH} onClick={() => setOpen(false)} className={`nav-mobile-link ${erpActive ? 'is-active' : ''}`}>
               ERP
-            </a>
+            </Link>
             {links.slice(2).map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="nav-mobile-link">
                 {item.name}

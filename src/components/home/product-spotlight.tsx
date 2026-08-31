@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { ERP_URL, erpModules } from '@/content/site'
+import { ERP_PATH, erpModules } from '@/content/site'
 
 export default function ProductSpotlight() {
   return (
@@ -26,9 +26,9 @@ export default function ProductSpotlight() {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={ERP_URL} target="_blank" rel="noreferrer" className="btn btn-primary">
+              <Link href={ERP_PATH} className="btn btn-primary">
                 Explore Softoras ERP →
-              </a>
+              </Link>
               <Link href="/contact" className="btn btn-secondary">
                 Talk to us
               </Link>
@@ -40,7 +40,7 @@ export default function ProductSpotlight() {
                 <span className="dot" />
                 <span className="dot" />
                 <span className="dot" />
-                <span className="ml-2 truncate text-[11px] text-[var(--muted)]">softoras-erp.vercel.app</span>
+                <span className="ml-2 truncate text-[11px] text-[var(--muted)]">softoras.com/products/erp</span>
               </div>
               <div className="project-shot-wrap">
                 <Image

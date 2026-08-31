@@ -1,4 +1,5 @@
 export const ERP_URL = 'https://softoras-erp.vercel.app'
+export const ERP_PATH = '/products/erp'
 export const TAGLINE = 'Think SaaS. Think Softoras.'
 export const MISSION = 'Softoras does not just build websites. Softoras builds systems.'
 

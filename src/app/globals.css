@@ -2520,3 +2520,90 @@ html:not(.dark) .band-mist {
 .site-footer-contact {
   min-width: 0;
 }
+
+/* ERP embed page */
+.erp-page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--header-h, 64px));
+}
+
+.erp-page-bar {
+  padding-top: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.erp-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.erp-breadcrumb a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.erp-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.erp-breadcrumb-current {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.erp-embed-shell {
+  position: relative;
+  flex: 1;
+  min-height: 72vh;
+  background: var(--bg);
+}
+
+.erp-embed-frame {
+  display: block;
+  width: 100%;
+  height: calc(100vh - var(--header-h, 64px) - 3.5rem);
+  min-height: 640px;
+  border: 0;
+  background: var(--bg);
+}
+
+.erp-embed-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.erp-embed-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid color-mix(in srgb, var(--accent) 20%, transparent);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: erp-spin 0.7s linear infinite;
+}
+
+@keyframes erp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-dropdown-item.is-active,
+.nav-mobile-link.is-active {
+  color: var(--accent);
+}

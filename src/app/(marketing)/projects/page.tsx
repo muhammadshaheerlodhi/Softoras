@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import { clientProjects } from '@/content/projects'
+import { ERP_PATH } from '@/content/site'
 import SectionHeader from '@/components/ui/section-header'
 import ProjectCard from '@/components/ui/project-card'
 
@@ -23,9 +25,9 @@ export default function ProjectsPage() {
         </div>
         <p className="mt-10 text-sm text-[var(--muted)]">
           Looking for Softoras ERP?{' '}
-          <a href="https://softoras-erp.vercel.app" target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">
+          <Link href={ERP_PATH} className="font-semibold text-[var(--accent)]">
             Explore Softoras ERP →
-          </a>
+          </Link>
         </p>
       </div>
     </div>
