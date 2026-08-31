@@ -28,7 +28,7 @@ export default function AboutSection() {
               width={320}
               height={320}
               className="about-ceo-img"
-              unoptimized
+              sizes="(min-width: 900px) 256px, 80vw"
             />
           </div>
           <div className="about-ceo-copy">

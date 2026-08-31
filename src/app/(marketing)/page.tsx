@@ -1,7 +1,5 @@
-import FaqSection from '@/components/ui/faq-section'
+import dynamic from 'next/dynamic'
 import Hero from '@/components/home/hero'
-import HomeLeadForm from '@/components/home/home-lead-form'
-import TestimonialCarousel from '@/components/home/testimonial-carousel'
 import ServiceCardLink from '@/components/ui/service-card-link'
 import FinalCta from '@/components/home/final-cta'
 import ProductSpotlight from '@/components/home/product-spotlight'
@@ -9,11 +7,26 @@ import ProcessTimeline from '@/components/home/process-timeline'
 import AboutSection from '@/components/home/about-section'
 import TrustSection from '@/components/home/trust-section'
 import SectionHeader from '@/components/ui/section-header'
-import TechGrid from '@/components/ui/tech-grid'
 import ProjectCard from '@/components/ui/project-card'
 import { MISSION, services, solutionAreas, strengths } from '@/content/site'
 import { homeFaqs } from '@/content/faqs'
 import { clientProjects } from '@/content/projects'
+
+const TechGrid = dynamic(() => import('@/components/ui/tech-grid'), {
+  loading: () => <div className="section-load-placeholder section-load-placeholder-lg" aria-hidden />,
+})
+
+const FaqSection = dynamic(() => import('@/components/ui/faq-section'), {
+  loading: () => <div className="section-load-placeholder" aria-hidden />,
+})
+
+const TestimonialCarousel = dynamic(() => import('@/components/home/testimonial-carousel'), {
+  loading: () => <div className="section-load-placeholder" aria-hidden />,
+})
+
+const HomeLeadForm = dynamic(() => import('@/components/home/home-lead-form'), {
+  loading: () => <div className="section-load-placeholder section-load-placeholder-sm" aria-hidden />,
+})
 
 export default function Home() {
   const featuredProjects = clientProjects.slice(0, 4)
@@ -22,7 +35,6 @@ export default function Home() {
     <>
       <Hero />
 
-      {/* What We Build */}
       <section className="band band-mist section-y">
         <div className="wrap">
           <SectionHeader
@@ -39,10 +51,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Flagship product, separate from client projects */}
       <ProductSpotlight />
 
-      {/* Solutions */}
       <section className="band band-paper section-y">
         <div className="wrap">
           <SectionHeader
@@ -63,7 +73,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Technology ecosystem */}
       <section className="band band-mist section-y">
         <div className="wrap">
           <SectionHeader
@@ -78,7 +87,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Client projects, ERP excluded */}
       <section className="band band-paper section-y">
         <div className="wrap">
           <SectionHeader
@@ -95,10 +103,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
       <AboutSection />
 
-      {/* How we work */}
       <section className="band band-mist section-y">
         <div className="wrap">
           <SectionHeader
@@ -113,7 +119,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Softoras */}
       <section className="band band-paper section-y">
         <div className="wrap">
           <SectionHeader
@@ -132,7 +137,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust + partner feedback */}
       <TrustSection />
 
       <section className="band band-mist section-y">
@@ -160,7 +164,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
       <section className="band band-mist section-y">
         <div className="wrap">
           <HomeLeadForm />

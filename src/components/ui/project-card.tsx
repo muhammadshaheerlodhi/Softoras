@@ -22,7 +22,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           width={1440}
           height={900}
           className="project-shot"
-          unoptimized
           sizes="(min-width: 1024px) 560px, 100vw"
         />
       </div>

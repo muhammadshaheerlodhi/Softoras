@@ -28,8 +28,7 @@ export default function BrowserFrame({
           width={1440}
           height={700}
           className="shot"
-          quality={100}
-          unoptimized
+          quality={85}
           sizes="(min-width: 1180px) 1180px, 100vw"
         />
       </div>

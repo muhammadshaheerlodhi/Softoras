@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -19,18 +19,44 @@ const links = [
 
 export default function Header() {
   const pathname = usePathname()
+  const headerRef = useRef<HTMLElement>(null)
   const [open, setOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
   const active = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href))
 
   const erpActive = pathname.startsWith('/products/erp')
   const servicesActive = pathname === '/services' || pathname.startsWith('/services/')
 
-  return (
-    <header className="site-header">
-      <div className="wrap flex items-center justify-between gap-3 py-2.5 md:py-3">
-        <Logo />
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return
 
-        <nav className="hidden items-center gap-5 xl:gap-6 lg:flex" aria-label="Primary">
+    const setHeight = () => {
+      document.documentElement.style.setProperty('--header-h', `${el.offsetHeight}px`)
+    }
+
+    setHeight()
+    const observer = new ResizeObserver(setHeight)
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    setOpen(false)
+    setServicesOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    document.body.classList.toggle('nav-menu-lock', open)
+    return () => document.body.classList.remove('nav-menu-lock')
+  }, [open])
+
+  return (
+    <header ref={headerRef} className="site-header">
+      <div className="wrap flex items-center justify-between gap-2 py-2 sm:gap-3 sm:py-2.5 md:py-3">
+        <Logo compact />
+
+        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
           <Link href="/" className={`nav-link ${active('/') ? 'is-active' : ''}`}>
             Home
           </Link>
@@ -75,6 +101,9 @@ export default function Header() {
 
         <div className="flex items-center gap-2 lg:hidden">
           <ThemeToggle />
+          <Link href="/contact" className="btn btn-primary btn-compact hidden min-[420px]:inline-flex">
+            Contact
+          </Link>
           <button type="button" className="nav-menu-btn" onClick={() => setOpen(true)} aria-label="Open menu">
             <Bars3Icon className="h-6 w-6" />
           </button>
@@ -82,39 +111,51 @@ export default function Header() {
       </div>
 
       {open ? (
-        <div className="border-t border-[var(--line)] bg-[var(--panel)] lg:hidden">
-          <div className="wrap flex items-center justify-between py-3">
+        <div className="nav-mobile-drawer lg:hidden">
+          <div className="nav-mobile-drawer-head wrap">
             <p className="text-sm font-semibold">Menu</p>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close menu">
               <XMarkIcon className="h-6 w-6" />
             </button>
           </div>
-          <div className="wrap space-y-1 pb-6">
+          <div className="nav-mobile-drawer-body wrap">
             <Link href="/" onClick={() => setOpen(false)} className="nav-mobile-link">
               Home
             </Link>
 
-            <p className="px-3 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Services</p>
-            <Link
-              href="/services"
-              onClick={() => setOpen(false)}
-              className={`nav-mobile-link ${servicesActive ? 'is-active' : ''}`}
+            <button
+              type="button"
+              className="nav-mobile-accordion-trigger"
+              aria-expanded={servicesOpen}
+              onClick={() => setServicesOpen((value) => !value)}
             >
-              All services
-            </Link>
-            {services.map((service) => (
-              <Link
-                key={service.slug}
-                href={`/services/${service.slug}`}
-                onClick={() => setOpen(false)}
-                className="nav-mobile-service-link"
-              >
-                <span className="font-semibold">{service.title}</span>
-                <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">{service.description}</span>
-              </Link>
-            ))}
+              <span>Services</span>
+              <ChevronDownIcon className={`h-4 w-4 transition ${servicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {servicesOpen ? (
+              <div className="nav-mobile-accordion-panel">
+                <Link
+                  href="/services"
+                  onClick={() => setOpen(false)}
+                  className={`nav-mobile-link ${servicesActive ? 'is-active' : ''}`}
+                >
+                  All services
+                </Link>
+                {services.map((service) => (
+                  <Link
+                    key={service.slug}
+                    href={`/services/${service.slug}`}
+                    onClick={() => setOpen(false)}
+                    className="nav-mobile-service-link"
+                  >
+                    <span className="font-semibold">{service.title}</span>
+                    <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">{service.description}</span>
+                  </Link>
+                ))}
+              </div>
+            ) : null}
 
-            <p className="px-3 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Products</p>
+            <p className="nav-mobile-group-label">Products</p>
             <Link href={ERP_PATH} onClick={() => setOpen(false)} className={`nav-mobile-link ${erpActive ? 'is-active' : ''}`}>
               ERP
             </Link>
@@ -124,7 +165,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setOpen(false)} className="btn btn-primary btn-compact mt-3 w-full">
+            <Link href="/contact" onClick={() => setOpen(false)} className="btn btn-primary btn-compact mt-4 w-full">
               Start a Project
             </Link>
           </div>

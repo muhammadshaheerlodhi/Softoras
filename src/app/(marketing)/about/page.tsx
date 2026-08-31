@@ -38,7 +38,7 @@ export default function AboutPage() {
                 width={480}
                 height={480}
                 className="about-ceo-img"
-                unoptimized
+                sizes="(min-width: 900px) 256px, 80vw"
                 priority
               />
             </div>

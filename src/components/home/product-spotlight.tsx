@@ -49,7 +49,7 @@ export default function ProductSpotlight() {
                   width={1440}
                   height={900}
                   className="project-shot"
-                  unoptimized
+                  sizes="(min-width: 1024px) 540px, 100vw"
                 />
               </div>
             </div>
