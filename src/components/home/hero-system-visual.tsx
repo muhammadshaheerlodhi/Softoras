@@ -1,6 +1,7 @@
 'use client'
 
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 const modules = [
   { label: 'CRM', value: '24 deals', detail: 'Pipeline live' },
@@ -10,7 +11,11 @@ const modules = [
 ]
 
 export default function HeroSystemVisual() {
-  const reduce = useReducedMotion()
+  const [reduceMotion, setReduceMotion] = useState(true)
+
+  useEffect(() => {
+    setReduceMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+  }, [])
 
   return (
     <div className="hero-system" aria-hidden>
@@ -25,24 +30,16 @@ export default function HeroSystemVisual() {
 
       <div className="hero-system-body">
         <div className="hero-system-hub">
-          {!reduce ? (
-            <motion.div
-              className="hero-system-ring hero-system-ring-outer"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-            />
-          ) : (
-            <div className="hero-system-ring hero-system-ring-outer" />
-          )}
-          {!reduce ? (
-            <motion.div
-              className="hero-system-ring hero-system-ring-inner"
-              animate={{ rotate: -360 }}
-              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-            />
-          ) : (
-            <div className="hero-system-ring hero-system-ring-inner" />
-          )}
+          <motion.div
+            className="hero-system-ring hero-system-ring-outer"
+            animate={reduceMotion ? undefined : { rotate: 360 }}
+            transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+          />
+          <motion.div
+            className="hero-system-ring hero-system-ring-inner"
+            animate={reduceMotion ? undefined : { rotate: -360 }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+          />
           <div className="hero-system-core">
             <span className="hero-system-core-label">Softoras OS</span>
             <span className="hero-system-core-value">Systems online</span>
@@ -54,7 +51,7 @@ export default function HeroSystemVisual() {
             <motion.article
               key={item.label}
               className="hero-system-card"
-              initial={reduce ? false : { opacity: 0, y: 12 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.08 * index, ease: 'easeOut' }}
             >

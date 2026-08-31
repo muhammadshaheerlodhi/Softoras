@@ -67,7 +67,7 @@ export default function Footer() {
       </div>
 
       <div className="wrap site-footer-bar">
-        <p>© {new Date().getFullYear()} Softoras. All rights reserved.</p>
+        <p suppressHydrationWarning>© {new Date().getFullYear()} Softoras. All rights reserved.</p>
         <Link href="/contact" className="footer-cta-link">
           Start a Project →
         </Link>

@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useMemo, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -10,6 +10,7 @@ const ThemeContext = createContext<{
   theme: Theme
   setTheme: (theme: Theme) => void
   toggleTheme: () => void
+  mounted: boolean
 } | null>(null)
 
 function readThemeFromDocument(): Theme {
@@ -22,17 +23,25 @@ function applyTheme(theme: Theme) {
   root.classList.add('theme-switching')
   root.classList.toggle('dark', theme === 'dark')
   root.style.colorScheme = theme
+  root.style.backgroundColor = theme === 'dark' ? '#000000' : '#ffffff'
   window.requestAnimationFrame(() => {
     root.classList.remove('theme-switching')
   })
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(readThemeFromDocument)
+  const [theme, setThemeState] = useState<Theme>('light')
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setThemeState(readThemeFromDocument())
+    setMounted(true)
+  }, [])
 
   const value = useMemo(
     () => ({
       theme,
+      mounted,
       setTheme: (next: Theme) => {
         setThemeState(next)
         window.localStorage.setItem(STORAGE_KEY, next)
@@ -45,7 +54,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         applyTheme(next)
       },
     }),
-    [theme],
+    [theme, mounted],
   )
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
