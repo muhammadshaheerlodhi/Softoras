@@ -7,7 +7,7 @@ export default function ServiceToolsStrip({ tools }: ServiceToolsStripProps) {
     <article className="service-tools-strip card-feature">
       <div className="service-tools-strip-head">
         <h2 className="card-heading-sm">Tools we use</h2>
-        <p className="service-tools-strip-desc">Technologies and platforms we use to deliver this service.</p>
+        <p className="service-tools-strip-desc">Platforms and software we use to deliver this service.</p>
       </div>
       <div className="service-tools-strip-row" role="list" aria-label="Tools and technologies">
         {tools.map((tool) => (

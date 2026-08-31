@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { createContext, useContext, useMemo, useState } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -12,21 +12,23 @@ const ThemeContext = createContext<{
   toggleTheme: () => void
 } | null>(null)
 
+function readThemeFromDocument(): Theme {
+  if (typeof window === 'undefined') return 'light'
+  return document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+}
+
 function applyTheme(theme: Theme) {
   const root = document.documentElement
+  root.classList.add('theme-switching')
   root.classList.toggle('dark', theme === 'dark')
   root.style.colorScheme = theme
+  window.requestAnimationFrame(() => {
+    root.classList.remove('theme-switching')
+  })
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('light')
-
-  useEffect(() => {
-    const stored = window.localStorage.getItem(STORAGE_KEY)
-    const next: Theme = stored === 'dark' ? 'dark' : 'light'
-    setThemeState(next)
-    applyTheme(next)
-  }, [])
+  const [theme, setThemeState] = useState<Theme>(readThemeFromDocument)
 
   const value = useMemo(
     () => ({

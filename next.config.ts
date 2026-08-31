@@ -3,6 +3,8 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: false,
+  poweredByHeader: false,
   outputFileTracingRoot: path.join(__dirname),
   images: {
     formats: ['image/avif', 'image/webp'],
