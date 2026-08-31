@@ -4,8 +4,6 @@ import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 
-const SPLASH_KEY = 'softoras-splash-seen'
-
 export default function LogoSplash() {
   const pathname = usePathname()
   const [phase, setPhase] = useState<'idle' | 'in' | 'out' | 'done'>('idle')
@@ -16,31 +14,14 @@ export default function LogoSplash() {
       return
     }
 
-    if (typeof window !== 'undefined' && sessionStorage.getItem(SPLASH_KEY) === '1') {
-      setPhase('done')
-      return
-    }
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReducedMotion) {
-      sessionStorage.setItem(SPLASH_KEY, '1')
-      setPhase('done')
-      return
-    }
-
     setPhase('in')
     document.body.classList.add('logo-splash-lock')
 
-    const isMobile = window.matchMedia('(max-width: 639px)').matches
-    const outDelay = isMobile ? 1400 : 1800
-    const doneDelay = isMobile ? 1900 : 2400
-
-    const outTimer = window.setTimeout(() => setPhase('out'), outDelay)
+    const outTimer = window.setTimeout(() => setPhase('out'), 1800)
     const doneTimer = window.setTimeout(() => {
-      sessionStorage.setItem(SPLASH_KEY, '1')
       setPhase('done')
       document.body.classList.remove('logo-splash-lock')
-    }, doneDelay)
+    }, 2400)
 
     return () => {
       window.clearTimeout(outTimer)

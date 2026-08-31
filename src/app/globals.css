@@ -1805,23 +1805,18 @@ footer a:hover {
 }
 
 .logo-img {
-  height: 2.75rem;
+  height: 3.75rem;
   width: auto;
   object-fit: contain;
 }
 
 .logo-link-compact .logo-img {
-  height: 2.5rem;
+  height: 2.75rem;
 }
 
-@media (min-width: 640px) {
-  .logo-img { height: 3.25rem; }
-  .logo-link-compact .logo-img { height: 2.85rem; }
-}
-
-@media (min-width: 1024px) {
-  .logo-img { height: 3.75rem; }
-  .logo-link-compact .logo-img { height: 3.15rem; }
+@media (min-width: 768px) {
+  .logo-img { height: 4.75rem; }
+  .logo-link-compact .logo-img { height: 3.25rem; }
 }
 
 html:not(.dark) .logo-img {
@@ -2789,7 +2784,7 @@ body.logo-splash-lock {
 .logo-splash-mark {
   position: relative;
   z-index: 2;
-  width: min(72vw, 16rem);
+  width: min(82vw, 20rem);
   height: auto;
   opacity: 0;
   transform: scale(0.88);

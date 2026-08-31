@@ -54,7 +54,7 @@ export default function Header() {
   return (
     <header ref={headerRef} className="site-header">
       <div className="wrap flex items-center justify-between gap-2 py-2 sm:gap-3 sm:py-2.5 md:py-3">
-        <Logo compact />
+        <Logo />
 
         <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
           <Link href="/" className={`nav-link ${active('/') ? 'is-active' : ''}`}>
