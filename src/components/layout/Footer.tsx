@@ -60,8 +60,12 @@ export default function Footer() {
             <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
             <li><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
           </ul>
-          <LocationCards compact className="mt-5" />
         </div>
+      </div>
+
+      <div className="wrap site-footer-locations">
+        <p className="footer-heading">Our offices</p>
+        <LocationCards variant="row" className="mt-4" />
       </div>
 
       <div className="wrap site-footer-bar">

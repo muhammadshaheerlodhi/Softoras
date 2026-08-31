@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import HeroCommandCenter from '@/components/home/hero-command-center'
+import HeroSystemVisual from '@/components/home/hero-system-visual'
 import { TAGLINE } from '@/content/site'
 
 export default function Hero() {
@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual-wrap rise">
-          <HeroCommandCenter />
+          <HeroSystemVisual />
         </div>
       </div>
     </section>

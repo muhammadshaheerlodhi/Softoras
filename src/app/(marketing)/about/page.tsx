@@ -79,7 +79,7 @@ export default function AboutPage() {
 
           <div className="mt-12">
             <SectionHeader kicker="Offices" title="Where we work" align="center" />
-            <LocationCards className="mt-8" />
+            <LocationCards variant="row" className="mt-8" />
           </div>
         </div>
       </div>

@@ -51,14 +51,16 @@ export default function ContactPage() {
 
           <ContactVisual />
 
-          <p className="text-center text-sm lg:text-left">
-            <span className="font-semibold">Email · </span>
-            <a className="font-semibold text-[var(--accent)]" href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
-          </p>
+          <div className="contact-email-block">
+            <p className="text-center text-sm lg:text-left">
+              <span className="font-semibold text-[var(--ink)]">Email · </span>
+              <a className="font-semibold text-[var(--accent)]" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
+            </p>
+          </div>
 
-          <LocationCards compact />
+          <LocationCards variant="row" className="contact-locations-block" />
         </div>
 
         <FormShell title="Project inquiry" subtitle="We usually reply within one business day." className="contact-form-shell">

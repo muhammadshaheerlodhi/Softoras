@@ -2,10 +2,10 @@ import { site } from '@/content/site'
 
 type LocationCardsProps = {
   className?: string
-  compact?: boolean
+  variant?: 'row' | 'stack'
 }
 
-export default function LocationCards({ className = '', compact = false }: LocationCardsProps) {
+export default function LocationCards({ className = '', variant = 'row' }: LocationCardsProps) {
   const locations = [
     {
       region: 'Pakistan',
@@ -20,7 +20,7 @@ export default function LocationCards({ className = '', compact = false }: Locat
   ]
 
   return (
-    <div className={`location-cards${compact ? ' location-cards-compact' : ''} ${className}`.trim()}>
+    <div className={`location-cards location-cards-${variant} ${className}`.trim()}>
       {locations.map((item) => (
         <article key={item.region} className="location-card">
           <p className="location-card-region">{item.region}</p>
