@@ -14,10 +14,8 @@ const ThemeContext = createContext<{
 
 function applyTheme(theme: Theme) {
   const root = document.documentElement
-  root.classList.add('theme-animate')
   root.classList.toggle('dark', theme === 'dark')
   root.style.colorScheme = theme
-  window.setTimeout(() => root.classList.remove('theme-animate'), 320)
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

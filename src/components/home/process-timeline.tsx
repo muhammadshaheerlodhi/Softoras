@@ -2,17 +2,18 @@ import { process } from '@/content/site'
 
 export default function ProcessTimeline() {
   return (
-    <div className="process-timeline">
-      <div className="process-track" aria-hidden />
-      <div className="process-steps">
-        {process.map((step, index) => (
-          <article key={step.title} className="process-step card-feature">
-            <div className="process-step-marker">{index + 1}</div>
-            <h3 className="card-heading-sm">{step.title}</h3>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{step.text}</p>
-          </article>
-        ))}
-      </div>
-    </div>
+    <ol className="process-list">
+      {process.map((step, index) => (
+        <li key={step.title} className="process-row">
+          <span className="process-row-num" aria-hidden>
+            {index + 1}
+          </span>
+          <div className="process-row-body">
+            <h3 className="process-row-title">{step.title}</h3>
+            <p className="process-row-text">{step.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
   )
 }
