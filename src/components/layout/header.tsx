@@ -7,7 +7,6 @@ import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outli
 import Logo from '@/components/layout/logo'
 import ThemeToggle from '@/components/theme/theme-toggle'
 import { ERP_PATH } from '@/content/site'
-import { ERP_LOGIN, ERP_REGISTER } from '@/lib/erp/paths'
 
 const links = [
   { name: 'Home', href: '/' },
@@ -52,16 +51,8 @@ export default function Header() {
                   href={ERP_PATH}
                   className={`nav-dropdown-item ${erpActive ? 'is-active' : ''}`}
                 >
-                  <span className="font-semibold">ERP Overview</span>
-                  <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">Product landing page</span>
-                </Link>
-                <Link href={ERP_LOGIN} className="nav-dropdown-item">
-                  <span className="font-semibold">Sign In</span>
-                  <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">Access your ERP account</span>
-                </Link>
-                <Link href={ERP_REGISTER} className="nav-dropdown-item">
-                  <span className="font-semibold">Start Free Trial</span>
-                  <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">Create a new account</span>
+                  <span className="font-semibold">ERP</span>
+                  <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">Flagship cloud product</span>
                 </Link>
               </div>
             </div>
@@ -105,13 +96,7 @@ export default function Header() {
             ))}
             <p className="px-3 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Products</p>
             <Link href={ERP_PATH} onClick={() => setOpen(false)} className={`nav-mobile-link ${erpActive ? 'is-active' : ''}`}>
-              ERP Overview
-            </Link>
-            <Link href={ERP_LOGIN} onClick={() => setOpen(false)} className="nav-mobile-link">
-              ERP Sign In
-            </Link>
-            <Link href={ERP_REGISTER} onClick={() => setOpen(false)} className="nav-mobile-link">
-              ERP Free Trial
+              ERP
             </Link>
             {links.slice(2).map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="nav-mobile-link">

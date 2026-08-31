@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { erpModules } from '@/content/site'
-import { ERP_REGISTER } from '@/lib/erp/paths'
+import { ERP_PATH, erpModules } from '@/content/site'
 
 export default function ProductSpotlight() {
   return (
@@ -27,7 +26,7 @@ export default function ProductSpotlight() {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href={ERP_REGISTER} className="btn btn-primary">
+              <Link href={ERP_PATH} className="btn btn-primary">
                 Explore Softoras ERP →
               </Link>
               <Link href="/contact" className="btn btn-secondary">
