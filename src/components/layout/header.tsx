@@ -5,12 +5,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from '@/components/layout/logo'
+import ServicesNavDropdown from '@/components/layout/services-nav-dropdown'
 import ThemeToggle from '@/components/theme/theme-toggle'
-import { ERP_PATH } from '@/content/site'
+import { ERP_PATH, services } from '@/content/site'
 
 const links = [
   { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
   { name: 'Solutions', href: '/solutions' },
   { name: 'Projects', href: '/projects' },
   { name: 'About', href: '/about' },
@@ -23,6 +23,7 @@ export default function Header() {
   const active = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href))
 
   const erpActive = pathname.startsWith('/products/erp')
+  const servicesActive = pathname === '/services' || pathname.startsWith('/services/')
 
   return (
     <header className="site-header">
@@ -30,11 +31,11 @@ export default function Header() {
         <Logo />
 
         <nav className="hidden items-center gap-5 xl:gap-6 lg:flex" aria-label="Primary">
-          {links.slice(0, 2).map((item) => (
-            <Link key={item.href} href={item.href} className={`nav-link ${active(item.href) ? 'is-active' : ''}`}>
-              {item.name}
-            </Link>
-          ))}
+          <Link href="/" className={`nav-link ${active('/') ? 'is-active' : ''}`}>
+            Home
+          </Link>
+
+          <ServicesNavDropdown />
 
           <div className="group relative">
             <button
@@ -58,7 +59,7 @@ export default function Header() {
             </div>
           </div>
 
-          {links.slice(2).map((item) => (
+          {links.slice(1).map((item) => (
             <Link key={item.href} href={item.href} className={`nav-link ${active(item.href) ? 'is-active' : ''}`}>
               {item.name}
             </Link>
@@ -89,16 +90,36 @@ export default function Header() {
             </button>
           </div>
           <div className="wrap space-y-1 pb-6">
-            {links.slice(0, 2).map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="nav-mobile-link">
-                {item.name}
+            <Link href="/" onClick={() => setOpen(false)} className="nav-mobile-link">
+              Home
+            </Link>
+
+            <p className="px-3 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Services</p>
+            <Link
+              href="/services"
+              onClick={() => setOpen(false)}
+              className={`nav-mobile-link ${servicesActive ? 'is-active' : ''}`}
+            >
+              All services
+            </Link>
+            {services.map((service) => (
+              <Link
+                key={service.slug}
+                href={`/services/${service.slug}`}
+                onClick={() => setOpen(false)}
+                className="nav-mobile-service-link"
+              >
+                <span className="font-semibold">{service.title}</span>
+                <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">{service.description}</span>
               </Link>
             ))}
+
             <p className="px-3 pt-3 text-xs font-bold uppercase tracking-[0.16em] text-[var(--muted)]">Products</p>
             <Link href={ERP_PATH} onClick={() => setOpen(false)} className={`nav-mobile-link ${erpActive ? 'is-active' : ''}`}>
               ERP
             </Link>
-            {links.slice(2).map((item) => (
+
+            {links.slice(1).map((item) => (
               <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="nav-mobile-link">
                 {item.name}
               </Link>

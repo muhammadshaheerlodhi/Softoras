@@ -419,6 +419,10 @@ body {
   font-size: 0.875rem;
   line-height: 1.65;
   color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card-service-link {
@@ -2703,4 +2707,273 @@ html.dark .faq-item {
 html.dark .faq-item:hover,
 html.dark .faq-item.is-open {
   background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+}
+
+/* Services mega dropdown */
+.nav-mega-panel {
+  transform: translateY(4px);
+}
+
+.group:hover .nav-mega-panel,
+.group:focus-within .nav-mega-panel {
+  transform: translateY(0);
+}
+
+.nav-services-dropdown {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-services-dropdown-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 4%, var(--panel));
+}
+
+.nav-services-dropdown-kicker {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.nav-services-all-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  transition: opacity 0.2s ease;
+}
+
+.nav-services-all-link:hover {
+  opacity: 0.8;
+}
+
+.nav-services-list {
+  max-height: min(52vh, 24rem);
+  overflow: auto;
+  padding: 0.35rem;
+}
+
+.nav-service-item {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  transition:
+    background 0.2s var(--ease-out),
+    border-color 0.2s var(--ease-out),
+    transform 0.2s var(--ease-out),
+    box-shadow 0.2s var(--ease-out);
+}
+
+.nav-service-item:hover,
+.nav-service-item.is-active {
+  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  box-shadow: 0 8px 20px -14px color-mix(in srgb, var(--accent) 45%, transparent);
+  transform: translateX(2px);
+}
+
+.nav-service-item:hover .nav-service-title,
+.nav-service-item.is-active .nav-service-title {
+  color: var(--accent);
+}
+
+.nav-service-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--accent) 12%, var(--panel));
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.nav-service-copy {
+  min-width: 0;
+}
+
+.nav-service-title {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 0.2s ease;
+}
+
+.nav-service-oneliner {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.74rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.nav-services-dropdown-foot {
+  padding: 0.75rem;
+  border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--accent) 3%, var(--panel));
+}
+
+.nav-mobile-service-link {
+  display: block;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.88rem;
+  transition: background 0.2s ease;
+}
+
+.nav-mobile-service-link:hover {
+  background: var(--bg-alt);
+}
+
+/* Logo splash intro */
+body.logo-splash-lock {
+  overflow: hidden;
+}
+
+.logo-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.logo-splash.is-out {
+  animation: logo-splash-fade-out 0.55s var(--ease-out) forwards;
+}
+
+.logo-splash-backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+}
+
+.logo-splash-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(88vw, 22rem);
+  aspect-ratio: 1;
+}
+
+.logo-splash-lines {
+  position: absolute;
+  inset: 0;
+}
+
+.logo-splash-line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 42%;
+  margin-left: -1px;
+  transform-origin: center top;
+  transform: rotate(calc(var(--line-i) * 45deg)) scaleY(0);
+  background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+  opacity: 0.85;
+  animation: logo-splash-line-in 0.9s var(--ease-out) calc(var(--line-i) * 0.06s) forwards;
+}
+
+.logo-splash-ring {
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  opacity: 0;
+}
+
+.logo-splash-ring-outer {
+  inset: 4%;
+  animation: logo-splash-ring-in 0.9s var(--ease-out) 0.15s forwards;
+}
+
+.logo-splash-ring-inner {
+  inset: 18%;
+  animation: logo-splash-ring-in 0.9s var(--ease-out) 0.28s forwards;
+}
+
+.logo-splash-mark {
+  position: relative;
+  z-index: 2;
+  width: min(72vw, 16rem);
+  height: auto;
+  opacity: 0;
+  transform: scale(0.88);
+  animation: logo-splash-mark-in 0.85s var(--ease-out) 0.35s forwards;
+}
+
+html.dark .logo-splash-mark {
+  filter: brightness(0) invert(1);
+}
+
+@keyframes logo-splash-line-in {
+  from {
+    transform: rotate(calc(var(--line-i) * 45deg)) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(calc(var(--line-i) * 45deg)) scaleY(1);
+    opacity: 0.85;
+  }
+}
+
+@keyframes logo-splash-ring-in {
+  from {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logo-splash-mark-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logo-splash-fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-splash-line,
+  .logo-splash-ring,
+  .logo-splash-mark,
+  .logo-splash.is-out {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .logo-splash.is-out {
+    display: none;
+  }
 }

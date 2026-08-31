@@ -1,12 +1,6 @@
 import Link from 'next/link'
 import type { Service } from '@/content/site'
 
-function excerptSentences(text: string, count = 2) {
-  const sentences = text.match(/[^.!?]+[.!?]+(?:\s|$)/g)
-  if (!sentences) return text
-  return sentences.slice(0, count).join('').trim()
-}
-
 type ServiceCardLinkProps = {
   item: Service
   variant?: 'home' | 'page'
@@ -24,7 +18,7 @@ export default function ServiceCardLink({ item, variant = 'home' }: ServiceCardL
       <HeadingTag className="card-service-title">{item.title}</HeadingTag>
       <div className="card-service-body">
         <p className="card-service-desc">{item.description}</p>
-        <p className="card-service-detail">{excerptSentences(item.detail, 2)}</p>
+        <p className="card-service-detail">{item.overview}</p>
       </div>
       {variant === 'page' ? (
         <ul className="clean-list mt-4 space-y-1 text-sm text-[var(--muted)]">
