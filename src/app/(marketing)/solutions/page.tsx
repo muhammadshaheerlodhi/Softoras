@@ -14,7 +14,7 @@ export default function SolutionsPage() {
         <SectionHeader
           kicker="Solutions"
           title="Technology built around the way your business works"
-          description="Softoras solves business problems with systems — lead management, sales ops, automation, internal tools, cloud infrastructure, and digital products."
+          description="Softoras solves business problems with systems: lead management, sales ops, automation, internal tools, cloud infrastructure, and digital products."
         />
 
         <div className="card-grid-4 mt-10">
@@ -30,7 +30,7 @@ export default function SolutionsPage() {
         <div className="mt-16">
           <h2 className="h2">Industries we build for</h2>
           <p className="section-desc mt-3">
-            These are domains we can deliver in — capabilities, not a claim of named logos in every vertical.
+            These are domains we can deliver in: capabilities, not a claim of named logos in every vertical.
           </p>
           <div className="card-grid-3 mt-8">
             {industries.map((item) => (
@@ -52,7 +52,7 @@ export default function SolutionsPage() {
         <div className="footer-cta mt-12">
           <h2 className="text-lg font-semibold">Not sure where your project fits?</h2>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-[var(--muted)]">
-            Most builds span more than one area — a CRM with automation, or a SaaS product with cloud infrastructure.
+            Most builds span more than one area, such as a CRM with automation or a SaaS product with cloud infrastructure.
             Tell us the operation and we map the system.
           </p>
           <Link href="/contact" className="btn btn-primary btn-compact mt-4 inline-flex">

@@ -63,8 +63,15 @@ export default function HomeLeadForm() {
   return (
     <div className="contact-layout">
       <div className="contact-aside">
-        <p className="section-desc">
-          SaaS products, CRM setups, automation stacks, AI agents, or full platforms — tell us what you need and we
+        <div className="section-intro-center section-intro-left-lg">
+          <p className="kicker">Contact</p>
+          <h2 className="h2 mt-3">Have a system in mind?</h2>
+          <p className="section-desc mt-3">
+            Tell us what you&apos;re building, what&apos;s slowing your business down, or what you want to automate.
+          </p>
+        </div>
+        <p className="section-desc mt-4">
+          SaaS products, CRM setups, automation stacks, AI agents, or full platforms. Tell us what you need and we
           will map the build.
         </p>
         <ul className="about-points mt-4">
@@ -133,7 +140,7 @@ export default function HomeLeadForm() {
               <button type="submit" className="btn btn-primary btn-compact" disabled={loading}>
                 {loading ? 'Sending…' : 'Start a Conversation'}
               </button>
-              {success ? <FormStatus type="success">Received. Thank you — we will be in touch.</FormStatus> : null}
+              {success ? <FormStatus type="success">Received. Thank you. We will be in touch.</FormStatus> : null}
               {error ? <FormStatus type="error">{error}</FormStatus> : null}
             </div>
           </form>

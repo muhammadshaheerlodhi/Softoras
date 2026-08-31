@@ -26,7 +26,7 @@ export default function Home() {
           <SectionHeader
             kicker="What We Build"
             title="We build the systems behind modern businesses"
-            description="Softoras combines engineering, automation and product thinking to create digital systems that solve real business problems. We do not just build websites — we build SaaS products, ERP systems, CRM ecosystems, AI agents, automation, custom software, and cloud infrastructure."
+            description="Softoras combines engineering, automation and product thinking to create digital systems that solve real business problems. We do not just build websites. We build SaaS products, ERP systems, CRM ecosystems, AI agents, automation, custom software, and cloud infrastructure."
           />
           <p className="mission-line mt-4">{MISSION}</p>
           <div className="card-grid-3 mt-10">
@@ -46,7 +46,7 @@ export default function Home() {
           <SectionHeader
             kicker="Solutions"
             title="Technology built around the way your business works"
-            description="We explain solutions in business language — what Softoras can solve for your operation, not just which tools we use."
+            description="We explain solutions in business language: what Softoras can solve for your operation, not just which tools we use."
             action={{ label: 'All solutions', href: '/solutions' }}
           />
           <div className="card-grid-4 mt-10">
@@ -67,7 +67,7 @@ export default function Home() {
           <SectionHeader
             kicker="Technology Ecosystem"
             title="One team. A complete technology ecosystem."
-            description="Softoras works across CRM, AI, automation, software engineering, cloud and business operations — integrating the tools your business already relies on."
+            description="Softoras works across CRM, AI, automation, software engineering, cloud and business operations, integrating the tools your business already relies on."
             align="center"
           />
           <div className="mt-10">
@@ -150,14 +150,7 @@ export default function Home() {
       {/* Contact */}
       <section className="band band-mist section-y">
         <div className="wrap">
-          <SectionHeader
-            kicker="Contact"
-            title="Have a system in mind?"
-            description="Tell us what you're building, what's slowing your business down, or what you want to automate. We'll help turn the idea into a practical digital solution."
-          />
-          <div className="mt-8">
-            <HomeLeadForm />
-          </div>
+          <HomeLeadForm />
         </div>
       </section>
 

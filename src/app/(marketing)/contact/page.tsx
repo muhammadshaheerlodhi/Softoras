@@ -1,8 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 import { FormLabel, FormShell, FormStatus } from '@/components/ui/form-shell'
+import ContactVisual from '@/components/contact/contact-visual'
+import LocationCards from '@/components/ui/location-cards'
 import { site } from '@/content/site'
 
 const projectTypes = ['SaaS product', 'CRM / automation', 'AI agents', 'Website', 'ERP integration', 'Other']
@@ -37,9 +38,9 @@ export default function ContactPage() {
 
   return (
     <div className="band band-paper section-y">
-      <div className="wrap contact-layout">
-        <div className="space-y-5">
-          <div>
+      <div className="wrap contact-layout contact-layout-page">
+        <div className="contact-copy">
+          <div className="section-intro-center section-intro-left-lg">
             <p className="kicker">Contact</p>
             <h1 className="h2 mt-3">Have a system in mind?</h1>
             <p className="section-desc mt-3">
@@ -48,49 +49,19 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="about-visual overflow-hidden">
-            <Image
-              src="/projects/vivacity.png"
-              alt="Softoras project preview"
-              width={800}
-              height={500}
-              className="h-44 w-full object-cover object-top sm:h-52"
-              unoptimized
-            />
-          </div>
+          <ContactVisual />
 
-          <div className="grid grid-cols-2 gap-3">
-            <article className="stat-pill">
-              <strong>8+</strong>
-              <span className="text-xs text-[var(--muted)]">Live projects</span>
-            </article>
-            <article className="stat-pill">
-              <strong>2</strong>
-              <span className="text-xs text-[var(--muted)]">Offices · PK &amp; UAE</span>
-            </article>
-          </div>
+          <p className="text-center text-sm lg:text-left">
+            <span className="font-semibold">Email · </span>
+            <a className="font-semibold text-[var(--accent)]" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
+          </p>
 
-          <div className="space-y-2 text-sm">
-            <p>
-              <span className="font-semibold">Email · </span>
-              <a className="font-semibold text-[var(--accent)]" href={`mailto:${site.email}`}>
-                {site.email}
-              </a>
-            </p>
-            <p>
-              <span className="font-semibold">Pakistan · </span>
-              <a href={site.phones.pakistan.href}>{site.phones.pakistan.label}</a>
-            </p>
-            <p>
-              <span className="font-semibold">UAE · </span>
-              <a href={site.phones.uae.href}>{site.phones.uae.label}</a>
-            </p>
-            <p className="text-[var(--muted)]">{site.offices.pakistan}</p>
-            <p className="text-[var(--muted)]">{site.offices.uae}</p>
-          </div>
+          <LocationCards compact />
         </div>
 
-        <FormShell title="Project inquiry" subtitle="We usually reply within one business day." className="lg:ml-auto">
+        <FormShell title="Project inquiry" subtitle="We usually reply within one business day." className="contact-form-shell">
           <form onSubmit={onSubmit} className="form-body">
             <div className="form-row form-row-2">
               <div className="form-field">

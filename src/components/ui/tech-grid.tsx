@@ -26,8 +26,8 @@ export default function TechGrid() {
       </div>
 
       <div className="tech-panel card-feature">
-        <p className="text-sm leading-6 text-[var(--muted)]">{group.items.join(' · ')}</p>
-        <div className="tech-logo-grid mt-5">
+        <p className="tech-panel-summary">{group.items.join(' · ')}</p>
+        <div className="tech-logo-grid">
           {groupTools.map((tool) =>
             tool ? (
               <article key={tool.slug} className="tech-logo-tile">
@@ -40,15 +40,14 @@ export default function TechGrid() {
         </div>
       </div>
 
-      <div className="tech-all-strip mt-6">
-        <p className="mb-3 text-center text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)]">
-          Full ecosystem
-        </p>
+      <div className="tech-all-strip">
+        <p className="tech-all-label">Full ecosystem</p>
         <div className="tech-all-logos">
           {tools.map((tool) => (
-            <div key={tool.slug} className="tech-all-logo" title={tool.name}>
+            <div key={tool.slug} className="tech-all-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={tool.logo} alt={tool.name} />
+              <span className="tech-all-name">{tool.name}</span>
             </div>
           ))}
         </div>

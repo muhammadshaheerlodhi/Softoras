@@ -4,14 +4,14 @@ export default function TrustSection() {
   return (
     <section className="band band-mist section-y-sm">
       <div className="wrap">
-        <div className="trust-panel">
+        <div className="trust-panel section-intro-center">
           <p className="kicker">Experience</p>
-          <h2 className="h2 mt-3 max-w-2xl">{MISSION}</h2>
-          <p className="section-desc mt-3 max-w-2xl">
+          <h2 className="h2 mt-3">{MISSION}</h2>
+          <p className="section-desc mx-auto mt-3">
             SaaS products, ERP systems, CRM ecosystems, AI agents, business automation, custom software, web
-            applications, and cloud infrastructure — built as systems your team can run.
+            applications, and cloud infrastructure, built as systems your team can run.
           </p>
-          <div className="mt-6 grid grid-cols-3 gap-3 sm:max-w-md">
+          <div className="about-stats-row mt-6">
             {stats.map((item) => (
               <div key={item.label} className="stat-pill">
                 <strong>{item.value}</strong>

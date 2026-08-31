@@ -17,17 +17,24 @@ export default function TestimonialCarousel() {
   const [prevIndex, setPrevIndex] = useState<number | null>(null)
 
   const goTo = useCallback((next: number) => {
-    setPrevIndex(index)
-    setIndex((next + quotes.length) % quotes.length)
-  }, [index])
+    setIndex((current) => {
+      setPrevIndex(current)
+      return (next + quotes.length) % quotes.length
+    })
+  }, [])
 
-  const goPrev = useCallback(() => goTo(index - 1), [goTo, index])
-  const goNext = useCallback(() => goTo(index + 1), [goTo, index])
+  const goPrev = () => goTo(index - 1)
+  const goNext = () => goTo(index + 1)
 
   useEffect(() => {
-    const timer = window.setInterval(() => goNext(), 7000)
+    const timer = window.setInterval(() => {
+      setIndex((current) => {
+        setPrevIndex(current)
+        return (current + 1) % quotes.length
+      })
+    }, 5500)
     return () => window.clearInterval(timer)
-  }, [goNext])
+  }, [])
 
   useEffect(() => {
     if (prevIndex === null) return

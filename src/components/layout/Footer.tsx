@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Logo from '@/components/layout/logo'
+import LocationCards from '@/components/ui/location-cards'
 import { ERP_URL, services, site, TAGLINE } from '@/content/site'
 
 export default function Footer() {
@@ -10,7 +11,7 @@ export default function Footer() {
           <Logo compact />
           <p className="site-footer-tagline">{TAGLINE}</p>
           <p className="site-footer-desc">
-            Software, SaaS, AI automation, CRM systems, and cloud infrastructure — systems your business can run.
+            Software, SaaS, AI automation, CRM systems, and cloud infrastructure. Systems your business can run.
           </p>
         </div>
 
@@ -53,16 +54,13 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="site-footer-contact">
           <p className="footer-heading">Contact</p>
           <ul className="footer-links">
             <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-            <li><a href={site.phones.pakistan.href}>{site.phones.pakistan.label}</a></li>
-            <li><a href={site.phones.uae.href}>{site.phones.uae.label}</a></li>
             <li><a href={site.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>
           </ul>
-          <p className="footer-meta mt-4">{site.offices.pakistan}</p>
-          <p className="footer-meta">{site.offices.uae}</p>
+          <LocationCards compact className="mt-5" />
         </div>
       </div>
 

@@ -4,7 +4,7 @@ import ProjectCard from '@/components/ui/project-card'
 
 export const metadata = {
   title: 'Projects',
-  description: 'Systems built by Softoras — digital products, platforms and business systems for real-world use.',
+  description: 'Systems built by Softoras: digital products, platforms and business systems for real-world use.',
 }
 
 export default function ProjectsPage() {
@@ -14,7 +14,7 @@ export default function ProjectsPage() {
         <SectionHeader
           kicker="Projects"
           title="Systems we've built"
-          description="A selection of digital products, platforms and business systems built for real-world use. Client work — separate from Softoras-owned products like ERP."
+          description="A selection of digital products, platforms and business systems built for real-world use. Client work, separate from Softoras-owned products like ERP."
         />
         <div className="card-grid-2 mt-10">
           {clientProjects.map((project) => (

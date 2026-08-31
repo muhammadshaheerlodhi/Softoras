@@ -27,60 +27,80 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div className="band band-paper pb-16 pt-14">
-      <div className="wrap">
+      <div className="wrap service-detail">
         <Link href="/services" className="text-sm font-semibold text-[var(--accent)]">
           ← All services
         </Link>
-        <p className="kicker mt-6">Service</p>
-        <h1 className="h2 mt-3 max-w-3xl">{service.title}</h1>
-        <p className="lede mt-4">{service.description}</p>
+        <div className="section-intro-center mt-8">
+          <p className="kicker">Service</p>
+          <h1 className="h2 mt-3">{service.title}</h1>
+          <p className="lede mx-auto mt-4">{service.description}</p>
+        </div>
 
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="space-y-8">
-            <article className="premium-card panel-hover p-6 md:p-8">
-              <h2 className="text-lg font-semibold">What this covers</h2>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{service.detail}</p>
-            </article>
+        <div className="service-detail-grid mt-10">
+          <article className="card-feature service-detail-main">
+            <h2 className="card-heading">Overview</h2>
+            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{service.overview}</p>
+            <h2 className="card-heading mt-8">What this covers</h2>
+            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{service.detail}</p>
+          </article>
 
-            <article className="premium-card panel-hover p-6 md:p-8">
-              <h2 className="text-lg font-semibold">What you get</h2>
-              <ul className="clean-list mt-4 space-y-2 text-sm text-[var(--muted)]">
-                {service.deliverables.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          </div>
+          <article className="card-feature">
+            <h2 className="card-heading-sm">Includes</h2>
+            <ul className="clean-list mt-4 space-y-2 text-sm text-[var(--muted)]">
+              {service.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+          </article>
 
-          <aside className="space-y-5">
-            <article className="premium-card card-accent p-6">
-              <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--accent)]">Includes</h2>
-              <ul className="clean-list mt-4 space-y-2 text-sm text-[var(--muted)]">
-                {service.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-            </article>
+          <article className="card-feature">
+            <h2 className="card-heading-sm">Common use cases</h2>
+            <ul className="clean-list mt-4 space-y-2 text-sm text-[var(--muted)]">
+              {service.useCases.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
 
-            <article className="premium-card p-6">
-              <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-[var(--accent)]">Tools we use</h2>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {service.tools.map((tool) => (
-                  <span key={tool} className="rounded-full border border-[var(--line)] bg-[var(--bg-alt)] px-3 py-1 text-xs font-semibold">
-                    {tool}
-                  </span>
-                ))}
-              </div>
-            </article>
+          <article className="card-feature">
+            <h2 className="card-heading-sm">What you get</h2>
+            <ul className="clean-list mt-4 space-y-2 text-sm text-[var(--muted)]">
+              {service.deliverables.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
 
-            <div className="footer-cta">
-              <p className="font-semibold">Ready to start?</p>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">Tell us about your project and we will map the build.</p>
-              <Link href="/contact" className="btn btn-primary mt-4 inline-flex">
-                Contact Softoras
-              </Link>
+          <article className="card-feature">
+            <h2 className="card-heading-sm">Outcomes</h2>
+            <ul className="clean-list mt-4 space-y-2 text-sm text-[var(--muted)]">
+              {service.outcomes.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </article>
+
+          <article className="card-feature">
+            <h2 className="card-heading-sm">Tools we use</h2>
+            <div className="mt-4 flex flex-wrap justify-center gap-2">
+              {service.tools.map((tool) => (
+                <span key={tool} className="service-tool-tag">
+                  {tool}
+                </span>
+              ))}
             </div>
-          </aside>
+          </article>
+
+          <div className="service-detail-cta card-feature">
+            <h2 className="card-heading-sm">Ready to start?</h2>
+            <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
+              Tell us about your project and we will map scope, integrations, and a practical first release.
+            </p>
+            <Link href="/contact" className="btn btn-primary mt-5 inline-flex">
+              Contact Softoras
+            </Link>
+          </div>
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--line)] pt-8">

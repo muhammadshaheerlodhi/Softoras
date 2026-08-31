@@ -1,9 +1,17 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { aboutBlocks, site, stats, strengths, TAGLINE } from '@/content/site'
+import { aboutBlocks, ceo, site, stats, strengths, TAGLINE } from '@/content/site'
 import TechGrid from '@/components/ui/tech-grid'
 import ProcessTimeline from '@/components/home/process-timeline'
 import SectionHeader from '@/components/ui/section-header'
+import LocationCards from '@/components/ui/location-cards'
+
+const beliefCards = [
+  { title: 'What We Believe', text: aboutBlocks.whatWeBelieve },
+  { title: 'How We Work', text: aboutBlocks.howWeWork },
+  { title: 'What Makes Us Different', text: aboutBlocks.whatMakesUsDifferent },
+  { title: 'Built With Purpose', text: aboutBlocks.builtWithPurpose },
+]
 
 export const metadata = {
   title: 'About',
@@ -14,71 +22,65 @@ export default function AboutPage() {
   return (
     <>
       <div className="band band-paper section-y">
-        <div className="wrap">
-          <p className="kicker">About Softoras</p>
-          <h1 className="h2 mt-3 max-w-3xl">We turn complex ideas into working systems</h1>
-          <p className="section-desc mt-4 max-w-3xl">{aboutBlocks.intro}</p>
-          <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{TAGLINE}</p>
-        </div>
-
-        <div className="wrap mt-12 grid items-start gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="ceo-frame mx-auto w-full max-w-xs">
-            <Image
-              src="/about/shaheer-lodhi.png"
-              alt="Muhammad Shaheer Lodhi, CEO of Softoras"
-              width={640}
-              height={640}
-              className="h-auto w-full object-contain"
-              unoptimized
-              priority
-            />
+        <div className="wrap about-showcase">
+          <div className="section-intro-center">
+            <p className="kicker">About Softoras</p>
+            <h1 className="h2 mt-3">We turn complex ideas into working systems</h1>
+            <p className="section-desc mx-auto mt-4">{aboutBlocks.intro}</p>
+            <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{TAGLINE}</p>
           </div>
-          <div className="space-y-6">
-            <article className="card-feature">
-              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">What We Believe</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.whatWeBelieve}</p>
-            </article>
-            <article className="card-feature">
-              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">How We Work</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.howWeWork}</p>
-            </article>
-            <article className="card-feature">
-              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">What Makes Us Different</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.whatMakesUsDifferent}</p>
-            </article>
-            <article className="card-feature">
-              <h2 className="text-sm font-bold uppercase tracking-[0.12em] text-[var(--accent)]">Built With Purpose</h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{aboutBlocks.builtWithPurpose}</p>
-            </article>
-          </div>
-        </div>
 
-        <div className="wrap mt-12">
-          <p className="kicker">Leadership</p>
-          <h2 className="h2 mt-3">Muhammad Shaheer Lodhi</h2>
-          <p className="mt-2 text-sm font-semibold text-[var(--accent)]">CEO and Founder · Softoras</p>
-          <p className="section-desc mt-4 max-w-3xl">
-            Shaheer is a software engineer and AWS Certified Solutions Architect Associate. He builds and runs product
-            work across software, web, backend, cloud, DevOps, CRM, GoHighLevel, AI automation, and SaaS — including
-            Softoras ERP.
-          </p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            <a href={site.linkedin} className="btn btn-primary btn-compact" target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-            <Link href="/contact" className="btn btn-secondary btn-compact">
-              Start a Project
-            </Link>
-          </div>
-        </div>
-
-        <div className="wrap mt-10 grid grid-cols-3 gap-3 sm:max-w-lg">
-          {stats.map((item) => (
-            <div key={item.label} className="stat-pill">
-              <strong>{item.value}</strong>
-              <span className="text-xs text-[var(--muted)]">{item.label}</span>
+          <div className="about-ceo-card about-ceo-card-page">
+            <div className="about-ceo-photo">
+              <Image
+                src={ceo.photo}
+                alt={`${ceo.name}, ${ceo.title} of Softoras`}
+                width={480}
+                height={480}
+                className="about-ceo-img"
+                unoptimized
+                priority
+              />
             </div>
-          ))}
+            <div className="about-ceo-copy">
+              <p className="kicker">Leadership</p>
+              <h2 className="about-ceo-name">{ceo.name}</h2>
+              <p className="about-ceo-title">{ceo.title} · Softoras</p>
+              <p className="about-ceo-credential">{ceo.credentials}</p>
+              <p className="section-desc mt-4">{ceo.bio}</p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <a href={site.linkedin} className="btn btn-primary btn-compact" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+                <Link href="/contact" className="btn btn-secondary btn-compact">
+                  Start a Project
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="about-bento">
+            {beliefCards.map((item) => (
+              <article key={item.title} className="card-feature about-bento-card">
+                <h3 className="card-heading-sm">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.text}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="about-stats-row">
+            {stats.map((item) => (
+              <div key={item.label} className="stat-pill">
+                <strong>{item.value}</strong>
+                <span className="text-xs text-[var(--muted)]">{item.label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12">
+            <SectionHeader kicker="Offices" title="Where we work" align="center" />
+            <LocationCards className="mt-8" />
+          </div>
         </div>
       </div>
 
@@ -97,7 +99,7 @@ export default function AboutPage() {
           <div className="card-grid-4 mt-10">
             {strengths.map((item) => (
               <article key={item.title} className="card-feature">
-                <h3 className="font-semibold">{item.title}</h3>
+                <h3 className="card-heading-sm">{item.title}</h3>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
               </article>
             ))}

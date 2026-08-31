@@ -15,7 +15,7 @@ export default function ProductSpotlight() {
             </p>
             <p className="section-desc mt-4">
               Softoras ERP is a Softoras-built business management product designed to bring operations into one
-              connected system. CRM, sales, inventory, purchasing, HR, payroll, accounting, and projects — with
+              connected system. CRM, sales, inventory, purchasing, HR, payroll, accounting, and projects, with
               role-based access and a live product you can open today.
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
