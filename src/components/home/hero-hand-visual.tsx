@@ -4,24 +4,13 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
 /** Globe sits in the cupped hollow between the palms */
-const GLOBE = { cx: 480, cy: 318, r: 108 } as const
-
-const LAND_MASSES = [
-  'M400 287 C416 267 456 263 480 275 C500 299 492 327 468 339 C436 347 406 327 400 287 Z',
-  'M544 293 C572 281 600 293 612 321 C606 349 580 361 556 353 C532 341 526 313 544 293 Z',
-  'M428 341 C452 329 480 337 496 361 C488 389 462 401 438 393 C414 381 412 357 428 341 Z',
-  'M532 361 C556 349 584 361 592 389 C584 413 560 421 536 409 C520 393 520 373 532 361 Z',
-  'M456 389 C476 377 500 385 508 409 C500 433 476 441 456 429 C444 413 444 397 456 389 Z',
-  'M516 417 C536 405 560 417 564 441 C556 461 532 465 516 453 C504 437 504 425 516 417 Z',
-  'M404 373 C416 361 432 367 436 385 C428 401 412 405 404 393 C400 383 400 377 404 373 Z',
-  'M568 329 C584 321 600 329 604 345 C596 361 580 365 568 357 C560 345 560 335 568 329 Z',
-] as const
+const GLOBE = { cx: 480, cy: 268, r: 108 } as const
 
 const ORBIT_PARTICLES = [
-  { cx: 480, cy: 158, r: 2.5 }, { cx: 620, cy: 222, r: 2 }, { cx: 656, cy: 318, r: 2.5 },
-  { cx: 620, cy: 414, r: 2 }, { cx: 480, cy: 478, r: 2.5 }, { cx: 340, cy: 414, r: 2 },
-  { cx: 304, cy: 318, r: 2.5 }, { cx: 340, cy: 222, r: 2 }, { cx: 548, cy: 182, r: 1.8 },
-  { cx: 412, cy: 182, r: 1.8 }, { cx: 412, cy: 454, r: 1.8 }, { cx: 548, cy: 454, r: 1.8 },
+  { cx: 480, cy: 108, r: 2.5 }, { cx: 620, cy: 172, r: 2 }, { cx: 656, cy: 268, r: 2.5 },
+  { cx: 620, cy: 364, r: 2 }, { cx: 480, cy: 428, r: 2.5 }, { cx: 340, cy: 364, r: 2 },
+  { cx: 304, cy: 268, r: 2.5 }, { cx: 340, cy: 172, r: 2 }, { cx: 548, cy: 132, r: 1.8 },
+  { cx: 412, cy: 132, r: 1.8 }, { cx: 412, cy: 404, r: 1.8 }, { cx: 548, cy: 404, r: 1.8 },
 ] as const
 
 export default function HeroHandVisual() {
@@ -172,12 +161,6 @@ export default function HeroHandVisual() {
                       />
                     )
                   })}
-                </g>
-
-                <g clipPath="url(#globeClip)" className="hero-hand-globe-land">
-                  {LAND_MASSES.map((d) => (
-                    <path key={d.slice(0, 12)} d={d} />
-                  ))}
                 </g>
 
                 <path
