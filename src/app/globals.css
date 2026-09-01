@@ -581,6 +581,11 @@ body {
 
 /* Hero hand visual */
 .hero-hand {
+  --hand-metal-a: #e2e8f0;
+  --hand-metal-b: #64748b;
+  --hand-metal-c: #1e293b;
+  --hand-joint: #38bdf8;
+  --hand-glow-core: #38bdf8;
   position: relative;
   width: 100%;
   background: transparent;
@@ -588,6 +593,14 @@ body {
   box-shadow: none;
   outline: none;
   min-height: clamp(22rem, 50vw, 36rem);
+}
+
+html.dark .hero-hand {
+  --hand-metal-a: #334155;
+  --hand-metal-b: #0f172a;
+  --hand-metal-c: #020617;
+  --hand-joint: #0ea5e9;
+  --hand-glow-core: #0ea5e9;
 }
 
 .hero-hand-stage {
@@ -614,10 +627,23 @@ body {
   filter: blur(40px);
 }
 
-.hero-hand-figure {
+.hero-hand-ambient-core {
+  inset: 28% 18% 32%;
+  background: radial-gradient(circle at 50% 42%, color-mix(in srgb, #38bdf8 18%, transparent), transparent 52%);
+  filter: blur(24px);
+}
+
+.hero-hand-svg {
   position: relative;
   z-index: 1;
-  width: min(100%, 32rem);
+  width: min(100%, 36rem);
+  height: auto;
+  overflow: visible;
+  shape-rendering: geometricPrecision;
+  text-rendering: geometricPrecision;
+}
+
+.hero-hand-figure {
   transform-origin: center bottom;
   animation: hero-hand-float 6s var(--ease-out) infinite;
 }
@@ -626,59 +652,196 @@ body {
   animation: none;
 }
 
-.hero-hand-photo {
-  display: block;
-  width: 100%;
-  height: auto;
-  mix-blend-mode: lighten;
-  filter: saturate(1.08) contrast(1.06) brightness(1.02);
-}
-
-html.dark .hero-hand-photo {
-  mix-blend-mode: screen;
-  filter: saturate(1.12) contrast(1.08) brightness(1.08);
-}
-
-.hero-hand-globe-glow {
-  position: absolute;
-  top: 17%;
-  left: 50%;
-  width: 46%;
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: radial-gradient(circle, color-mix(in srgb, #38bdf8 42%, transparent), transparent 72%);
-  filter: blur(10px);
-  pointer-events: none;
+.hero-hand-globe-halo {
+  fill: color-mix(in srgb, var(--hand-glow-core) 28%, transparent);
+  filter: blur(18px);
   animation: hero-hand-globe-pulse 4.5s ease-in-out infinite;
 }
 
-.hero-hand-globe-ring {
-  position: absolute;
-  top: 19%;
-  left: 50%;
-  width: 44%;
-  aspect-ratio: 1;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  border: 1.5px solid color-mix(in srgb, #38bdf8 55%, transparent);
-  box-shadow: 0 0 18px color-mix(in srgb, #38bdf8 35%, transparent);
-  pointer-events: none;
-  animation: hero-hand-ring-spin 8s linear infinite;
+.hero-hand-globe-group {
+  transform-origin: 472px 356px;
+  animation: hero-hand-globe-breathe 5s ease-in-out infinite;
 }
 
-.hero-hand-globe-ring-outer {
-  top: 16%;
-  width: 52%;
-  border-color: color-mix(in srgb, #0ea5e9 28%, transparent);
-  box-shadow: none;
-  animation: hero-hand-ring-spin 12s linear infinite reverse;
+.hero-hand-globe-ring-svg {
+  fill: none;
+  stroke: color-mix(in srgb, var(--hand-glow-core) 55%, transparent);
+  stroke-width: 2;
+  transform-origin: 472px 356px;
+}
+
+.hero-hand-globe-ring-inner {
+  stroke-dasharray: 10 16;
+  animation: hero-hand-ring-spin-svg 10s linear infinite;
+}
+
+.hero-hand-globe-ring-mid {
+  stroke: color-mix(in srgb, #a78bfa 40%, transparent);
+  stroke-dasharray: 6 20;
+  opacity: 0.8;
+  animation: hero-hand-ring-spin-svg 12s linear infinite reverse;
+}
+
+.hero-hand-globe-ring-outer-svg {
+  stroke: color-mix(in srgb, #0ea5e9 35%, transparent);
+  stroke-dasharray: 4 22;
+  opacity: 0.7;
+  animation: hero-hand-ring-spin-svg 16s linear infinite;
+}
+
+.hero-hand-globe-lat,
+.hero-hand-globe-lon {
+  fill: none;
+  stroke: color-mix(in srgb, #7dd3fc 45%, transparent);
+  stroke-width: 0.75;
+}
+
+.hero-hand-globe-lon-main {
+  stroke: color-mix(in srgb, #38bdf8 65%, transparent);
+  stroke-width: 1;
+}
+
+.hero-hand-globe-grid {
+  animation: hero-hand-globe-spin 28s linear infinite;
+  transform-origin: 472px 356px;
+}
+
+.hero-hand-globe-scan {
+  fill: none;
+  stroke: url(#scanArc);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 120 420;
+  opacity: 0.75;
+  animation: hero-hand-scan 3.5s ease-in-out infinite;
+}
+
+.hero-hand-globe-land path {
+  fill: color-mix(in srgb, #4ade80 55%, #166534);
+  opacity: 0.75;
+}
+
+html.dark .hero-hand-globe-land path {
+  fill: color-mix(in srgb, #22c55e 45%, #14532d);
+  opacity: 0.8;
+}
+
+.hero-hand-globe-label {
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  fill: #0f172a;
+  paint-order: stroke fill;
+  stroke: color-mix(in srgb, #e0f2fe 85%, transparent);
+  stroke-width: 5px;
+}
+
+html.dark .hero-hand-globe-label {
+  fill: #f8fafc;
+  stroke: color-mix(in srgb, #0ea5e9 50%, transparent);
+}
+
+.hero-hand-globe-rim {
+  fill: none;
+  stroke: url(#robotEdge);
+  stroke-width: 3;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--hand-glow-core) 50%, transparent));
+}
+
+.hero-hand-phalanx {
+  fill: color-mix(in srgb, var(--hand-metal-a) 35%, transparent);
+  stroke: color-mix(in srgb, var(--hand-joint) 35%, transparent);
+  stroke-width: 1.2;
+}
+
+.hero-hand-seam {
+  stroke: color-mix(in srgb, var(--hand-joint) 55%, transparent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
   opacity: 0.65;
 }
 
-.hero-hand.is-static .hero-hand-globe-glow,
-.hero-hand.is-static .hero-hand-globe-ring {
+.hero-hand-screw {
+  fill: color-mix(in srgb, var(--hand-metal-c) 80%, #94a3b8);
+  stroke: color-mix(in srgb, var(--hand-joint) 40%, transparent);
+  stroke-width: 0.8;
+}
+
+.hero-hand-palm-trace {
+  fill: none;
+  stroke: color-mix(in srgb, var(--hand-joint) 45%, transparent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-dasharray: 40 960;
+  animation: hero-hand-wire-flow 6s linear infinite;
+  opacity: 0.55;
+}
+
+.hero-hand-joint-ring {
+  fill: color-mix(in srgb, var(--hand-metal-c) 70%, transparent);
+  stroke: var(--hand-joint);
+  stroke-width: 2;
+  opacity: 0.75;
+}
+
+.hero-hand-wire {
+  fill: none;
+  stroke: url(#wireGlow);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 56 944;
+  animation: hero-hand-wire-flow 4s linear infinite;
+  opacity: 0.98;
+}
+
+.hero-hand-wire-thin {
+  stroke-width: 1.8;
+  opacity: 0.72;
+  stroke-dasharray: 32 968;
+}
+
+.hero-hand-tip-glow {
+  fill: color-mix(in srgb, var(--hand-glow-core) 35%, transparent);
+  animation: hero-hand-tip-pulse 2.8s ease-in-out infinite;
+}
+
+.hero-hand-tip {
+  fill: var(--hand-glow-core);
+  stroke: #f0f9ff;
+  stroke-width: 1.5;
+  animation: hero-hand-tip-pulse 2.8s ease-in-out infinite;
+}
+
+.hero-hand-particle {
+  fill: var(--hand-glow-core);
+  opacity: 0.65;
+  animation: hero-hand-particle 4s ease-in-out infinite;
+}
+
+.hero-hand-orbit-particles {
+  transform-origin: 472px 356px;
+  animation: hero-hand-ring-spin-svg 20s linear infinite;
+}
+
+.hero-hand.is-static .hero-hand-globe-halo,
+.hero-hand.is-static .hero-hand-globe-group,
+.hero-hand.is-static .hero-hand-globe-grid,
+.hero-hand.is-static .hero-hand-globe-ring-svg,
+.hero-hand.is-static .hero-hand-globe-scan,
+.hero-hand.is-static .hero-hand-wire,
+.hero-hand.is-static .hero-hand-palm-trace,
+.hero-hand.is-static .hero-hand-tip,
+.hero-hand.is-static .hero-hand-tip-glow,
+.hero-hand.is-static .hero-hand-particle,
+.hero-hand.is-static .hero-hand-orbit-particles {
   animation: none;
+}
+
+.hero-hand.is-static .hero-hand-wire {
+  stroke-dasharray: none;
+  opacity: 0.55;
 }
 
 @keyframes hero-hand-float {
@@ -687,20 +850,63 @@ html.dark .hero-hand-photo {
 }
 
 @keyframes hero-hand-globe-pulse {
-  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(0.96); }
-  50% { opacity: 0.95; transform: translateX(-50%) scale(1.04); }
+  0%, 100% { opacity: 0.45; transform: scale(0.96); }
+  50% { opacity: 0.85; transform: scale(1.04); }
 }
 
-@keyframes hero-hand-ring-spin {
-  from { transform: translateX(-50%) rotate(0deg); }
-  to { transform: translateX(-50%) rotate(360deg); }
+@keyframes hero-hand-globe-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes hero-hand-globe-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-hand-ring-spin-svg {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes hero-hand-wire-flow {
+  to { stroke-dashoffset: -1000; }
+}
+
+@keyframes hero-hand-tip-pulse {
+  0%, 100% { opacity: 0.55; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes hero-hand-scan {
+  0%, 100% { opacity: 0.25; stroke-dashoffset: 80; }
+  50% { opacity: 0.9; stroke-dashoffset: 0; }
+}
+
+@keyframes hero-hand-particle {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 0.95; transform: scale(1.15); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-hand-figure,
-  .hero-hand-globe-glow,
-  .hero-hand-globe-ring {
+  .hero-hand-globe-halo,
+  .hero-hand-globe-group,
+  .hero-hand-globe-grid,
+  .hero-hand-globe-ring-svg,
+  .hero-hand-globe-scan,
+  .hero-hand-wire,
+  .hero-hand-palm-trace,
+  .hero-hand-tip,
+  .hero-hand-tip-glow,
+  .hero-hand-particle,
+  .hero-hand-orbit-particles {
     animation: none !important;
+  }
+
+  .hero-hand-wire {
+    stroke-dasharray: none;
+    opacity: 0.5;
   }
 }
 
