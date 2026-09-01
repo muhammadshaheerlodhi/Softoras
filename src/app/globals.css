@@ -637,7 +637,7 @@ html.dark .hero-hand {
   position: relative;
   z-index: 1;
   width: min(100%, 36rem);
-  aspect-ratio: 960 / 1120;
+  aspect-ratio: 960 / 720;
   transform-origin: center bottom;
   animation: hero-hand-float 6s var(--ease-out) infinite;
 }
@@ -657,25 +657,26 @@ html.dark .hero-hand {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 58%;
+  object-fit: contain;
+  object-position: center 52%;
   mix-blend-mode: lighten;
-  filter: saturate(1.12) contrast(1.1) brightness(1.04);
-  -webkit-mask-image: radial-gradient(circle at 50% 31%, transparent 0, transparent 27%, black 34%);
-  mask-image: radial-gradient(circle at 50% 31%, transparent 0, transparent 27%, black 34%);
+  filter: saturate(1.16) contrast(1.14) brightness(1.06);
 }
 
 html.dark .hero-hand-photo {
   mix-blend-mode: screen;
-  filter: saturate(1.14) contrast(1.12) brightness(1.1);
+  filter: saturate(1.18) contrast(1.16) brightness(1.12);
 }
 
 .hero-hand-photo-shine {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 42% 68%, color-mix(in srgb, #fdba74 12%, transparent), transparent 42%),
-    radial-gradient(circle at 58% 24%, color-mix(in srgb, #ffffff 8%, transparent), transparent 36%);
+    radial-gradient(circle at 22% 38%, color-mix(in srgb, #ffffff 14%, transparent), transparent 28%),
+    radial-gradient(circle at 78% 38%, color-mix(in srgb, #ffffff 14%, transparent), transparent 28%),
+    radial-gradient(circle at 50% 62%, color-mix(in srgb, #fdba74 14%, transparent), transparent 38%),
+    radial-gradient(circle at 34% 22%, color-mix(in srgb, #fde68a 8%, transparent), transparent 22%),
+    radial-gradient(circle at 66% 22%, color-mix(in srgb, #fde68a 8%, transparent), transparent 22%);
   mix-blend-mode: soft-light;
   pointer-events: none;
 }
@@ -683,9 +684,20 @@ html.dark .hero-hand-photo {
 .hero-hand-photo-depth {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 90% 70% at 50% 88%, color-mix(in srgb, #0f172a 18%, transparent), transparent 68%);
+  background:
+    radial-gradient(ellipse 88% 62% at 50% 78%, color-mix(in srgb, #0f172a 22%, transparent), transparent 72%),
+    radial-gradient(circle at 50% 44%, color-mix(in srgb, #38bdf8 6%, transparent), transparent 34%);
   mix-blend-mode: multiply;
-  opacity: 0.35;
+  opacity: 0.38;
+  pointer-events: none;
+}
+
+.hero-hand-photo-clarity {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, color-mix(in srgb, #ffffff 4%, transparent) 48%, transparent 100%);
+  mix-blend-mode: overlay;
+  opacity: 0.55;
   pointer-events: none;
 }
 
@@ -716,7 +728,7 @@ html.dark .hero-hand-photo-depth {
 }
 
 .hero-hand-globe-group {
-  transform-origin: 472px 356px;
+  transform-origin: 480px 318px;
   animation: hero-hand-globe-breathe 5s ease-in-out infinite;
 }
 
@@ -724,7 +736,7 @@ html.dark .hero-hand-photo-depth {
   fill: none;
   stroke: color-mix(in srgb, var(--hand-glow-core) 55%, transparent);
   stroke-width: 2;
-  transform-origin: 472px 356px;
+  transform-origin: 480px 318px;
 }
 
 .hero-hand-globe-ring-inner {
@@ -760,7 +772,7 @@ html.dark .hero-hand-photo-depth {
 
 .hero-hand-globe-grid {
   animation: hero-hand-globe-spin 28s linear infinite;
-  transform-origin: 472px 356px;
+  transform-origin: 480px 318px;
 }
 
 .hero-hand-globe-scan {
@@ -785,13 +797,13 @@ html.dark .hero-hand-globe-land path {
 
 .hero-hand-globe-label {
   font-family: var(--font-display, system-ui, sans-serif);
-  font-size: 44px;
+  font-size: 38px;
   font-weight: 800;
   letter-spacing: 0.16em;
   fill: #0f172a;
   paint-order: stroke fill;
   stroke: color-mix(in srgb, #e0f2fe 85%, transparent);
-  stroke-width: 5px;
+  stroke-width: 4px;
 }
 
 html.dark .hero-hand-globe-label {
@@ -813,7 +825,7 @@ html.dark .hero-hand-globe-label {
 }
 
 .hero-hand-orbit-particles {
-  transform-origin: 472px 356px;
+  transform-origin: 480px 318px;
   animation: hero-hand-ring-spin-svg 20s linear infinite;
 }
 

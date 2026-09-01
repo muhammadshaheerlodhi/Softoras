@@ -3,24 +3,25 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const GLOBE = { cx: 472, cy: 356, r: 148 } as const
+/** Globe sits in the cupped hollow between the palms */
+const GLOBE = { cx: 480, cy: 318, r: 108 } as const
 
 const LAND_MASSES = [
-  'M392 316 C412 296 448 292 472 304 C492 328 484 356 460 368 C428 376 398 356 392 316 Z',
-  'M536 324 C564 312 592 324 604 352 C598 380 572 392 548 384 C524 372 518 344 536 324 Z',
-  'M420 372 C444 360 472 368 488 392 C480 420 456 432 432 424 C408 412 404 388 420 372 Z',
-  'M524 392 C548 380 576 392 584 420 C576 444 552 452 528 440 C512 424 512 404 524 392 Z',
-  'M448 420 C468 408 492 416 500 440 C492 464 468 472 448 460 C436 444 436 428 448 420 Z',
-  'M508 448 C528 436 552 448 556 472 C548 492 524 496 508 484 C496 468 496 456 508 448 Z',
-  'M396 404 C408 392 424 398 428 416 C420 432 404 436 396 424 C392 414 392 408 396 404 Z',
-  'M560 360 C576 352 592 360 596 376 C588 392 572 396 560 388 C552 376 552 366 560 360 Z',
+  'M400 287 C416 267 456 263 480 275 C500 299 492 327 468 339 C436 347 406 327 400 287 Z',
+  'M544 293 C572 281 600 293 612 321 C606 349 580 361 556 353 C532 341 526 313 544 293 Z',
+  'M428 341 C452 329 480 337 496 361 C488 389 462 401 438 393 C414 381 412 357 428 341 Z',
+  'M532 361 C556 349 584 361 592 389 C584 413 560 421 536 409 C520 393 520 373 532 361 Z',
+  'M456 389 C476 377 500 385 508 409 C500 433 476 441 456 429 C444 413 444 397 456 389 Z',
+  'M516 417 C536 405 560 417 564 441 C556 461 532 465 516 453 C504 437 504 425 516 417 Z',
+  'M404 373 C416 361 432 367 436 385 C428 401 412 405 404 393 C400 383 400 377 404 373 Z',
+  'M568 329 C584 321 600 329 604 345 C596 361 580 365 568 357 C560 345 560 335 568 329 Z',
 ] as const
 
 const ORBIT_PARTICLES = [
-  { cx: 472, cy: 196, r: 2.5 }, { cx: 612, cy: 260, r: 2 }, { cx: 648, cy: 356, r: 2.5 },
-  { cx: 612, cy: 452, r: 2 }, { cx: 472, cy: 516, r: 2.5 }, { cx: 332, cy: 452, r: 2 },
-  { cx: 296, cy: 356, r: 2.5 }, { cx: 332, cy: 260, r: 2 }, { cx: 540, cy: 220, r: 1.8 },
-  { cx: 404, cy: 220, r: 1.8 }, { cx: 404, cy: 492, r: 1.8 }, { cx: 540, cy: 492, r: 1.8 },
+  { cx: 480, cy: 158, r: 2.5 }, { cx: 620, cy: 222, r: 2 }, { cx: 656, cy: 318, r: 2.5 },
+  { cx: 620, cy: 414, r: 2 }, { cx: 480, cy: 478, r: 2.5 }, { cx: 340, cy: 414, r: 2 },
+  { cx: 304, cy: 318, r: 2.5 }, { cx: 340, cy: 222, r: 2 }, { cx: 548, cy: 182, r: 1.8 },
+  { cx: 412, cy: 182, r: 1.8 }, { cx: 412, cy: 454, r: 1.8 }, { cx: 548, cy: 454, r: 1.8 },
 ] as const
 
 export default function HeroHandVisual() {
@@ -40,22 +41,23 @@ export default function HeroHandVisual() {
         <div className="hero-hand-composite">
           <div className="hero-hand-photo-layer">
             <Image
-              src="/hero/hand-globe.png"
+              src="/hero/hands-cupped.png"
               alt=""
               width={960}
-              height={1120}
+              height={720}
               className="hero-hand-photo"
               priority
-              quality={95}
+              quality={100}
               sizes="(min-width: 1024px) 576px, 90vw"
             />
             <div className="hero-hand-photo-shine" />
             <div className="hero-hand-photo-depth" />
+            <div className="hero-hand-photo-clarity" />
           </div>
 
           <svg
             className="hero-hand-globe-svg"
-            viewBox="0 0 960 1120"
+            viewBox="0 0 960 720"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             shapeRendering="geometricPrecision"
@@ -87,7 +89,7 @@ export default function HeroHandVisual() {
                 cy="0"
                 r="1"
                 gradientUnits="userSpaceOnUse"
-                gradientTransform={`translate(${GLOBE.cx - 52} ${GLOBE.cy - 68}) rotate(35) scale(96 72)`}
+                gradientTransform={`translate(${GLOBE.cx - 52} ${GLOBE.cy - 68}) rotate(35) scale(88 64)`}
               >
                 <stop offset="0%" stopColor="#f0f9ff" stopOpacity="0.72" />
                 <stop offset="55%" stopColor="#e0f2fe" stopOpacity="0.18" />
@@ -143,7 +145,7 @@ export default function HeroHandVisual() {
 
                 <g clipPath="url(#globeClip)" className="hero-hand-globe-grid">
                   {Array.from({ length: 14 }, (_, i) => {
-                    const ry = 10 + i * 10
+                    const ry = 8 + i * 8
                     if (ry >= GLOBE.r) return null
                     return (
                       <ellipse
@@ -157,7 +159,7 @@ export default function HeroHandVisual() {
                     )
                   })}
                   {Array.from({ length: 18 }, (_, i) => {
-                    const rx = 10 + i * 8
+                    const rx = 8 + i * 6
                     if (rx >= GLOBE.r) return null
                     return (
                       <ellipse
@@ -183,7 +185,7 @@ export default function HeroHandVisual() {
                   className="hero-hand-globe-scan"
                 />
 
-                <text x={GLOBE.cx} y={GLOBE.cy + 14} textAnchor="middle" className="hero-hand-globe-label">
+                <text x={GLOBE.cx} y={GLOBE.cy + 12} textAnchor="middle" className="hero-hand-globe-label">
                   SAAS
                 </text>
 
