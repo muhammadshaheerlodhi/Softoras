@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import HeroRobotVisual from '@/components/home/hero-robot-visual'
+import HeroHandVisual from '@/components/home/hero-hand-visual'
 import { TAGLINE } from '@/content/site'
 
 export default function Hero() {
@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero-visual-wrap rise">
-          <HeroRobotVisual />
+          <HeroHandVisual />
         </div>
       </div>
     </section>

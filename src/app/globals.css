@@ -121,7 +121,7 @@ body {
 .band-hero {
   background: var(--hero);
   color: var(--ink);
-  overflow: hidden;
+  overflow: visible;
 }
 .band-cta {
   background: linear-gradient(
@@ -565,11 +565,12 @@ body {
 
 .hero-visual-wrap {
   width: 100%;
-  max-width: min(100%, 36rem);
+  max-width: min(100%, 40rem);
   margin-inline: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: visible;
 }
 
 @media (max-width: 767px) {
@@ -578,116 +579,139 @@ body {
   }
 }
 
-/* Hero robot visual */
-.hero-robot {
-  --robot-metal-a: #f8fafc;
-  --robot-metal-b: #cbd5e1;
-  --robot-metal-c: #94a3b8;
-  --robot-metal-highlight: #ffffff;
-  --robot-neck: #e2e8f0;
-  --robot-chest-core: color-mix(in srgb, var(--accent) 10%, #f1f5f9);
-  --robot-accent: #0ea5e9;
-  --robot-accent-bright: #38bdf8;
-  --robot-ground: color-mix(in srgb, var(--accent) 20%, transparent);
+/* Hero hand visual */
+.hero-hand {
+  --hand-surface-a: #e0f2fe;
+  --hand-surface-b: #64748b;
+  --hand-surface-c: #334155;
+  --hand-glow-core: #38bdf8;
   position: relative;
   width: 100%;
   background: transparent;
   border: none;
   box-shadow: none;
-  min-height: clamp(20rem, 44vw, 32rem);
+  outline: none;
+  min-height: clamp(22rem, 50vw, 36rem);
 }
 
-html.dark .hero-robot {
-  --robot-metal-a: #475569;
-  --robot-metal-b: #1e293b;
-  --robot-metal-c: #0f172a;
-  --robot-metal-highlight: #64748b;
-  --robot-neck: #1e293b;
-  --robot-chest-core: color-mix(in srgb, var(--accent) 14%, #0f172a);
-  --robot-ground: color-mix(in srgb, var(--accent) 32%, transparent);
+html.dark .hero-hand {
+  --hand-surface-a: #1e1b4b;
+  --hand-surface-b: #0f172a;
+  --hand-surface-c: #020617;
+  --hand-glow-core: #0ea5e9;
 }
 
-.hero-robot-stage {
+.hero-hand-stage {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   min-height: inherit;
+  overflow: visible;
 }
 
-.hero-robot-glow-field {
+.hero-hand-ambient {
   position: absolute;
-  inset: 8% 10% 14%;
-  background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%);
-  filter: blur(18px);
+  inset: 5% 0 10%;
+  background: radial-gradient(circle at 52% 46%, color-mix(in srgb, #38bdf8 22%, transparent), transparent 62%);
+  filter: blur(28px);
   pointer-events: none;
 }
 
-.hero-robot-svg {
+.hero-hand-ambient-violet {
+  inset: 18% 8% 20%;
+  background: radial-gradient(circle at 58% 40%, color-mix(in srgb, #a78bfa 16%, transparent), transparent 58%);
+  filter: blur(36px);
+}
+
+.hero-hand-svg {
   position: relative;
   z-index: 1;
-  width: min(100%, 22rem);
+  width: min(100%, 30rem);
   height: auto;
+  overflow: visible;
 }
 
-.hero-robot-figure {
+.hero-hand-figure {
   transform-origin: center bottom;
-  animation: hero-robot-float 5.5s var(--ease-out) infinite;
+  animation: hero-hand-float 6s var(--ease-out) infinite;
 }
 
-.hero-robot.is-static .hero-robot-figure {
+.hero-hand.is-static .hero-hand-figure {
   animation: none;
 }
 
-.hero-robot-ground {
-  fill: var(--robot-ground);
+.hero-hand-trace {
+  fill: none;
+  stroke: url(#heroHandRim);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 64 936;
+  stroke-dashoffset: 0;
+  animation: hero-hand-trace 5.5s linear infinite;
+  filter: drop-shadow(0 0 8px #38bdf8) drop-shadow(0 0 14px rgba(167, 139, 250, 0.35));
+  opacity: 0.95;
+}
+
+.hero-hand-trace-b { animation-delay: -0.8s; }
+.hero-hand-trace-c { animation-delay: -1.6s; }
+.hero-hand-trace-d { animation-delay: -2.2s; stroke-width: 2; }
+.hero-hand-trace-e { animation-delay: -2.9s; }
+.hero-hand-trace-f { animation-delay: -3.5s; stroke-width: 2.8; }
+.hero-hand-trace-g { animation-delay: -4.1s; }
+
+.hero-hand.is-static .hero-hand-trace {
+  animation: none;
+  stroke-dasharray: none;
+  opacity: 0.6;
+}
+
+.hero-hand-orb {
+  fill: url(#heroHandRim);
   opacity: 0.75;
 }
 
-.hero-robot-trace {
-  fill: none;
-  stroke: url(#heroRobotTraceGrad);
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 72 928;
-  stroke-dashoffset: 0;
-  animation: hero-robot-trace 5s linear infinite;
-  filter: drop-shadow(0 0 6px #38bdf8);
-  opacity: 0.92;
+.hero-hand-orb-main {
+  animation: hero-hand-orb 4s ease-in-out infinite;
 }
 
-.hero-robot-trace-b { animation-delay: -1s; }
-.hero-robot-trace-c { animation-delay: -2s; }
-.hero-robot-trace-d { animation-delay: -2.8s; }
-.hero-robot-trace-e { animation-delay: -3.6s; }
-.hero-robot-trace-f { animation-delay: -0.5s; stroke-width: 1.8; }
+.hero-hand-orb-secondary {
+  animation: hero-hand-orb 4s ease-in-out infinite reverse;
+  opacity: 0.55;
+}
 
-.hero-robot.is-static .hero-robot-trace {
+.hero-hand.is-static .hero-hand-orb-main,
+.hero-hand.is-static .hero-hand-orb-secondary {
   animation: none;
-  stroke-dasharray: none;
-  opacity: 0.65;
 }
 
-@keyframes hero-robot-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+@keyframes hero-hand-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-1deg); }
 }
 
-@keyframes hero-robot-trace {
+@keyframes hero-hand-trace {
   to { stroke-dashoffset: -1000; }
 }
 
+@keyframes hero-hand-orb {
+  0%, 100% { transform: translateY(0); opacity: 0.65; }
+  50% { transform: translateY(-6px); opacity: 0.95; }
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .hero-robot-figure,
-  .hero-robot-trace {
+  .hero-hand-figure,
+  .hero-hand-trace,
+  .hero-hand-orb-main,
+  .hero-hand-orb-secondary {
     animation: none !important;
   }
 
-  .hero-robot-trace {
+  .hero-hand-trace {
     stroke-dasharray: none;
-    opacity: 0.55;
+    opacity: 0.5;
   }
 }
 
@@ -2466,8 +2490,7 @@ html:not(.dark) .card-feature,
 html:not(.dark) .card-service,
 html:not(.dark) .location-card,
 html:not(.dark) .testimonial-card,
-html:not(.dark) .hero-system,
-html:not(.dark) .hero-robot {
+html:not(.dark) .hero-system {
   box-shadow:
     0 1px 2px color-mix(in srgb, var(--ink) 3%, transparent),
     0 8px 24px -10px color-mix(in srgb, var(--accent) 16%, transparent);
