@@ -14,7 +14,7 @@ export default function FinalCta() {
             software, let&apos;s build something your business can actually run.
           </p>
           <p className="mt-3 text-sm font-semibold text-sky-200">{TAGLINE}</p>
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <div className="cta-actions mt-7 flex flex-wrap justify-center gap-3">
             <Link href="/contact" className="btn btn-light">
               Start a Project
             </Link>
