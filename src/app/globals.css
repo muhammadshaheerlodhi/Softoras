@@ -563,232 +563,131 @@ body {
     radial-gradient(400px 200px at 10% 80%, rgba(14,165,233,0.08), transparent 55%);
 }
 
-.hero-visual-wrap { width: 100%; max-width: min(100%, 34rem); margin-inline: auto; }
-
-/* Hero robot visual */
-.hero-robot {
-  --robot-grad-a: color-mix(in srgb, var(--ink) 18%, var(--panel));
-  --robot-grad-b: color-mix(in srgb, var(--ink) 10%, var(--panel));
-  --robot-grad-c: color-mix(in srgb, var(--ink) 22%, var(--bg-alt));
-  --robot-stroke: color-mix(in srgb, var(--accent) 42%, var(--ink));
-  --robot-neck: color-mix(in srgb, var(--ink) 12%, var(--panel));
-  --robot-helmet-inner: color-mix(in srgb, var(--ink) 8%, var(--bg-alt));
-  --robot-shoulder: color-mix(in srgb, var(--ink) 16%, var(--panel));
-  --robot-chest: color-mix(in srgb, var(--accent) 8%, var(--panel));
-  --robot-visor-a: var(--accent);
-  --robot-visor-b: color-mix(in srgb, var(--accent) 82%, var(--ink));
-  --robot-shadow: color-mix(in srgb, var(--accent) 18%, transparent);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
-  border-radius: var(--radius-xl);
-  background:
-    radial-gradient(ellipse 80% 55% at 50% 100%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%),
-    linear-gradient(180deg, color-mix(in srgb, var(--accent) 5%, var(--panel)), var(--panel));
-  box-shadow: var(--shadow-md), 0 0 48px -20px var(--glow);
-  min-height: clamp(22rem, 52vw, 28rem);
-}
-
-.hero-robot.is-dark,
-html.dark .hero-robot {
-  --robot-grad-a: #141414;
-  --robot-grad-b: #0a0a0a;
-  --robot-grad-c: #050505;
-  --robot-stroke: color-mix(in srgb, var(--accent) 55%, #ffffff);
-  --robot-neck: #111111;
-  --robot-helmet-inner: #080808;
-  --robot-shoulder: #121212;
-  --robot-chest: color-mix(in srgb, var(--accent) 12%, #0a0a0a);
-  --robot-visor-b: var(--accent);
-  --robot-shadow: color-mix(in srgb, var(--accent) 35%, transparent);
-  background:
-    radial-gradient(ellipse 90% 60% at 50% 110%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%),
-    linear-gradient(180deg, #050505, #000000);
-}
-
-.hero-robot-scene {
-  position: relative;
-  height: 100%;
-  min-height: inherit;
-  padding: 1.25rem 1rem 1rem;
-}
-
-.hero-robot-ambient {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 68% 38%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 52%);
-  pointer-events: none;
-}
-
-.hero-robot-grid {
-  position: absolute;
-  inset: 0;
-  opacity: 0.35;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--accent) 12%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--accent) 12%, transparent) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: radial-gradient(circle at 55% 45%, black, transparent 72%);
-  pointer-events: none;
-}
-
-.hero-robot-floor-glow {
-  position: absolute;
-  left: 50%;
-  bottom: 12%;
-  width: 62%;
-  height: 18%;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 28%, transparent), transparent 70%);
-  filter: blur(12px);
-  pointer-events: none;
-}
-
-.hero-robot-float {
-  position: relative;
-  z-index: 2;
+.hero-visual-wrap {
+  width: 100%;
+  max-width: min(100%, 36rem);
+  margin-inline: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100% - 2rem);
-  animation: hero-robot-float 5.5s var(--ease-out) infinite;
 }
 
-.hero-robot.is-static .hero-robot-float {
-  animation: none;
+@media (max-width: 767px) {
+  .hero-visual-wrap {
+    display: none;
+  }
+}
+
+/* Hero robot visual */
+.hero-robot {
+  --robot-metal-a: #f8fafc;
+  --robot-metal-b: #cbd5e1;
+  --robot-metal-c: #94a3b8;
+  --robot-metal-highlight: #ffffff;
+  --robot-neck: #e2e8f0;
+  --robot-chest-core: color-mix(in srgb, var(--accent) 10%, #f1f5f9);
+  --robot-accent: #0ea5e9;
+  --robot-accent-bright: #38bdf8;
+  --robot-ground: color-mix(in srgb, var(--accent) 20%, transparent);
+  position: relative;
+  width: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  min-height: clamp(20rem, 44vw, 32rem);
+}
+
+html.dark .hero-robot {
+  --robot-metal-a: #475569;
+  --robot-metal-b: #1e293b;
+  --robot-metal-c: #0f172a;
+  --robot-metal-highlight: #64748b;
+  --robot-neck: #1e293b;
+  --robot-chest-core: color-mix(in srgb, var(--accent) 14%, #0f172a);
+  --robot-ground: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.hero-robot-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: inherit;
+}
+
+.hero-robot-glow-field {
+  position: absolute;
+  inset: 8% 10% 14%;
+  background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 68%);
+  filter: blur(18px);
+  pointer-events: none;
 }
 
 .hero-robot-svg {
-  width: min(100%, 19rem);
+  position: relative;
+  z-index: 1;
+  width: min(100%, 22rem);
   height: auto;
 }
 
-.hero-robot-shadow {
-  fill: var(--robot-shadow);
+.hero-robot-figure {
+  transform-origin: center bottom;
+  animation: hero-robot-float 5.5s var(--ease-out) infinite;
 }
 
-.hero-robot-visor {
-  animation: hero-robot-visor 3.2s ease-in-out infinite;
-}
-
-.hero-robot.is-static .hero-robot-visor {
+.hero-robot.is-static .hero-robot-figure {
   animation: none;
 }
 
-.hero-robot-neck-seam,
-.hero-robot-chest-line,
-.hero-robot-sensor {
-  fill: var(--robot-visor-b);
+.hero-robot-ground {
+  fill: var(--robot-ground);
+  opacity: 0.75;
 }
 
-.hero-robot-hud {
-  position: absolute;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  font-family: ui-monospace, monospace;
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: color-mix(in srgb, var(--accent) 78%, var(--ink));
-  animation: hero-robot-hud 2.8s ease-in-out infinite;
+.hero-robot-trace {
+  fill: none;
+  stroke: url(#heroRobotTraceGrad);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 72 928;
+  stroke-dashoffset: 0;
+  animation: hero-robot-trace 5s linear infinite;
+  filter: drop-shadow(0 0 6px #38bdf8);
+  opacity: 0.92;
 }
 
-.hero-robot-hud-sync { animation-delay: 0.4s; }
-.hero-robot-hud-link { animation-delay: 0.8s; }
-.hero-robot-hud-cloud { animation-delay: 1.2s; }
+.hero-robot-trace-b { animation-delay: -1s; }
+.hero-robot-trace-c { animation-delay: -2s; }
+.hero-robot-trace-d { animation-delay: -2.8s; }
+.hero-robot-trace-e { animation-delay: -3.6s; }
+.hero-robot-trace-f { animation-delay: -0.5s; stroke-width: 1.8; }
 
-.hero-robot.is-static .hero-robot-hud {
+.hero-robot.is-static .hero-robot-trace {
   animation: none;
-}
-
-.hero-robot-hud-line {
-  display: block;
-  width: 1.35rem;
-  height: 1px;
-  background: color-mix(in srgb, var(--accent) 65%, transparent);
-}
-
-.hero-robot-hud-core .hero-robot-hud-line,
-.hero-robot-hud-cloud .hero-robot-hud-line {
-  width: 1rem;
-}
-
-.hero-robot-status {
-  position: absolute;
-  z-index: 4;
-  left: 50%;
-  bottom: 0.85rem;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.35rem 0.75rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--accent) 8%, var(--panel));
-  backdrop-filter: blur(8px);
-}
-
-.hero-robot-status-dot {
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 999px;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
-  animation: hero-robot-pulse 2s ease-in-out infinite;
-}
-
-.hero-robot.is-static .hero-robot-status-dot {
-  animation: none;
-}
-
-.hero-robot-status-text {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink);
+  stroke-dasharray: none;
+  opacity: 0.65;
 }
 
 @keyframes hero-robot-float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
 }
 
-@keyframes hero-robot-visor {
-  0%, 100% { opacity: 0.88; }
-  50% { opacity: 1; }
-}
-
-@keyframes hero-robot-hud {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
-}
-
-@keyframes hero-robot-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.65; transform: scale(0.92); }
-}
-
-@media (max-width: 1023px) {
-  .hero-robot-hud {
-    display: none;
-  }
-
-  .hero-robot {
-    min-height: 20rem;
-  }
+@keyframes hero-robot-trace {
+  to { stroke-dashoffset: -1000; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-robot-float,
-  .hero-robot-visor,
-  .hero-robot-hud,
-  .hero-robot-status-dot {
+  .hero-robot-figure,
+  .hero-robot-trace {
     animation: none !important;
+  }
+
+  .hero-robot-trace {
+    stroke-dasharray: none;
+    opacity: 0.55;
   }
 }
 

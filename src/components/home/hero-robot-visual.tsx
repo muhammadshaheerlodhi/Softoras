@@ -2,13 +2,6 @@
 
 import { useEffect, useState } from 'react'
 
-const hudLabels = [
-  { id: 'core', text: 'AI.CORE', x: '8%', y: '22%' },
-  { id: 'sync', text: 'SYS.SYNC', x: '72%', y: '18%' },
-  { id: 'link', text: 'CRM.LINK', x: '76%', y: '48%' },
-  { id: 'cloud', text: 'CLOUD.OK', x: '10%', y: '62%' },
-]
-
 export default function HeroRobotVisual() {
   const [reduceMotion, setReduceMotion] = useState(true)
 
@@ -18,93 +11,126 @@ export default function HeroRobotVisual() {
 
   return (
     <div className={`hero-robot${reduceMotion ? ' is-static' : ''}`} aria-hidden>
-      <div className="hero-robot-scene">
-        <div className="hero-robot-ambient" />
-        <div className="hero-robot-grid" />
-        <div className="hero-robot-floor-glow" />
+      <div className="hero-robot-stage">
+        <div className="hero-robot-glow-field" />
+        <svg className="hero-robot-svg" viewBox="0 0 420 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroRobotMetal" x1="120" y1="40" x2="320" y2="460" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="var(--robot-metal-a)" />
+              <stop offset="42%" stopColor="var(--robot-metal-b)" />
+              <stop offset="100%" stopColor="var(--robot-metal-c)" />
+            </linearGradient>
+            <linearGradient id="heroRobotMetalSoft" x1="180" y1="80" x2="260" y2="360" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="var(--robot-metal-highlight)" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="var(--robot-metal-b)" stopOpacity="0.35" />
+            </linearGradient>
+            <linearGradient id="heroRobotVisor" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="var(--robot-accent)" stopOpacity="0.2" />
+              <stop offset="50%" stopColor="var(--robot-accent-bright)" stopOpacity="1" />
+              <stop offset="100%" stopColor="var(--robot-accent)" stopOpacity="0.2" />
+            </linearGradient>
+            <linearGradient id="heroRobotTraceGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#7dd3fc" stopOpacity="0.15" />
+              <stop offset="50%" stopColor="#38bdf8" stopOpacity="1" />
+              <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0.15" />
+            </linearGradient>
+            <filter id="heroRobotVisorGlow" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+            <filter id="heroRobotTraceGlow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
 
-        {hudLabels.map((label) => (
-          <div key={label.id} className={`hero-robot-hud hero-robot-hud-${label.id}`} style={{ top: label.y, left: label.x }}>
-            <span className="hero-robot-hud-line" />
-            <span className="hero-robot-hud-text">{label.text}</span>
-          </div>
-        ))}
-
-        <div className="hero-robot-float">
-          <svg className="hero-robot-svg" viewBox="0 0 360 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="robot-body-grad" x1="120" y1="40" x2="280" y2="380" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stopColor="var(--robot-grad-a)" />
-                <stop offset="55%" stopColor="var(--robot-grad-b)" />
-                <stop offset="100%" stopColor="var(--robot-grad-c)" />
-              </linearGradient>
-              <linearGradient id="robot-visor-grad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="var(--robot-visor-a)" stopOpacity="0.15" />
-                <stop offset="45%" stopColor="var(--robot-visor-b)" stopOpacity="1" />
-                <stop offset="100%" stopColor="var(--robot-visor-a)" stopOpacity="0.15" />
-              </linearGradient>
-              <filter id="robot-glow-filter" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            <ellipse cx="180" cy="390" rx="95" ry="14" className="hero-robot-shadow" />
+          <g className="hero-robot-figure">
+            <ellipse cx="210" cy="488" rx="88" ry="10" className="hero-robot-ground" />
 
             <path
-              d="M72 330 C72 290 95 255 130 240 L130 220 C130 195 148 175 175 168 L185 168 C212 175 230 195 230 220 L230 240 C265 255 288 290 288 330 Z"
-              fill="url(#robot-body-grad)"
-              stroke="var(--robot-stroke)"
-              strokeWidth="1.2"
+              d="M118 430 C118 360 142 312 168 286 L168 262 C168 228 186 206 210 206 C234 206 252 228 252 262 L252 286 C278 312 302 360 302 430 Z"
+              fill="url(#heroRobotMetal)"
             />
-
             <path
-              d="M118 250 L118 210 C118 182 142 160 180 160 C218 160 242 182 242 210 L242 250"
+              d="M152 286 L152 248 C152 214 176 188 210 188 C244 188 268 214 268 248 L268 286"
               fill="var(--robot-neck)"
-              stroke="var(--robot-stroke)"
-              strokeWidth="1"
-            />
-
-            <rect x="138" y="188" width="84" height="8" rx="4" className="hero-robot-neck-seam" />
-            <rect x="148" y="202" width="64" height="6" rx="3" className="hero-robot-neck-seam" />
-
-            <path
-              d="M108 175 C108 118 138 78 180 78 C222 78 252 118 252 175 L252 198 C252 218 236 232 216 236 L144 236 C124 232 108 218 108 198 Z"
-              fill="url(#robot-body-grad)"
-              stroke="var(--robot-stroke)"
-              strokeWidth="1.2"
             />
 
             <path
-              d="M128 168 L128 132 C128 108 150 92 180 92 C210 92 232 108 232 132 L232 168"
-              fill="var(--robot-helmet-inner)"
-              stroke="var(--robot-stroke)"
-              strokeWidth="0.8"
+              d="M132 248 C132 176 162 118 210 118 C258 118 288 176 288 248 L288 278 C288 304 270 322 246 328 L174 328 C150 322 132 304 132 278 Z"
+              fill="url(#heroRobotMetal)"
+            />
+            <path
+              d="M156 236 L156 188 C156 156 178 134 210 134 C242 134 264 156 264 188 L264 236"
+              fill="url(#heroRobotMetalSoft)"
+              opacity="0.85"
             />
 
-            <rect x="122" y="138" width="116" height="28" rx="8" fill="url(#robot-visor-grad)" className="hero-robot-visor" filter="url(#robot-glow-filter)" />
+            <rect x="148" y="196" width="124" height="22" rx="10" fill="url(#heroRobotVisor)" filter="url(#heroRobotVisorGlow)" />
+            <rect x="148" y="196" width="124" height="22" rx="10" stroke="var(--robot-accent-bright)" strokeWidth="0.6" strokeOpacity="0.45" fill="none" />
 
-            <rect x="122" y="138" width="116" height="28" rx="8" fill="none" stroke="var(--robot-visor-b)" strokeWidth="0.6" strokeOpacity="0.5" />
+            <path
+              d="M268 278 L312 296 L322 360 L286 372 L268 322 Z"
+              fill="url(#heroRobotMetal)"
+            />
+            <path
+              d="M152 278 L108 296 L98 360 L134 372 L152 322 Z"
+              fill="url(#heroRobotMetal)"
+            />
 
-            <path d="M108 198 L92 210 L88 248 L108 248 Z" fill="var(--robot-shoulder)" stroke="var(--robot-stroke)" strokeWidth="1" />
-            <path d="M252 198 L268 210 L272 248 L252 248 Z" fill="var(--robot-shoulder)" stroke="var(--robot-stroke)" strokeWidth="1" />
+            <path
+              d="M286 308 L318 286 L338 248 L352 210 L328 196 L302 218 L284 248 L276 278 Z"
+              fill="url(#heroRobotMetal)"
+            />
+            <ellipse cx="328" cy="202" rx="16" ry="20" fill="url(#heroRobotMetalSoft)" />
 
-            <circle cx="180" cy="152" r="3" className="hero-robot-sensor" />
-            <path d="M156 118 L164 126 M204 126 L212 118" stroke="var(--robot-stroke)" strokeWidth="1" strokeLinecap="round" opacity="0.45" />
+            <path
+              d="M198 318 L188 356 L176 392 L198 398 L214 360 L220 318 Z"
+              fill="var(--robot-chest-core)"
+              opacity="0.9"
+            />
+            <rect x="188" y="334" width="28" height="3" rx="1.5" fill="var(--robot-accent-bright)" opacity="0.55" />
+            <rect x="192" y="344" width="20" height="2" rx="1" fill="var(--robot-accent-bright)" opacity="0.35" />
 
-            <rect x="158" y="268" width="44" height="36" rx="6" fill="var(--robot-chest)" stroke="var(--robot-stroke)" strokeWidth="0.8" />
-            <rect x="168" y="278" width="24" height="4" rx="2" className="hero-robot-chest-line" />
-            <rect x="168" y="288" width="18" height="3" rx="1.5" className="hero-robot-chest-line" opacity="0.6" />
-          </svg>
-        </div>
+            <path
+              className="hero-robot-trace hero-robot-trace-a"
+              pathLength="1000"
+              d="M132 248 C132 176 162 118 210 118 C258 118 288 176 288 248 L288 278 C288 304 270 322 246 328 L174 328 C150 322 132 304 132 278 Z"
+            />
+            <path
+              className="hero-robot-trace hero-robot-trace-b"
+              pathLength="1000"
+              d="M118 430 C118 360 142 312 168 286 L168 262 C168 228 186 206 210 206 C234 206 252 228 252 262 L252 286 C278 312 302 360 302 430 Z"
+            />
+            <path
+              className="hero-robot-trace hero-robot-trace-c"
+              pathLength="1000"
+              d="M286 308 L318 286 L338 248 L352 210 L328 196 L302 218 L284 248 L276 278 L286 308 Z"
+            />
+            <path
+              className="hero-robot-trace hero-robot-trace-d"
+              pathLength="1000"
+              d="M152 278 L108 296 L98 360 L134 372 L152 322 Z"
+            />
+            <path
+              className="hero-robot-trace hero-robot-trace-e"
+              pathLength="1000"
+              d="M268 278 L312 296 L322 360 L286 372 L268 322 Z"
+            />
 
-        <div className="hero-robot-status">
-          <span className="hero-robot-status-dot" />
-          <span className="hero-robot-status-text">Softoras agent online</span>
-        </div>
+            <path
+              className="hero-robot-trace hero-robot-trace-f"
+              pathLength="1000"
+              d="M158 207 H262 A10 10 0 0 0 272 218 V207 A10 10 0 0 0 262 197 H158 A10 10 0 0 0 148 207 V218 A10 10 0 0 0 158 207 Z"
+            />
+          </g>
+        </svg>
       </div>
     </div>
   )
