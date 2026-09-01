@@ -581,10 +581,6 @@ body {
 
 /* Hero hand visual */
 .hero-hand {
-  --hand-surface-a: #e0f2fe;
-  --hand-surface-b: #64748b;
-  --hand-surface-c: #334155;
-  --hand-glow-core: #38bdf8;
   position: relative;
   width: 100%;
   background: transparent;
@@ -592,13 +588,6 @@ body {
   box-shadow: none;
   outline: none;
   min-height: clamp(22rem, 50vw, 36rem);
-}
-
-html.dark .hero-hand {
-  --hand-surface-a: #1e1b4b;
-  --hand-surface-b: #0f172a;
-  --hand-surface-c: #020617;
-  --hand-glow-core: #0ea5e9;
 }
 
 .hero-hand-stage {
@@ -613,27 +602,22 @@ html.dark .hero-hand {
 
 .hero-hand-ambient {
   position: absolute;
-  inset: 5% 0 10%;
-  background: radial-gradient(circle at 52% 46%, color-mix(in srgb, #38bdf8 22%, transparent), transparent 62%);
-  filter: blur(28px);
+  inset: 8% 0 12%;
+  background: radial-gradient(circle at 50% 38%, color-mix(in srgb, #38bdf8 24%, transparent), transparent 64%);
+  filter: blur(32px);
   pointer-events: none;
 }
 
 .hero-hand-ambient-violet {
-  inset: 18% 8% 20%;
-  background: radial-gradient(circle at 58% 40%, color-mix(in srgb, #a78bfa 16%, transparent), transparent 58%);
-  filter: blur(36px);
-}
-
-.hero-hand-svg {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 30rem);
-  height: auto;
-  overflow: visible;
+  inset: 20% 10% 22%;
+  background: radial-gradient(circle at 52% 36%, color-mix(in srgb, #0ea5e9 14%, transparent), transparent 58%);
+  filter: blur(40px);
 }
 
 .hero-hand-figure {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 32rem);
   transform-origin: center bottom;
   animation: hero-hand-float 6s var(--ease-out) infinite;
 }
@@ -642,76 +626,81 @@ html.dark .hero-hand {
   animation: none;
 }
 
-.hero-hand-trace {
-  fill: none;
-  stroke: url(#heroHandRim);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 64 936;
-  stroke-dashoffset: 0;
-  animation: hero-hand-trace 5.5s linear infinite;
-  filter: drop-shadow(0 0 8px #38bdf8) drop-shadow(0 0 14px rgba(167, 139, 250, 0.35));
-  opacity: 0.95;
+.hero-hand-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  mix-blend-mode: lighten;
+  filter: saturate(1.08) contrast(1.06) brightness(1.02);
 }
 
-.hero-hand-trace-b { animation-delay: -0.8s; }
-.hero-hand-trace-c { animation-delay: -1.6s; }
-.hero-hand-trace-d { animation-delay: -2.2s; stroke-width: 2; }
-.hero-hand-trace-e { animation-delay: -2.9s; }
-.hero-hand-trace-f { animation-delay: -3.5s; stroke-width: 2.8; }
-.hero-hand-trace-g { animation-delay: -4.1s; }
-
-.hero-hand.is-static .hero-hand-trace {
-  animation: none;
-  stroke-dasharray: none;
-  opacity: 0.6;
+html.dark .hero-hand-photo {
+  mix-blend-mode: screen;
+  filter: saturate(1.12) contrast(1.08) brightness(1.08);
 }
 
-.hero-hand-orb {
-  fill: url(#heroHandRim);
-  opacity: 0.75;
+.hero-hand-globe-glow {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  width: 46%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: radial-gradient(circle, color-mix(in srgb, #38bdf8 42%, transparent), transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  animation: hero-hand-globe-pulse 4.5s ease-in-out infinite;
 }
 
-.hero-hand-orb-main {
-  animation: hero-hand-orb 4s ease-in-out infinite;
+.hero-hand-globe-ring {
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  width: 44%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  border: 1.5px solid color-mix(in srgb, #38bdf8 55%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, #38bdf8 35%, transparent);
+  pointer-events: none;
+  animation: hero-hand-ring-spin 8s linear infinite;
 }
 
-.hero-hand-orb-secondary {
-  animation: hero-hand-orb 4s ease-in-out infinite reverse;
-  opacity: 0.55;
+.hero-hand-globe-ring-outer {
+  top: 16%;
+  width: 52%;
+  border-color: color-mix(in srgb, #0ea5e9 28%, transparent);
+  box-shadow: none;
+  animation: hero-hand-ring-spin 12s linear infinite reverse;
+  opacity: 0.65;
 }
 
-.hero-hand.is-static .hero-hand-orb-main,
-.hero-hand.is-static .hero-hand-orb-secondary {
+.hero-hand.is-static .hero-hand-globe-glow,
+.hero-hand.is-static .hero-hand-globe-ring {
   animation: none;
 }
 
 @keyframes hero-hand-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
 }
 
-@keyframes hero-hand-trace {
-  to { stroke-dashoffset: -1000; }
+@keyframes hero-hand-globe-pulse {
+  0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(0.96); }
+  50% { opacity: 0.95; transform: translateX(-50%) scale(1.04); }
 }
 
-@keyframes hero-hand-orb {
-  0%, 100% { transform: translateY(0); opacity: 0.65; }
-  50% { transform: translateY(-6px); opacity: 0.95; }
+@keyframes hero-hand-ring-spin {
+  from { transform: translateX(-50%) rotate(0deg); }
+  to { transform: translateX(-50%) rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-hand-figure,
-  .hero-hand-trace,
-  .hero-hand-orb-main,
-  .hero-hand-orb-secondary {
+  .hero-hand-globe-glow,
+  .hero-hand-globe-ring {
     animation: none !important;
-  }
-
-  .hero-hand-trace {
-    stroke-dasharray: none;
-    opacity: 0.5;
   }
 }
 
