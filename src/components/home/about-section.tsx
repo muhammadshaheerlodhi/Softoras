@@ -1,6 +1,5 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { aboutBlocks, ceo, stats, TAGLINE } from '@/content/site'
+import { aboutBlocks, stats, TAGLINE } from '@/content/site'
+import LeadershipCards from '@/components/ui/leadership-cards'
 
 const beliefCards = [
   { title: 'What We Believe', text: aboutBlocks.whatWeBelieve },
@@ -20,36 +19,13 @@ export default function AboutSection() {
           <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{TAGLINE}</p>
         </div>
 
-        <div className="about-ceo-card">
-          <div className="about-ceo-photo">
-            <Image
-              src={ceo.photo}
-              alt={`${ceo.name}, ${ceo.title} of Softoras`}
-              width={320}
-              height={320}
-              className="about-ceo-img"
-              sizes="(min-width: 900px) 256px, 80vw"
-            />
-          </div>
-          <div className="about-ceo-copy">
-            <p className="kicker">Leadership</p>
-            <h3 className="about-ceo-name">{ceo.name}</h3>
-            <p className="about-ceo-title">
-              {ceo.title} · Softoras
-            </p>
-            <p className="about-ceo-credential">{ceo.credentials}</p>
-            <p className="section-desc mx-auto mt-3">{ceo.bio}</p>
-            <Link href="/about" className="section-link mt-5 inline-flex">
-              Full profile →
-            </Link>
-          </div>
-        </div>
+        <LeadershipCards />
 
         <div className="about-bento">
           {beliefCards.map((item) => (
             <article key={item.title} className="card-feature about-bento-card">
-              <h3 className="card-heading-sm">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+              <h3 className="card-heading">{item.title}</h3>
+              <p className="card-copy mt-3">{item.text}</p>
             </article>
           ))}
         </div>

@@ -19,22 +19,31 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/muhammad-shaheer-lodhi-655aa8227',
 }
 
-export const ceo = {
+export type Leader = {
+  name: string
+  title: string
+  credentials: string
+  bio: string
+  photo: string
+  linkedin: string
+}
+
+export const ceo: Leader = {
   name: 'Muhammad Shaheer Lodhi',
-  title: 'CEO and Founder',
+  title: 'CEO and Founder · Softoras',
   credentials: 'AWS Certified Solutions Architect Associate',
   bio: 'Shaheer is a software engineer and AWS Certified Solutions Architect Associate. He builds and runs product work across software, web, backend, cloud, DevOps, CRM, GoHighLevel, AI automation, and SaaS, including Softoras ERP.',
-  photo: '/about/shaheer-lodhi.png',
+  photo: '/about/shaheer-lodhi.jpg',
   linkedin: site.linkedin,
 }
 
-export const partner = {
+export const partner: Leader = {
   name: 'Abbas Mehmood',
-  title: 'Co-Partner',
-  credentials: '',
+  title: 'Co-Founder of AAM IT Consulting and Co-Partner Softoras',
+  credentials: 'SQL Server · MySQL · AWS · Couchbase',
   bio: 'Abbas is a database professional with 18+ years of experience in SQL Server, MySQL, AWS, and Couchbase, working with performance, reliability, and production-scale data systems.',
   photo: '/team/abbas-mehmood.jpg',
-  linkedin: '',
+  linkedin: 'https://www.linkedin.com/in/abbas-mehmood-21466a14/',
 }
 
 export const stats = [

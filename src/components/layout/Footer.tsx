@@ -67,7 +67,10 @@ export default function Footer() {
       </div>
 
       <div className="wrap site-footer-bar">
-        <p suppressHydrationWarning>© {new Date().getFullYear()} Softoras. All rights reserved.</p>
+        <div className="site-footer-legal">
+          <p suppressHydrationWarning>© {new Date().getFullYear()} AAM IT Consulting LLC. All rights reserved.</p>
+          <p className="site-footer-collab">Softoras Collaborating with AAM IT Consulting LLC</p>
+        </div>
         <Link href="/contact" className="footer-cta-link">
           Start a Project →
         </Link>

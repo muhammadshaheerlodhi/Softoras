@@ -65,8 +65,8 @@ export default function Home() {
             {solutionAreas.map((item) => (
               <article key={item.title} className="card-minimal">
                 <span className="card-minimal-icon">{item.title.charAt(0)}</span>
-                <h3 className="font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+                <h3 className="card-heading">{item.title}</h3>
+                <p className="card-copy mt-2">{item.text}</p>
               </article>
             ))}
           </div>
@@ -129,8 +129,8 @@ export default function Home() {
           <div className="card-grid-4 mt-10">
             {strengths.map((item) => (
               <article key={item.title} className="card-feature">
-                <h3 className="font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+                <h3 className="card-heading">{item.title}</h3>
+                <p className="card-copy mt-2">{item.text}</p>
               </article>
             ))}
           </div>

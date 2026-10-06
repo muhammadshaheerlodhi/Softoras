@@ -19,8 +19,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         <Image
           src={project.image}
           alt={project.name}
-          width={1440}
-          height={900}
+          fill
           className="project-shot"
           sizes="(min-width: 1024px) 560px, 100vw"
         />
@@ -39,9 +38,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       )}
       <div className="card-project-body">
         <p className="card-project-kind">{project.kind}</p>
-        <h3 className="mt-1.5 text-xl font-semibold">{project.name}</h3>
-        <p className="mt-2 text-sm font-medium leading-6">{project.hook}</p>
-        <p className="mt-2 flex-1 text-sm leading-6 text-[var(--muted)]">{project.summary}</p>
+        <h3 className="card-heading mt-1.5">{project.name}</h3>
+        <p className="card-copy mt-2 font-medium">{project.hook}</p>
+        <p className="card-copy mt-2 flex-1">{project.summary}</p>
         <div className="mt-4 flex flex-wrap gap-1.5">
           {project.stack.slice(0, 4).map((tag) => (
             <span key={tag} className="tag">

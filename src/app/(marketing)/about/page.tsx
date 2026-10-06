@@ -1,10 +1,9 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { aboutBlocks, ceo, partner, stats, strengths, TAGLINE } from '@/content/site'
+import { aboutBlocks, stats, strengths, TAGLINE } from '@/content/site'
 import TechGrid from '@/components/ui/tech-grid'
 import ProcessTimeline from '@/components/home/process-timeline'
 import SectionHeader from '@/components/ui/section-header'
 import LocationCards from '@/components/ui/location-cards'
+import LeadershipCards from '@/components/ui/leadership-cards'
 
 const beliefCards = [
   { title: 'What We Believe', text: aboutBlocks.whatWeBelieve },
@@ -30,46 +29,13 @@ export default function AboutPage() {
             <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{TAGLINE}</p>
           </div>
 
-          <div className="about-leadership-grid">
-            {[ceo, partner].map((person, index) => (
-              <article key={person.name} className="about-ceo-card about-ceo-card-page">
-                <div className="about-ceo-photo">
-                  <Image
-                    src={person.photo}
-                    alt={`${person.name}, ${person.title} of Softoras`}
-                    width={480}
-                    height={480}
-                    className="about-ceo-img"
-                    sizes="(min-width: 900px) 280px, 80vw"
-                    priority={index === 0}
-                  />
-                </div>
-                <div className="about-ceo-copy">
-                  <p className="kicker">Leadership</p>
-                  <h2 className="about-ceo-name">{person.name}</h2>
-                  <p className="about-ceo-title">{person.title} · Softoras</p>
-                  {person.credentials ? <p className="about-ceo-credential">{person.credentials}</p> : null}
-                  <p className="section-desc mt-4">{person.bio}</p>
-                  <div className="mt-6 flex flex-wrap justify-center gap-3">
-                    {person.linkedin ? (
-                      <a href={person.linkedin} className="btn btn-primary btn-compact" target="_blank" rel="noreferrer">
-                        LinkedIn
-                      </a>
-                    ) : null}
-                    <Link href="/contact" className="btn btn-secondary btn-compact">
-                      Start a Project
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+          <LeadershipCards />
 
           <div className="about-bento">
             {beliefCards.map((item) => (
               <article key={item.title} className="card-feature about-bento-card">
-                <h3 className="card-heading-sm">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.text}</p>
+                <h3 className="card-heading">{item.title}</h3>
+                <p className="card-copy mt-3">{item.text}</p>
               </article>
             ))}
           </div>
@@ -105,8 +71,8 @@ export default function AboutPage() {
           <div className="card-grid-4 mt-10">
             {strengths.map((item) => (
               <article key={item.title} className="card-feature">
-                <h3 className="card-heading-sm">{item.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.text}</p>
+                <h3 className="card-heading">{item.title}</h3>
+                <p className="card-copy mt-2">{item.text}</p>
               </article>
             ))}
           </div>
