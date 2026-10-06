@@ -1503,7 +1503,7 @@ html.dark .process-row {
   margin-top: 0;
 }
 
-.site-footer-brand .logo-img { height: 3rem; }
+.site-footer-brand .logo-img { height: 4.25rem; }
 
 .site-footer-tagline {
   margin-top: 0.75rem;
@@ -2339,22 +2339,33 @@ footer a:hover {
 .logo-link {
   display: inline-flex;
   align-items: center;
+  overflow: hidden;
+  height: 3.5rem;
   text-decoration: none;
 }
 
 .logo-img {
-  height: 3.75rem;
+  display: block;
+  height: 5.75rem;
   width: auto;
+  max-width: none;
   object-fit: contain;
+  image-rendering: auto;
+}
+
+.logo-link-compact {
+  height: 3.15rem;
 }
 
 .logo-link-compact .logo-img {
-  height: 2.75rem;
+  height: 5.15rem;
 }
 
 @media (min-width: 768px) {
-  .logo-img { height: 4.75rem; }
-  .logo-link-compact .logo-img { height: 3.25rem; }
+  .logo-link { height: 4.35rem; }
+  .logo-img { height: 7.1rem; }
+  .logo-link-compact { height: 3.5rem; }
+  .logo-link-compact .logo-img { height: 5.7rem; }
 }
 
 @media (min-width: 1024px) {
@@ -2362,8 +2373,10 @@ footer a:hover {
     --section-y: clamp(1.7rem, 3.2vh, 2.65rem);
   }
 
-  .logo-img { height: 2.85rem; }
-  .logo-link-compact .logo-img { height: 2.35rem; }
+  .logo-link { height: 4.15rem; }
+  .logo-img { height: 6.85rem; }
+  .logo-link-compact { height: 3.5rem; }
+  .logo-link-compact .logo-img { height: 5.7rem; }
 
   .display {
     font-size: clamp(1.65rem, 2.5vw, 2.45rem);
@@ -3428,12 +3441,20 @@ body.nav-menu-lock {
     margin-inline: auto;
   }
 
+  .logo-link {
+    height: 3.25rem;
+  }
+
   .logo-img {
-    height: 2.85rem;
+    height: 5.35rem;
+  }
+
+  .logo-link-compact {
+    height: 2.9rem;
   }
 
   .logo-link-compact .logo-img {
-    height: 2.5rem;
+    height: 4.75rem;
   }
 
   .site-footer-grid {
@@ -3650,7 +3671,7 @@ body.logo-splash-lock {
 .logo-splash-mark {
   position: relative;
   z-index: 2;
-  width: min(82vw, 20rem);
+  width: min(88vw, 24rem);
   height: auto;
   opacity: 0;
   transform: scale(0.88);

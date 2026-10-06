@@ -49,9 +49,11 @@ export default function LogoSplash() {
         <Image
           src="/brand/softoras-mark.png"
           alt=""
-          width={320}
-          height={105}
+          width={1024}
+          height={1024}
           className="logo-splash-mark"
+          quality={100}
+          sizes="(max-width: 640px) 82vw, 384px"
           priority
         />
       </div>
