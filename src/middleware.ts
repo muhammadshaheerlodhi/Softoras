@@ -15,7 +15,7 @@ const securityHeaders: Record<string, string> = {
     "img-src 'self' data: blob: https:",
     "font-src 'self' data:",
     "connect-src 'self' https:",
-    "frame-src 'self' https://softoras-erp.vercel.app",
+    "frame-src 'self' https://erp.softoras.com https://softoras-erp.vercel.app",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",

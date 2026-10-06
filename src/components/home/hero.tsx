@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="band band-hero">
       <div className="hero-mesh" aria-hidden />
-      <div className="wrap hero-grid relative py-10 sm:py-14 lg:py-20">
+      <div className="wrap hero-grid relative py-8 sm:py-12 lg:py-8">
         <div className="hero-copy rise">
           <p className="eyebrow">Software · AI · Automation · Cloud</p>
           <h1 className="display mt-4">{TAGLINE}</h1>

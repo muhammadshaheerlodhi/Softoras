@@ -2210,6 +2210,62 @@ select.field {
   isolation: isolate;
 }
 
+.site-nav-desktop,
+.site-nav-desktop-cta {
+  display: none;
+  align-items: center;
+}
+
+.site-nav-desktop {
+  gap: 1rem;
+}
+
+.site-nav-desktop-cta {
+  gap: 0.65rem;
+}
+
+.site-nav-mobile-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-products {
+  position: relative;
+}
+
+.nav-products-panel {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 50;
+  min-width: 12.5rem;
+  padding-top: 0.5rem;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 150ms ease, visibility 150ms ease;
+}
+
+.nav-products.is-open .nav-products-panel,
+.nav-products:hover .nav-products-panel,
+.nav-products:focus-within .nav-products-panel {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (min-width: 1024px) {
+  .site-nav-desktop,
+  .site-nav-desktop-cta {
+    display: flex;
+  }
+
+  .site-nav-mobile-tools {
+    display: none;
+  }
+}
+
 .nav-link {
   font-size: 0.86rem;
   font-weight: 600;
@@ -2282,6 +2338,42 @@ footer a:hover {
 @media (min-width: 768px) {
   .logo-img { height: 4.75rem; }
   .logo-link-compact .logo-img { height: 3.25rem; }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --section-y: clamp(1.7rem, 3.2vh, 2.65rem);
+  }
+
+  .logo-img { height: 2.85rem; }
+  .logo-link-compact .logo-img { height: 2.35rem; }
+
+  .display {
+    font-size: clamp(1.65rem, 2.5vw, 2.45rem);
+  }
+
+  .lede {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .hero-grid {
+    gap: 1rem 2rem;
+  }
+
+  .section-y-sm {
+    padding-block: clamp(1.4rem, 2.8vh, 2.1rem);
+  }
+
+  .site-nav-desktop {
+    gap: 0.85rem;
+  }
+
+  @media (min-width: 1280px) {
+    .site-nav-desktop {
+      gap: 1.35rem;
+    }
+  }
 }
 
 html:not(.dark) .logo-img {
@@ -2418,6 +2510,39 @@ html:not(.dark) .card-heading-sm {
   gap: 2.5rem;
 }
 
+.about-leadership-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .about-leadership-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+  }
+
+  .about-leadership-grid .about-ceo-card-page {
+    grid-template-columns: 1fr;
+    max-width: none;
+    height: 100%;
+    text-align: center;
+  }
+
+  .about-leadership-grid .about-ceo-card-page .about-ceo-copy {
+    text-align: center;
+  }
+
+  .about-leadership-grid .about-ceo-card-page .section-desc {
+    margin-inline: auto;
+  }
+
+  .about-leadership-grid .about-ceo-card-page .about-ceo-copy .flex {
+    justify-content: center;
+  }
+}
+
 .about-ceo-card {
   display: grid;
   gap: 1.5rem;
@@ -2539,8 +2664,8 @@ html:not(.dark) .card-heading-sm {
 }
 
 .location-cards-row .location-card {
-  flex: 1 1 calc(50% - 0.5rem);
-  min-width: min(100%, 17rem);
+  flex: 1 1 16rem;
+  min-width: min(100%, 16rem);
 }
 
 @media (max-width: 479px) {

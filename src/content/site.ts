@@ -1,4 +1,4 @@
-export const ERP_URL = 'https://softoras-erp.vercel.app'
+export const ERP_URL = 'https://erp.softoras.com'
 export const ERP_PATH = '/products/erp'
 export const TAGLINE = 'Think SaaS. Think Softoras.'
 export const MISSION = 'Softoras does not just build websites. Softoras builds systems.'
@@ -7,10 +7,12 @@ export const site = {
   name: 'Softoras',
   email: 'admin@softoras.com',
   phones: {
+    usa: { label: '+1 646 476 0245', href: 'tel:+16464760245' },
     pakistan: { label: '+92 334 4255662', href: 'tel:+923344255662' },
     uae: { label: '+971 50 170 3257', href: 'tel:+971501703257' },
   },
   offices: {
+    usa: '43 McKinley Ave, Farmingdale, NY 11735',
     pakistan: 'Phase 8, Bahria Town, Rawalpindi, Pakistan',
     uae: 'Khor Fakkan, Sharjah, United Arab Emirates',
   },
@@ -23,12 +25,22 @@ export const ceo = {
   credentials: 'AWS Certified Solutions Architect Associate',
   bio: 'Shaheer is a software engineer and AWS Certified Solutions Architect Associate. He builds and runs product work across software, web, backend, cloud, DevOps, CRM, GoHighLevel, AI automation, and SaaS, including Softoras ERP.',
   photo: '/about/shaheer-lodhi.png',
+  linkedin: site.linkedin,
+}
+
+export const partner = {
+  name: 'Abbas Mehmood',
+  title: 'Co-Partner',
+  credentials: '',
+  bio: 'Abbas is a database professional with 18+ years of experience in SQL Server, MySQL, AWS, and Couchbase, working with performance, reliability, and production-scale data systems.',
+  photo: '/team/abbas-mehmood.jpg',
+  linkedin: '',
 }
 
 export const stats = [
   { value: '8+', label: 'Live projects' },
   { value: '8', label: 'Core services' },
-  { value: '2', label: 'Global offices' },
+  { value: '3', label: 'Global offices' },
 ]
 
 export type Service = {

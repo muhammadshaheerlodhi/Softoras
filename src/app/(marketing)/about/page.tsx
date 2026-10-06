@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { aboutBlocks, ceo, site, stats, strengths, TAGLINE } from '@/content/site'
+import { aboutBlocks, ceo, partner, stats, strengths, TAGLINE } from '@/content/site'
 import TechGrid from '@/components/ui/tech-grid'
 import ProcessTimeline from '@/components/home/process-timeline'
 import SectionHeader from '@/components/ui/section-header'
@@ -30,33 +30,39 @@ export default function AboutPage() {
             <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{TAGLINE}</p>
           </div>
 
-          <div className="about-ceo-card about-ceo-card-page">
-            <div className="about-ceo-photo">
-              <Image
-                src={ceo.photo}
-                alt={`${ceo.name}, ${ceo.title} of Softoras`}
-                width={480}
-                height={480}
-                className="about-ceo-img"
-                sizes="(min-width: 900px) 256px, 80vw"
-                priority
-              />
-            </div>
-            <div className="about-ceo-copy">
-              <p className="kicker">Leadership</p>
-              <h2 className="about-ceo-name">{ceo.name}</h2>
-              <p className="about-ceo-title">{ceo.title} · Softoras</p>
-              <p className="about-ceo-credential">{ceo.credentials}</p>
-              <p className="section-desc mt-4">{ceo.bio}</p>
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <a href={site.linkedin} className="btn btn-primary btn-compact" target="_blank" rel="noreferrer">
-                  LinkedIn
-                </a>
-                <Link href="/contact" className="btn btn-secondary btn-compact">
-                  Start a Project
-                </Link>
-              </div>
-            </div>
+          <div className="about-leadership-grid">
+            {[ceo, partner].map((person, index) => (
+              <article key={person.name} className="about-ceo-card about-ceo-card-page">
+                <div className="about-ceo-photo">
+                  <Image
+                    src={person.photo}
+                    alt={`${person.name}, ${person.title} of Softoras`}
+                    width={480}
+                    height={480}
+                    className="about-ceo-img"
+                    sizes="(min-width: 900px) 280px, 80vw"
+                    priority={index === 0}
+                  />
+                </div>
+                <div className="about-ceo-copy">
+                  <p className="kicker">Leadership</p>
+                  <h2 className="about-ceo-name">{person.name}</h2>
+                  <p className="about-ceo-title">{person.title} · Softoras</p>
+                  {person.credentials ? <p className="about-ceo-credential">{person.credentials}</p> : null}
+                  <p className="section-desc mt-4">{person.bio}</p>
+                  <div className="mt-6 flex flex-wrap justify-center gap-3">
+                    {person.linkedin ? (
+                      <a href={person.linkedin} className="btn btn-primary btn-compact" target="_blank" rel="noreferrer">
+                        LinkedIn
+                      </a>
+                    ) : null}
+                    <Link href="/contact" className="btn btn-secondary btn-compact">
+                      Start a Project
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
 
           <div className="about-bento">

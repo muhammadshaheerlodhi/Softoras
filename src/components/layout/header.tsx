@@ -8,7 +8,7 @@ import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outli
 import Logo from '@/components/layout/logo'
 import ServicesNavDropdown from '@/components/layout/services-nav-dropdown'
 import ThemeToggle from '@/components/theme/theme-toggle'
-import { ERP_PATH, services } from '@/content/site'
+import { ERP_URL, services } from '@/content/site'
 
 const links = [
   { name: 'Home', href: '/' },
@@ -23,6 +23,7 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null)
   const [open, setOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const active = (href: string) => pathname === href || (href !== '/' && pathname.startsWith(href))
 
@@ -50,6 +51,7 @@ export default function Header() {
   useEffect(() => {
     setOpen(false)
     setServicesOpen(false)
+    setProductsOpen(false)
   }, [pathname])
 
   useEffect(() => {
@@ -120,10 +122,26 @@ export default function Header() {
                   </div>
                 ) : null}
 
-                <p className="nav-mobile-group-label">Products</p>
-                <Link href={ERP_PATH} onClick={() => setOpen(false)} className={`nav-mobile-link${erpActive ? ' is-active' : ''}`}>
-                  ERP
-                </Link>
+                <button
+                  type="button"
+                  className="nav-mobile-accordion-trigger"
+                  aria-expanded={productsOpen}
+                  onClick={() => setProductsOpen((value) => !value)}
+                >
+                  <span>Products</span>
+                  <ChevronDownIcon className={`h-4 w-4 shrink-0 transition ${productsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {productsOpen ? (
+                  <div className="nav-mobile-accordion-panel">
+                    <a
+                      href={ERP_URL}
+                      onClick={() => setOpen(false)}
+                      className={`nav-mobile-link${erpActive ? ' is-active' : ''}`}
+                    >
+                      ERP
+                    </a>
+                  </div>
+                ) : null}
 
                 {links.slice(1).map((item) => (
                   <Link
@@ -150,31 +168,34 @@ export default function Header() {
       <div className="wrap flex items-center justify-between gap-2 py-2 sm:gap-3 sm:py-2.5 md:py-3">
         <Logo />
 
-        <nav className="hidden items-center gap-4 xl:gap-6 lg:flex" aria-label="Primary">
+        <nav className="site-nav-desktop" aria-label="Primary">
           <Link href="/" className={`nav-link ${active('/') ? 'is-active' : ''}`}>
             Home
           </Link>
 
           <ServicesNavDropdown />
 
-          <div className="group relative">
+          <div
+            className={`nav-products${productsOpen ? ' is-open' : ''}`}
+            onMouseEnter={() => setProductsOpen(true)}
+            onMouseLeave={() => setProductsOpen(false)}
+          >
             <button
               type="button"
               className={`nav-link inline-flex items-center gap-1 ${erpActive ? 'is-active' : ''}`}
               aria-haspopup="true"
+              aria-expanded={productsOpen}
+              onClick={() => setProductsOpen((value) => !value)}
             >
               Products
-              <ChevronDownIcon className="h-3.5 w-3.5 transition group-hover:rotate-180" />
+              <ChevronDownIcon className={`h-3.5 w-3.5 transition ${productsOpen ? 'rotate-180' : ''}`} />
             </button>
-            <div className="invisible absolute left-0 top-full z-50 min-w-48 pt-2 opacity-0 transition duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+            <div className="nav-products-panel">
               <div className="nav-dropdown">
-                <Link
-                  href={ERP_PATH}
-                  className={`nav-dropdown-item ${erpActive ? 'is-active' : ''}`}
-                >
+                <a href={ERP_URL} className={`nav-dropdown-item ${erpActive ? 'is-active' : ''}`}>
                   <span className="font-semibold">ERP</span>
                   <span className="mt-0.5 block text-xs font-normal text-[var(--muted)]">Flagship cloud product</span>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -186,14 +207,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-2.5 lg:flex">
+        <div className="site-nav-desktop-cta">
           <ThemeToggle />
           <Link href="/contact" className="btn btn-primary btn-compact">
             Start a Project
           </Link>
         </div>
 
-        <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden">
+        <div className="site-nav-mobile-tools">
           <ThemeToggle />
           <Link href="/contact" className="btn btn-primary btn-compact hidden min-[420px]:inline-flex">
             Contact

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Logo from '@/components/layout/logo'
 import LocationCards from '@/components/ui/location-cards'
-import { ERP_PATH, services, site, TAGLINE } from '@/content/site'
+import { ERP_URL, services, site, TAGLINE } from '@/content/site'
 
 export default function Footer() {
   return (
@@ -30,7 +30,7 @@ export default function Footer() {
           <p className="footer-heading">Products</p>
           <ul className="footer-links">
             <li>
-              <Link href={ERP_PATH}>ERP</Link>
+              <a href={ERP_URL}>ERP</a>
             </li>
           </ul>
           <p className="footer-heading mt-5">Solutions</p>
