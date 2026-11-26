@@ -165,7 +165,7 @@ export default function Header() {
 
   return (
     <header ref={headerRef} className="site-header">
-      <div className="wrap flex items-center justify-between gap-2 py-2.5 sm:gap-3 sm:py-3 md:py-3.5">
+      <div className="wrap flex items-center justify-between gap-2 py-2 sm:gap-3 sm:py-2.5 md:py-3">
         <Logo />
 
         <nav className="site-nav-desktop" aria-label="Primary">

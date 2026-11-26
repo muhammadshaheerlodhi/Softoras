@@ -34,7 +34,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: 'How do I start a project with Softoras?',
-    a: `Use the contact form on this site or email info@softoras.com with a short description of your business, the problem you want solved, and any tools you already use. We will reply with next steps, scope options, and a practical path to a first release.`,
+    a: 'Use the contact form on this site or email info@softoras.com with a short description of your business, the problem you want solved, and any tools you already use. We will reply with next steps, scope options, and a practical path to a first release.',
   },
 ]
 

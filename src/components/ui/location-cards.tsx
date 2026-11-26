@@ -8,14 +8,19 @@ type LocationCardsProps = {
 export default function LocationCards({ className = '', variant = 'row' }: LocationCardsProps) {
   const locations = [
     {
-      region: 'United Arab Emirates',
-      phone: site.phones.uae,
-      address: site.offices.uae,
+      region: 'Head Office – USA',
+      phone: site.phones.usa,
+      address: site.offices.usa,
     },
     {
       region: 'Pakistan',
       phone: site.phones.pakistan,
       address: site.offices.pakistan,
+    },
+    {
+      region: 'United Arab Emirates',
+      phone: site.phones.uae,
+      address: site.offices.uae,
     },
   ]
 
