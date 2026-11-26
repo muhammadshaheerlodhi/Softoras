@@ -28,7 +28,7 @@ export default function ContactForm() {
       setSuccess(true)
       event.currentTarget.reset()
     } catch {
-      setError('Could not send. Email admin@softoras.com directly.')
+      setError('Could not send. Email info@softoras.com directly.')
     }
     setLoading(false)
   }

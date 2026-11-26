@@ -5,6 +5,9 @@ import './globals.css'
 const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 })
 
 const themeScript = `(function(){try{var d=localStorage.getItem('softoras-theme')==='dark';var r=document.documentElement;r.classList.toggle('dark',d);r.style.colorScheme=d?'dark':'light';r.style.backgroundColor=d?'#000000':'#ffffff';}catch(e){}})();`

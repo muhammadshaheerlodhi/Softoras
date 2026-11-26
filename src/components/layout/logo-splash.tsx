@@ -17,11 +17,11 @@ export default function LogoSplash() {
     setPhase('in')
     document.body.classList.add('logo-splash-lock')
 
-    const outTimer = window.setTimeout(() => setPhase('out'), 1800)
+    const outTimer = window.setTimeout(() => setPhase('out'), 900)
     const doneTimer = window.setTimeout(() => {
       setPhase('done')
       document.body.classList.remove('logo-splash-lock')
-    }, 2400)
+    }, 1350)
 
     return () => {
       window.clearTimeout(outTimer)
@@ -49,11 +49,11 @@ export default function LogoSplash() {
         <Image
           src="/brand/softoras-mark.png"
           alt=""
-          width={1024}
-          height={1024}
+          width={640}
+          height={476}
           className="logo-splash-mark"
-          quality={100}
-          sizes="(max-width: 640px) 82vw, 384px"
+          quality={85}
+          sizes="(max-width: 640px) 70vw, 320px"
           priority
         />
       </div>

@@ -32,7 +32,7 @@ export default function TechGrid() {
             tool ? (
               <article key={tool.slug} className="tech-logo-tile">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={tool.logo} alt={tool.name} className="tech-logo-img" />
+                <img src={tool.logo} alt={tool.name} className="tech-logo-img" loading="lazy" decoding="async" />
                 <span className="tech-logo-name">{tool.name}</span>
               </article>
             ) : null,
@@ -46,7 +46,7 @@ export default function TechGrid() {
           {tools.map((tool) => (
             <div key={tool.slug} className="tech-all-logo">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={tool.logo} alt={tool.name} />
+              <img src={tool.logo} alt={tool.name} loading="lazy" decoding="async" />
               <span className="tech-all-name">{tool.name}</span>
             </div>
           ))}

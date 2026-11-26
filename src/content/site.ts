@@ -5,14 +5,12 @@ export const MISSION = 'Softoras does not just build websites. Softoras builds s
 
 export const site = {
   name: 'Softoras',
-  email: 'admin@softoras.com',
+  email: 'info@softoras.com',
   phones: {
-    usa: { label: '+1 646 476 0245', href: 'tel:+16464760245' },
     pakistan: { label: '+92 334 4255662', href: 'tel:+923344255662' },
     uae: { label: '+971 50 170 3257', href: 'tel:+971501703257' },
   },
   offices: {
-    usa: '43 McKinley Ave, Farmingdale, NY 11735',
     pakistan: 'Phase 8, Bahria Town, Rawalpindi, Pakistan',
     uae: 'Khor Fakkan, Sharjah, United Arab Emirates',
   },
@@ -49,7 +47,7 @@ export const partner: Leader = {
 export const stats = [
   { value: '8+', label: 'Live projects' },
   { value: '8', label: 'Core services' },
-  { value: '3', label: 'Global offices' },
+  { value: '2', label: 'Global offices' },
 ]
 
 export type Service = {

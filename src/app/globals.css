@@ -1503,7 +1503,10 @@ html.dark .process-row {
   margin-top: 0;
 }
 
-.site-footer-brand .logo-img { height: 4.25rem; }
+.site-footer-brand .logo-img {
+  height: 3.15rem;
+  max-width: 11.5rem;
+}
 
 .site-footer-tagline {
   margin-top: 0.75rem;
@@ -2339,33 +2342,36 @@ footer a:hover {
 .logo-link {
   display: inline-flex;
   align-items: center;
-  overflow: hidden;
-  height: 3.5rem;
+  justify-content: flex-start;
+  overflow: visible;
+  height: auto;
+  padding-block: 0.1rem;
   text-decoration: none;
+  line-height: 0;
 }
 
 .logo-img {
   display: block;
-  height: 5.75rem;
+  height: 3.15rem;
   width: auto;
-  max-width: none;
+  max-width: min(48vw, 11.5rem);
   object-fit: contain;
+  object-position: left center;
   image-rendering: auto;
 }
 
 .logo-link-compact {
-  height: 3.15rem;
+  padding-block: 0;
 }
 
 .logo-link-compact .logo-img {
-  height: 5.15rem;
+  height: 2.75rem;
+  max-width: 10rem;
 }
 
 @media (min-width: 768px) {
-  .logo-link { height: 4.35rem; }
-  .logo-img { height: 7.1rem; }
-  .logo-link-compact { height: 3.5rem; }
-  .logo-link-compact .logo-img { height: 5.7rem; }
+  .logo-img { height: 3.75rem; max-width: 13.5rem; }
+  .logo-link-compact .logo-img { height: 3.05rem; max-width: 11.25rem; }
 }
 
 @media (min-width: 1024px) {
@@ -2373,10 +2379,8 @@ footer a:hover {
     --section-y: clamp(1.7rem, 3.2vh, 2.65rem);
   }
 
-  .logo-link { height: 4.15rem; }
-  .logo-img { height: 6.85rem; }
-  .logo-link-compact { height: 3.5rem; }
-  .logo-link-compact .logo-img { height: 5.7rem; }
+  .logo-img { height: 3.9rem; max-width: 14rem; }
+  .logo-link-compact .logo-img { height: 3.15rem; max-width: 11.5rem; }
 
   .display {
     font-size: clamp(1.65rem, 2.5vw, 2.45rem);
@@ -2687,8 +2691,9 @@ html:not(.dark) .card-heading-sm {
 }
 
 .location-cards-row .location-card {
-  flex: 1 1 16rem;
-  min-width: min(100%, 16rem);
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: min(100%, 15rem);
+  max-width: 28rem;
 }
 
 @media (max-width: 479px) {
@@ -2798,12 +2803,16 @@ html:not(.dark) .card-heading-sm {
 }
 
 .contact-email-block {
-  margin-top: 1.75rem;
-  margin-bottom: 0.25rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.15rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--accent) 6%, var(--panel));
 }
 
 .contact-locations-block {
-  margin-top: 1.25rem;
+  margin-top: 1.1rem;
 }
 
 .contact-copy {
@@ -3441,20 +3450,14 @@ body.nav-menu-lock {
     margin-inline: auto;
   }
 
-  .logo-link {
-    height: 3.25rem;
-  }
-
   .logo-img {
-    height: 5.35rem;
-  }
-
-  .logo-link-compact {
-    height: 2.9rem;
+    height: 2.95rem;
+    max-width: 10.5rem;
   }
 
   .logo-link-compact .logo-img {
-    height: 4.75rem;
+    height: 2.55rem;
+    max-width: 9.25rem;
   }
 
   .site-footer-grid {
@@ -3629,7 +3632,7 @@ body.logo-splash-lock {
   display: grid;
   place-items: center;
   width: min(88vw, 22rem);
-  aspect-ratio: 1;
+  aspect-ratio: 640 / 476;
 }
 
 .logo-splash-lines {
