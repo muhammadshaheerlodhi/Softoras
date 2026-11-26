@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { FormLabel, FormStatus } from '@/components/ui/form-shell'
-import { site } from '@/content/site'
 
 type Tab = 'contact' | 'subscribe'
 
@@ -80,9 +79,7 @@ export default function HomeLeadForm() {
           <li>No generic pitch decks</li>
           <li>Engineering-led scoping call</li>
         </ul>
-        <p className="mt-4 text-sm font-semibold text-[var(--accent)]">
-          <a href={`mailto:${site.email}`}>{site.email}</a>
-        </p>
+        <p className="mt-4 text-sm font-semibold text-[var(--accent)]">info@softoras.com</p>
       </div>
 
       <div className="contact-shell">

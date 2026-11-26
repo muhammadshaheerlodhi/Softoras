@@ -15,8 +15,8 @@ export default function Logo({ className = '', compact = false }: LogoProps) {
         width={640}
         height={476}
         className="logo-img"
-        quality={90}
-        sizes="(max-width: 768px) 140px, 168px"
+        quality={100}
+        sizes="(max-width: 768px) 160px, 200px"
         priority
       />
     </Link>

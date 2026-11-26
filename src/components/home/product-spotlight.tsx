@@ -50,8 +50,6 @@ export default function ProductSpotlight() {
                   height={900}
                   className="project-shot"
                   sizes="(min-width: 1024px) 540px, 100vw"
-                  quality={75}
-                  loading="lazy"
                 />
               </div>
             </div>

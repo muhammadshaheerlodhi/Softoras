@@ -22,8 +22,6 @@ export default function ProjectCard({ project }: { project: Project }) {
           fill
           className="project-shot"
           sizes="(min-width: 1024px) 560px, 100vw"
-          quality={75}
-          loading="lazy"
         />
       </div>
     </div>
