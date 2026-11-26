@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { FormLabel, FormStatus } from '@/components/ui/form-shell'
+import { site } from '@/content/site'
 
 type Tab = 'contact' | 'subscribe'
 
@@ -26,7 +27,7 @@ export default function HomeLeadForm() {
       if (!res.ok) throw new Error('fail')
       setSuccess(true)
     } catch {
-      setError('Could not send. Email admin@softoras.com directly.')
+      setError('Could not send. Email info@softoras.com directly.')
     }
     setLoading(false)
   }
@@ -79,7 +80,9 @@ export default function HomeLeadForm() {
           <li>No generic pitch decks</li>
           <li>Engineering-led scoping call</li>
         </ul>
-        <p className="mt-4 text-sm font-semibold text-[var(--accent)]">admin@softoras.com</p>
+        <p className="mt-4 text-sm font-semibold text-[var(--accent)]">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </p>
       </div>
 
       <div className="contact-shell">

@@ -6,14 +6,14 @@ export default function Hero() {
   return (
     <section className="band band-hero">
       <div className="hero-mesh" aria-hidden />
-      <div className="wrap hero-grid relative py-8 sm:py-12 lg:py-8">
+      <div className="wrap hero-grid relative py-9 sm:py-12 lg:py-10">
         <div className="hero-copy rise">
           <p className="eyebrow">Software · AI · Automation · Cloud</p>
-          <h1 className="display mt-4">{TAGLINE}</h1>
-          <p className="lede mt-4">
+          <h1 className="display mt-3 sm:mt-4">{TAGLINE}</h1>
+          <p className="lede mt-3 sm:mt-4">
             We build software, SaaS products, AI systems and business automation that move companies forward.
           </p>
-          <p className="section-desc mt-3">
+          <p className="section-desc mt-2.5 sm:mt-3">
             From CRM ecosystems and AI agents to custom software, ERP platforms and cloud infrastructure, Softoras
             turns complex business ideas into reliable digital systems.
           </p>

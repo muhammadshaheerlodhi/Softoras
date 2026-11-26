@@ -36,8 +36,8 @@ export default function HeroHandVisual() {
               height={720}
               className="hero-hand-photo"
               priority
-              quality={100}
-              sizes="(min-width: 1024px) 576px, 90vw"
+              quality={82}
+              sizes="(min-width: 1024px) 560px, 88vw"
             />
             <div className="hero-hand-photo-shine" />
             <div className="hero-hand-photo-depth" />

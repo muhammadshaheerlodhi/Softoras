@@ -12,11 +12,11 @@ export default function Logo({ className = '', compact = false }: LogoProps) {
       <Image
         src="/brand/softoras-mark.png"
         alt="Softoras"
-        width={1024}
-        height={1024}
+        width={640}
+        height={476}
         className="logo-img"
-        quality={100}
-        sizes="192px"
+        quality={90}
+        sizes="(max-width: 768px) 140px, 168px"
         priority
       />
     </Link>

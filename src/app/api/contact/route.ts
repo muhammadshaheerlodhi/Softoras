@@ -83,8 +83,8 @@ export async function POST(req: NextRequest) {
 
   try {
     await transporter.sendMail({
-      from: 'Softoras Contact <admin@softoras.com>',
-      to: 'admin@softoras.com',
+      from: 'Softoras Contact <info@softoras.com>',
+      to: 'info@softoras.com',
       subject: `${kind} from ${name || email}`,
       text,
       html: `<pre style="font-family:Inter,sans-serif;white-space:pre-wrap">${escapeHtml(text)}</pre>`,
